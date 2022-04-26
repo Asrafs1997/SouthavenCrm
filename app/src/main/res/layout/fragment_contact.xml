@@ -38,7 +38,7 @@
                 android:layout_weight="1"
                 android:text="@string/mr"
                 android:textColor="@color/black"
-                android:textSize="@dimen/textsize_small2" />
+                android:textSize="@dimen/textsize_small" />
 
 
         </LinearLayout>
@@ -57,11 +57,29 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:text="@string/contactname"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_small" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/brown"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="@dimen/textsize_small2" />
 
-
         </LinearLayout>
 
         <LinearLayout
@@ -78,27 +96,6 @@
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:text="@string/contactemail"
-                android:textColor="@color/black"
-                android:textSize="@dimen/textsize_small2" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/brown"
-            android:orientation="horizontal">
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:text="@string/contactphone"
                 android:textColor="@color/black"
                 android:textSize="@dimen/textsize_small2" />
         </LinearLayout>
@@ -125,7 +122,8 @@
                 android:inputType="text"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="@dimen/textsize_small"
+                android:autofillHints="" />
         </LinearLayout>
 
         <LinearLayout
@@ -149,7 +147,7 @@
                 android:inputType="text"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="@dimen/textsize_small" />
 
         </LinearLayout>
 

@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/southaven_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.SouthavenCrm">
+        <activity android:name=".RegisterActivity"></activity>
         <activity
             android:name=".ECardActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
