@@ -21,7 +21,7 @@ public class ECardActivity extends AppCompatActivity {
     public TextView title_tv;
     private FloatingActionButton card_fab;
     private ConstraintLayout constraintLayout, constraintLayout2, constraintLayout3, constraintLayout4;
-
+    private boolean isCard = false, isProfile = false, isAbout = false, isRecharge = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +40,7 @@ public class ECardActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new CardFragment()).commit();
         title_tv.setText(R.string.my_card);
+        isCard = true;
 
         constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +59,9 @@ public class ECardActivity extends AppCompatActivity {
         constraintLayout3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                isCard = false;
+                isProfile = true;
+                isAbout = false;
                 title_tv.setText(R.string.profile_acco);
                 getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new ProfileFragment()).commit();
             }
@@ -65,6 +69,9 @@ public class ECardActivity extends AppCompatActivity {
         constraintLayout4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                isProfile = false;
+                isCard = false;
+                isAbout = true;
                 title_tv.setText(R.string.about_us);
                 getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new AboutFragment()).commit();
             }
@@ -72,11 +79,29 @@ public class ECardActivity extends AppCompatActivity {
         card_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isCard = true;
                 title_tv.setText(R.string.my_card);
                 getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new CardFragment()).commit();
             }
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        if (isCard) {
+            isCard = false;
+            super.onBackPressed();
+        } else if (isProfile) {
+            isProfile = false;
+            isCard = true;
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new ProfileFragment()).commit();
+        } else if (isAbout) {
+            isAbout = false;
+            isProfile = true;
+            getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new AboutFragment()).commit();
+        }else {
+            super.onBackPressed();
+        }
 
+    }
 }

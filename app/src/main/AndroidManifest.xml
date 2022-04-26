@@ -14,16 +14,13 @@
         android:roundIcon="@mipmap/southaven_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.SouthavenCrm">
-        <activity
-            android:name=".ECardActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".LoginActivity"
             android:theme="@style/Theme.Design.NoActionBar"
             tools:ignore="IntentFilterExportedReceiver">
             <intent-filter>
@@ -32,6 +29,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ForgotpasswordActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".ECardActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
     </application>
 
 </manifest>

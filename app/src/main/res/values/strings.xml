@@ -49,4 +49,12 @@
     <string name="Order">Order Updates</string>
     <string name="Order_llb">Get notifations on your Orders and\nalterations</string>
     <string name="log_out">Logout</string>
+    <string name="hint_email">Email / Mobile Number</string>
+    <string name="hint_password">Password</string>
+    <string name="Remember_check">Remember Me</string>
+    <string name="btn_register">Register here</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_backlogin">Back to Login</string>
+    <string name="btn_forgotpassword">Forgot your password?</string>
+    <string name="forgotpassword_llb">Please enter the email address you\'ve \nregistered with us.</string>
 </resources>
