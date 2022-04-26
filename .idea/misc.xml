@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Project/Southaven/app/src/main/res/drawable/background_transparent.xml" value="0.2203125" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/drawable/bg_grayedit.xml" value="0.2203125" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/drawable/navigationbutton.xml" value="0.2203125" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/activity_e_card.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/fragment_about.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/fragment_card.xml" value="0.20102564102564102" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/fragment_changepassword.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/fragment_contact.xml" value="0.24321389793702497" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/fragment_editprofile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/fragment_histroy.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/fragment_location.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/fragment_settings.xml" value="0.21614583333333334" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/item_loctionview.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/layout/profileslider_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Southaven/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

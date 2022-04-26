@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/black"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.thisit.southavencrm.customfonts.TextViewBadScriptRegular
+            android:id="@+id/title_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/my_card"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textStyle="bold|italic" />
+
+
+        <ImageView
+            android:id="@+id/menu_img"
+            style="@style/Menu.Icon.Image"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:src="@drawable/notification"
+            app:tint="@color/white" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/flFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_layout" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/black"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <!--region GuideLine-->
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/first_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="82dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/second_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.40" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/third_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.60" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/last_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.80" />
+                <!--endregion-->
+
+                <!--region icon 1-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/first_guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/first_icon_title"
+                        style="@style/Menu.Icon.Title"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:text="@string/history"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintTop_toBottomOf="@id/second_icon_image"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        android:id="@+id/second_icon_image"
+                        style="@style/Menu.Icon.Image"
+                        app:layout_constraintBottom_toTopOf="@+id/first_icon_title"
+                        app:srcCompat="@drawable/history"
+                        app:tint="@color/white"
+                        tools:ignore="MissingConstraints" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--endregion-->
+
+                <!--region icon 2-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/second_guideline"
+                    app:layout_constraintStart_toEndOf="@+id/first_guideline"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/second_icon_title"
+                        style="@style/Menu.Icon.Title"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:text="@string/location"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintTop_toBottomOf="@id/imageView"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        style="@style/Menu.Icon.Image"
+                        app:layout_constraintBottom_toTopOf="@+id/second_icon_title"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:srcCompat="@drawable/location"
+                        app:tint="@color/white"
+                        tools:ignore="MissingConstraints" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--endregion-->
+                <!--region icon 3-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout3"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/last_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/third_guideline"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/third_icon_title"
+                        style="@style/Menu.Icon.Title"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:text="@string/profile"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintTop_toBottomOf="@id/third_icon_image"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        android:id="@+id/third_icon_image"
+                        style="@style/Menu.Icon.Image"
+                        app:layout_constraintBottom_toTopOf="@+id/third_icon_title"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:srcCompat="@drawable/profile"
+                        app:tint="@color/white"
+                        tools:ignore="MissingConstraints" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--endregion-->
+
+                <!--region icon 4-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout4"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/last_guideline"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/last_icon_title"
+                        style="@style/Menu.Icon.Title"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:text="@string/about"
+                        android:textColor="@android:color/white"
+                        app:layout_constraintTop_toBottomOf="@id/last_icon_image"
+                        tools:ignore="MissingConstraints" />
+
+                    <ImageView
+                        android:id="@+id/last_icon_image"
+                        style="@style/Menu.Icon.Image"
+                        app:layout_constraintBottom_toTopOf="@+id/last_icon_title"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:srcCompat="@drawable/about"
+                        app:tint="@color/white"
+                        tools:ignore="MissingConstraints" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--endregion-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/card_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/dark_brown"
+            app:layout_anchor="@id/bar"
+            app:srcCompat="@drawable/card"
+            app:tint="@color/white" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
