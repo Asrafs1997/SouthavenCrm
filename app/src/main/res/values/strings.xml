@@ -9,8 +9,10 @@
     <string name="location_title">Our Boutigues</string>
     <string name="location">Location</string>
     <string name="locat_us">Locate Us</string>
+    <string name="register_head">Let us get to know you</string>
+    <string name="register_title">Title</string>
     <string name="profile_title">Welcome</string>
-    <string name="user_name">Mr Asraf Ali</string>
+
     <string name="card">Card</string>
     <string name="profile">Profile</string>
     <string name="profile_acco">Account</string>
@@ -18,12 +20,21 @@
     <string name="about_us">About Us</string>
     <string name="contactus">Contact Us</string>
     <string name="mr">Mr</string>
-    <string name="contactname">manikandan</string>
-    <string name="contactemail">manikandan.thisit@gmail.com</string>
-    <string name="contactphone">9940662015</string>
+
     <string name="contacthint">Subject of your message</string>
     <string name="contacthint2">Your message (1000 characters max)</string>
     <string name="contactsend">Send</string>
+    <string name="register_btn">REGISTER</string>
+    <string name="register_firstname">First Name</string>
+    <string name="register_lastname">Last Name</string>
+    <string name="register_mobilenum">Mobile Number (e.g.91234567)</string>
+    <string name="register_email">Email Address</string>
+    <string name="register_password">Password</string>
+    <string name="register_conformpassword">Confirm Password</string>
+    <string name="register_postalcode">Postal Code</string>
+    <string name="register_address"> Address</string>
+    <string name="register_login"> Already registered with us?</string>
+    <string name="register_dob">Date of Birth in YYYY-MM-DD</string>
     <string name="privacy">Privacy Policy</string>
     <string name="membership">Membership FAQs</string>
     <string name="history">History</string>
