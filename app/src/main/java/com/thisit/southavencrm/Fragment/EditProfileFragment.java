@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
@@ -21,6 +22,8 @@ public class EditProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_editprofile, container, false);
+
+
         title_spi = (Spinner) root.findViewById(R.id.title_spi);
 
 
@@ -52,8 +55,7 @@ public class EditProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((ECardActivity) getActivity()).title_tv.setText(R.string.edit_profile); // here are other names according to each fragment
-
+        ((ECardActivity) getActivity()).title_tv.setText(R.string.edit_profile);
     }
 }
 

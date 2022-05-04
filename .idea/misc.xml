@@ -5,15 +5,32 @@
       <map>
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/background_transparent.xml" value="0.2203125" />
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/bg_grayedit.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/history_gray.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/history_white.xml" value="0.2203125" />
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/home_gradient_login.xml" value="0.2203125" />
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/ic_contact.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/ic_directions.xml" value="0.2203125" />
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
-        <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_e_card.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/ic_lock.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/info_gray.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/info_white.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/location_gray.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/location_white.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/navigationbutton.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_e_card.xml" value="0.2" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_forgotpassword.xml" value="0.20416666666666666" />
-        <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_homescreen.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_notification.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_register.xml" value="0.18" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_about.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_changepassword.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_editprofile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_location.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Project/Southaven/app/src/main/res/drawable/background_transparent.xml" value="0.2203125" />
         <entry key="..\:/Project/Southaven/app/src/main/res/drawable/bg_grayedit.xml" value="0.2203125" />
         <entry key="..\:/Project/Southaven/app/src/main/res/drawable/navigationbutton.xml" value="0.2203125" />
@@ -34,5 +51,5 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

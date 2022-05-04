@@ -29,7 +29,7 @@
 
 
         <ImageView
-            android:id="@+id/menu_img"
+            android:id="@+id/notification_img"
             style="@style/Menu.Icon.Image"
             android:layout_gravity="center"
             android:layout_margin="4dp"
@@ -38,197 +38,47 @@
     </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/flFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar_layout" />
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/framecontainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_below="@id/toolbar_layout">
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bar"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:backgroundTint="@color/black"
-            app:contentInsetRight="0dp"
-            app:contentInsetStart="0dp">
+            android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bottomappbar"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
-                <!--region GuideLine-->
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/first_guideline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_begin="82dp" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/black">
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/second_guideline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.40" />
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomnavigationbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="16dp"
+                    android:background="@android:color/transparent"
+                    app:itemIconTint="@color/bottom_bar_item_selector"
+                    app:itemTextColor="@color/bottom_bar_item_selector"
+                    app:labelVisibilityMode="labeled"
+                    app:menu="@menu/bottom_nav_menu" />
 
+            </com.google.android.material.bottomappbar.BottomAppBar>
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/third_guideline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.60" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/card_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:src="@drawable/card"
+                app:backgroundTint="@color/dark_brown"
+                app:tint="@color/white"
+                app:fabSize="normal"
+                app:layout_anchor="@id/bottomappbar" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/last_guideline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.80" />
-                <!--endregion-->
-
-                <!--region icon 1-->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/first_guideline"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/first_icon_title"
-                        style="@style/Menu.Icon.Title"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:text="@string/history"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintTop_toBottomOf="@id/second_icon_image"
-                        tools:ignore="MissingConstraints" />
-
-                    <ImageView
-                        android:id="@+id/second_icon_image"
-                        style="@style/Menu.Icon.Image"
-                        app:layout_constraintBottom_toTopOf="@+id/first_icon_title"
-                        app:srcCompat="@drawable/history"
-                        app:tint="@color/white"
-                        tools:ignore="MissingConstraints" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-                <!--endregion-->
-
-                <!--region icon 2-->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/second_guideline"
-                    app:layout_constraintStart_toEndOf="@+id/first_guideline"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/second_icon_title"
-                        style="@style/Menu.Icon.Title"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:text="@string/location"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintTop_toBottomOf="@id/imageView"
-                        tools:ignore="MissingConstraints" />
-
-                    <ImageView
-                        android:id="@+id/imageView"
-                        style="@style/Menu.Icon.Image"
-                        app:layout_constraintBottom_toTopOf="@+id/second_icon_title"
-                        app:layout_constraintVertical_chainStyle="packed"
-                        app:srcCompat="@drawable/location"
-                        app:tint="@color/white"
-                        tools:ignore="MissingConstraints" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-                <!--endregion-->
-                <!--region icon 3-->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout3"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/last_guideline"
-                    app:layout_constraintStart_toStartOf="@+id/third_guideline"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/third_icon_title"
-                        style="@style/Menu.Icon.Title"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:text="@string/profile"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintTop_toBottomOf="@id/third_icon_image"
-                        tools:ignore="MissingConstraints" />
-
-                    <ImageView
-                        android:id="@+id/third_icon_image"
-                        style="@style/Menu.Icon.Image"
-                        app:layout_constraintBottom_toTopOf="@+id/third_icon_title"
-                        app:layout_constraintVertical_chainStyle="packed"
-                        app:srcCompat="@drawable/profile"
-                        app:tint="@color/white"
-                        tools:ignore="MissingConstraints" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-                <!--endregion-->
-
-                <!--region icon 4-->
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout4"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/last_guideline"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/last_icon_title"
-                        style="@style/Menu.Icon.Title"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:text="@string/about"
-                        android:textColor="@android:color/white"
-                        app:layout_constraintTop_toBottomOf="@id/last_icon_image"
-                        tools:ignore="MissingConstraints" />
-
-                    <ImageView
-                        android:id="@+id/last_icon_image"
-                        style="@style/Menu.Icon.Image"
-                        app:layout_constraintBottom_toTopOf="@+id/last_icon_title"
-                        app:layout_constraintVertical_chainStyle="packed"
-                        app:srcCompat="@drawable/about"
-                        app:tint="@color/white"
-                        tools:ignore="MissingConstraints" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-                <!--endregion-->
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.bottomappbar.BottomAppBar>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/card_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:backgroundTint="@color/dark_brown"
-            app:layout_anchor="@id/bar"
-            app:srcCompat="@drawable/card"
-            app:tint="@color/white" />
-
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </FrameLayout>
 </RelativeLayout>

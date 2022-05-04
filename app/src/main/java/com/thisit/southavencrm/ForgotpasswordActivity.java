@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.thisit.southavencrm.login.view.LoginActivity;
+
 public class ForgotpasswordActivity extends AppCompatActivity {
     private Activity activity;
     private TextView btn_backlogin;

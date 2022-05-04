@@ -5,18 +5,18 @@
     android:layout_height="match_parent">
 
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/google_map"
+    <fragment
         android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:id="@+id/frg"
         android:layout_width="match_parent"
-        android:layout_height="250dp" />
+        android:layout_height="300dp"/>
 
 
     <com.thisit.southavencrm.customfonts.TextViewBadScriptRegular
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:layout_below="@+id/google_map"
+        android:layout_below="@+id/frg"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
