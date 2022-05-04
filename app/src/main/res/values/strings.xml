@@ -5,13 +5,15 @@
     <string name="vip_img">VIP Image view</string>
     <string name="his_text1">Sorry,you have yet to qualify as our VIP Member.</string>
     <string name="his_text2">spend $300 nett in a single receipt from and southaven boutique now &amp; receive 10% off straight away in the same receipt .You will get a VIP E-card &amp;have access to your past transaction!</string>
-    <string name="google_maps_key">https://maps.googleapis.com/maps/api/place/nearbysearch/json</string>
+    <string name="google_maps_key">AIzaSyA9ZXddogVa3SzehWB4l_CIjw9irbuFpQk</string>
     <string name="location_title">Our Boutigues</string>
     <string name="location">Location</string>
     <string name="locat_us">Locate Us</string>
     <string name="register_head">Let us get to know you</string>
     <string name="register_title">Title</string>
     <string name="profile_title">Welcome</string>
+    <string name="notification">Notification</string>
+    <string name="close">CLOSE</string>
 
     <string name="card">Card</string>
     <string name="profile">Profile</string>
@@ -49,6 +51,7 @@
     <string name="vipdiscription2">  Spend $300 nett in a single receipt from any Southaven boutique now &amp; receive 10% off straight away in the same receipt. You will get a VIP E-card &amp; enjoy the following privileges!</string>
     <string name="cartnote">Accumulate 3000 points over a two-year period to renew your vip membership for another two years</string>
     <string name="todo">TODO</string>
+    <string name="user_name">User Name</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="edit_settings">Edit Settings</string>
     <string name="change_password">Change Password</string>
@@ -65,6 +68,7 @@
     <string name="Remember_check">Remember Me</string>
     <string name="btn_register">Register here</string>
     <string name="btn_login">LOGIN</string>
+    <string name="btn_join">JOIN NOW</string>
     <string name="btn_backlogin">Back to Login</string>
     <string name="btn_forgotpassword">Forgot your password?</string>
     <string name="forgotpassword_llb">Please enter the email address you\'ve \nregistered with us.</string>

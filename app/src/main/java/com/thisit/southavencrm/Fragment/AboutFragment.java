@@ -27,7 +27,7 @@ public class AboutFragment extends Fragment {
         contact_llv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.flFragment, new ContactFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.framecontainer, new ContactFragment()).commit();
             }
         });
         privacy_llv.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +44,7 @@ public class AboutFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((ECardActivity) getActivity()).title_tv.setText(R.string.contactus); // here are other names according to each fragment
+        ((ECardActivity) getActivity()).title_tv.setText(R.string.about); // here are other names according to each fragment
     }
 }
 

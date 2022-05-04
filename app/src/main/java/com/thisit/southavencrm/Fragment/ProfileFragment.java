@@ -14,10 +14,10 @@ import androidx.fragment.app.Fragment;
 
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
-import com.thisit.southavencrm.LoginActivity;
 import com.thisit.southavencrm.ProfileSliderAdapter;
 import com.thisit.southavencrm.ProfileSliderBean;
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.login.view.LoginActivity;
 
 import java.util.ArrayList;
 
@@ -54,19 +54,19 @@ public class ProfileFragment extends Fragment {
         editprofile_llv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.flFragment, new EditProfileFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.framecontainer, new EditProfileFragment()).commit();
             }
         });
         changepassword_llv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.flFragment, new ChangePasswordFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.framecontainer, new ChangePasswordFragment()).commit();
             }
         });
         edit_settings_llv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace(R.id.flFragment, new EditSettingsFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.framecontainer, new EditSettingsFragment()).commit();
             }
         });
 

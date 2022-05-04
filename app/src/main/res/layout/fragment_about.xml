@@ -60,14 +60,14 @@
 
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="21dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:contentDescription="@string/todo"
                 android:padding="5dp"
                 android:src="@drawable/ic_baseline_arrow_forward_24"
+                android:contentDescription="@string/todo"
                 app:tint="@color/black" />
 
         </LinearLayout>
@@ -105,7 +105,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"                android:padding="5dp"
+                android:layout_marginEnd="20dp"
+                android:padding="5dp"
                 android:src="@drawable/ic_baseline_arrow_forward_24"
                 android:contentDescription="@string/todo"
                 app:tint="@color/black" />
