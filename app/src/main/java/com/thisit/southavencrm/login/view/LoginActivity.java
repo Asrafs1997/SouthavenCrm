@@ -13,11 +13,12 @@ import android.widget.Toast;
 import com.thisit.southavencrm.ECardActivity;
 import com.thisit.southavencrm.ForgotpasswordActivity;
 import com.thisit.southavencrm.R;
-import com.thisit.southavencrm.RegisterActivity;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
 import com.thisit.southavencrm.login.presenter.ILoginPresenter;
 import com.thisit.southavencrm.login.presenter.LoginPresenter;
+import com.thisit.southavencrm.registration.presenter.IRegistrationPresenter;
+import com.thisit.southavencrm.registration.view.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, ILoginView {
 
@@ -25,7 +26,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ILoginPresenter iLoginPresenter;
     private EditText LoginIDEditText, passwordEditText;
     private CheckBox rememberMeCheckBox;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

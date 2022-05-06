@@ -23,6 +23,7 @@ public class ConfigApp extends Application {
     static String CONTACTCODE = "ContactCode";
     static String CONTACTNAME = "ContactName";
     static String COMPANY_CODE = "companyCode";
+    static String CONTACT_ID = "ContactID";
     @Override
     public void onCreate() {
         super.onCreate();
@@ -109,6 +110,16 @@ public class ConfigApp extends Application {
 
     public static void setCompanyCode(String companyCode) {
         editor.putString(COMPANY_CODE, companyCode);
+        editor.commit();
+    }
+
+
+    public static String getContactID() {
+        return sharedPreferences.getString(CONTACT_ID, "");
+    }
+
+    public static void setContactID(String ContactID) {
+        editor.putString(CONTACT_ID, ContactID);
         editor.commit();
     }
 

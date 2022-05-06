@@ -18,6 +18,7 @@ import com.thisit.southavencrm.ProfileSliderAdapter;
 import com.thisit.southavencrm.ProfileSliderBean;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.editprofile.view.EditProfileFragment;
+import com.thisit.southavencrm.changePassword.view.ChangePasswordFragment;
 import com.thisit.southavencrm.login.view.LoginActivity;
 
 import java.util.ArrayList;

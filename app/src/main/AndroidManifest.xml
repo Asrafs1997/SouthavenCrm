@@ -27,7 +27,7 @@
             android:name=".NotificationActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".registration.view.RegisterActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".ECardActivity"
