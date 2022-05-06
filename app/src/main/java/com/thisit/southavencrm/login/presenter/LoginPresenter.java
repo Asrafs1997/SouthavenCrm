@@ -55,6 +55,8 @@ public class LoginPresenter implements ILoginPresenter {
                                 ConfigApp.setCompanyCode(response.body().getData().get(0).getCompanyCode());
                                 ConfigApp.setContactCode(response.body().getData().get(0).getContactCode());
                                 ConfigApp.setContactName(response.body().getData().get(0).getContactName());
+                                ConfigApp.setContactID(response.body().getData().get(0).getContactID());
+                                System.out.println("response"+response.body().getData().get(0).getContactID());
                                 ConfigApp.setLogin_ID(LoginID);
                                 ConfigApp.setPassword(password);
                                 iLoginView.onSuccess();

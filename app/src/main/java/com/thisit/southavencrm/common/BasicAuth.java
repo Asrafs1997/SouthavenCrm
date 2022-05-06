@@ -13,5 +13,4 @@ public class BasicAuth {
         }
         return auth;
     }
-
 }

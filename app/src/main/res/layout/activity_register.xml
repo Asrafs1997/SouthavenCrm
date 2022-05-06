@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical"
@@ -71,6 +71,7 @@
                     android:orientation="horizontal">
 
                     <EditText
+                        android:id="@+id/firstname_EditText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -86,6 +87,7 @@
                         android:textSize="@dimen/textsize_small" />
 
                     <EditText
+                        android:id="@+id/lastname_EditText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -103,6 +105,7 @@
                 </LinearLayout>
 
                 <EditText
+                    android:id="@+id/mobilenum_EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -110,13 +113,14 @@
                     android:autofillHints=""
                     android:background="@drawable/edittext_border_white"
                     android:hint="@string/register_mobilenum"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:padding="10dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/Silver_gray"
                     android:textSize="@dimen/textsize_small" />
 
                 <EditText
+                    android:id="@+id/emailID_EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -124,13 +128,14 @@
                     android:autofillHints=""
                     android:background="@drawable/edittext_border_white"
                     android:hint="@string/register_email"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:padding="10dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/Silver_gray"
                     android:textSize="@dimen/textsize_small" />
 
                 <EditText
+                    android:id="@+id/password_EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -145,6 +150,7 @@
                     android:textSize="@dimen/textsize_small" />
 
                 <EditText
+                    android:id="@+id/conformpassword_EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -159,6 +165,7 @@
                     android:textSize="@dimen/textsize_small" />
 
                 <EditText
+                    android:id="@+id/postalcode_EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -166,13 +173,14 @@
                     android:autofillHints=""
                     android:background="@drawable/edittext_border_white"
                     android:hint="@string/register_postalcode"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:padding="10dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/Silver_gray"
                     android:textSize="@dimen/textsize_small" />
 
                 <EditText
+                    android:id="@+id/Address_EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
@@ -190,6 +198,7 @@
 
 
                 <EditText
+                    android:id="@+id/date_Of_Birth_EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -197,7 +206,7 @@
                     android:autofillHints=""
                     android:background="@drawable/edittext_border_white"
                     android:hint="@string/register_dob"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:padding="10dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/Silver_gray"

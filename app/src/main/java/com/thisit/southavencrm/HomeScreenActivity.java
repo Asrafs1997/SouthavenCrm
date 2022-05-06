@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.thisit.southavencrm.login.view.LoginActivity;
+import com.thisit.southavencrm.registration.view.RegisterActivity;
 
 public class HomeScreenActivity extends AppCompatActivity {
     private Activity activity;

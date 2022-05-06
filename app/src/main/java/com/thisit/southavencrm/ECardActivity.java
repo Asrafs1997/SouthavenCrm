@@ -58,42 +58,13 @@ public class ECardActivity extends AppCompatActivity {
 
         bottomNavigationView.setBackground(null);
 
-        //bottomNavigationView.getMenu().getItem(2).setEnabled(false);
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new CardFragment()).commit();
         title_tv.setText(R.string.my_card);
         bottomNavigationView.setSelectedItemId(R.id.card);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
-/*        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                switch (item.getItemId()) {
-                    case R.id.history:
-                        //temp = new HistroyFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new HistroyFragment()).commit();
-                        break;
-                    case R.id.location:
-                        //temp = new LocationFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new LocationFragment()).commit();
-                        break;
-
-                    case R.id.profile:
-                       // temp = new ProfileFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new ProfileFragment()).commit();
-                        break;
-
-                    case R.id.about:
-                        //temp = new AboutFragment();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new AboutFragment()).commit();
-
-
-                }
-
-
-                return true;
-            }
-        });*/
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
