@@ -1,25 +1,17 @@
 package com.thisit.southavencrm.login.presenter;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.thisit.southavencrm.common.BasicAuth;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.Constants;
-import com.thisit.southavencrm.common.ToastMessage;
+import com.thisit.southavencrm.editprofile.view.EditProfileFragment;
 import com.thisit.southavencrm.login.model.LoginResponseModel;
 import com.thisit.southavencrm.login.view.ILoginView;
+import com.thisit.southavencrm.login.view.LoginActivity;
 import com.thisit.southavencrm.webClient.ApiClient;
 import com.thisit.southavencrm.webClientHandler.LoginAPI;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,7 +19,7 @@ import retrofit2.Response;
 public class LoginPresenter implements ILoginPresenter {
 
     private ILoginView iLoginView;
-    public LoginPresenter(ILoginView iLoginView) {
+    public LoginPresenter(LoginActivity iLoginView) {
         this.iLoginView = iLoginView;
     }
     @Override

@@ -124,7 +124,7 @@
                 android:textColor="@color/black"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
 
-            <TextView
+            <EditText
                 android:id="@+id/fin_no_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
 
             <EditText
-                android:id="@+id/discrepancy_et"
+                android:id="@+id/Address_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

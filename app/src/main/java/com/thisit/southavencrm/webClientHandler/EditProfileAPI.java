@@ -1,21 +1,20 @@
 package com.thisit.southavencrm.webClientHandler;
 
-
-
-
 import com.thisit.southavencrm.common.Constants;
+import com.thisit.southavencrm.editprofile.model.EditProfileResponseModel;
 import com.thisit.southavencrm.login.model.LoginResponseModel;
-
-import java.util.ArrayList;
 
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
-public interface LoginAPI {
-    @GET(Constants.LOGIN)
-    Call<LoginResponseModel> login(@Query("RequestData") String requsetDate, @Header("Authorization") String auth);
+public interface EditProfileAPI {
+    @POST(Constants.EDIT_PROFILE)
+    Call<EditProfileResponseModel>editProfileAPI(@Body RequestBody rawString, @Header("Authorization") String auth);
+
 }
+
