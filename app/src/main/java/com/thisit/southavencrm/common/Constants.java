@@ -6,4 +6,6 @@ public interface Constants {
      String EDIT_PROFILE ="api/B2B_Service/SaveCustomer_Southaven";
      String REGISTRATION = "api/B2B_Service/SaveCustomer_Southaven";
      String CHANGEPASSWORED = "api/B2B_Service/ChangePassword_Southaven";
+     String LOCATION_LIST = "api/B2B_Service/GetLocateUs_Southaven";
+     String GETPROFILE = "api/B2B_Service/GetCustomerProfile_Southaven";
 }

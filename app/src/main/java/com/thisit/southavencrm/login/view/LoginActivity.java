@@ -10,11 +10,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.thisit.southavencrm.ECardActivity;
+
 import com.thisit.southavencrm.ForgotpasswordActivity;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.login.presenter.ILoginPresenter;
 import com.thisit.southavencrm.login.presenter.LoginPresenter;
 import com.thisit.southavencrm.registration.presenter.IRegistrationPresenter;
@@ -40,6 +41,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.btn_login).setOnClickListener(this);
         findViewById(R.id.btn_forgotpassword).setOnClickListener(this);
         findViewById(R.id.btn_register).setOnClickListener(this);
+
+        LoginIDEditText.setText("7708440879");
+        passwordEditText.setText("123456");
 
         if (!ConfigApp.getLogin_ID().isEmpty()) {
             LoginIDEditText.setText(ConfigApp.getLogin_ID());
@@ -103,20 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         ToastMessage.toast("username or password is incorrect");
     }
 
-    @Override
-    public void onForgotPasswordSuccess() {
 
-    }
-
-    @Override
-    public void workStationNotAvailable() {
-
-    }
-
-    @Override
-    public void onSuccessForPermission(String roleId, String menuName) {
-
-    }
 
     @Override
     public void showProgress() {
@@ -125,36 +116,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void hideProgress() {
-
-    }
-
-    @Override
-    public void offlineDialog() {
-
-    }
-
-    @Override
-    public void hideOffLineDialog() {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine) {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine, Object object) {
-
-    }
-
-    @Override
-    public void onLineOffLineClickListener(boolean isConvertToOffLine) {
-
-    }
-
-    @Override
-    public void onLineOffLineCancelClickListener() {
 
     }
 }

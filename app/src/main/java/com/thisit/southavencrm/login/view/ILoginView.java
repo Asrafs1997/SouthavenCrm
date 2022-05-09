@@ -8,7 +8,4 @@ public interface ILoginView extends IBaseView {
     void emptyPassword();
     void onSuccess();
     void onFailure();
-    void onForgotPasswordSuccess();
-    void workStationNotAvailable();
-    void onSuccessForPermission(String roleId,String menuName);
 }

@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import com.thisit.southavencrm.ECardActivity;
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
 
 public class ContactFragment extends Fragment {
 

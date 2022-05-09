@@ -11,10 +11,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.thisit.southavencrm.ECardActivity;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.registration.model.RegistrationRequestModel;
 import com.thisit.southavencrm.registration.presenter.IRegistrationPresenter;
 import com.thisit.southavencrm.registration.presenter.RegistrationPresenter;
@@ -121,36 +121,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
-    public void offlineDialog() {
-
-    }
-
-    @Override
-    public void hideOffLineDialog() {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine) {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine, Object object) {
-
-    }
-
-    @Override
-    public void onLineOffLineClickListener(boolean isConvertToOffLine) {
-
-    }
-
-    @Override
-    public void onLineOffLineCancelClickListener() {
-
-    }
-
-    @Override
     public void emptyName() {
         firstname_EditText.setError("Enter the First Name");
     }
@@ -163,16 +133,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void emptyMobileno() {
         mobilenum_EditText.setError("Enter the Mobile Number");
-    }
-
-    @Override
-    public void validateMobileno() {
-
-    }
-
-    @Override
-    public void validateEmail() {
-
     }
 
     @Override

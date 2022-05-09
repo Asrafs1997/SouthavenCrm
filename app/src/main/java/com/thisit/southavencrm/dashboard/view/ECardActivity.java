@@ -1,4 +1,4 @@
-package com.thisit.southavencrm;
+package com.thisit.southavencrm.dashboard.view;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,15 +23,22 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.thisit.southavencrm.Fragment.AboutFragment;
 import com.thisit.southavencrm.Fragment.CardFragment;
 import com.thisit.southavencrm.Fragment.HistroyFragment;
-import com.thisit.southavencrm.Fragment.LocationFragment;
 import com.thisit.southavencrm.Fragment.ProfileFragment;
+import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.ConfigApp;
+import com.thisit.southavencrm.common.ToastMessage;
+import com.thisit.southavencrm.dashboard.presenter.GetprofilePresenter;
+import com.thisit.southavencrm.dashboard.presenter.IGetprofilePresenter;
+import com.thisit.southavencrm.locateUs.view.LocationFragment;
+import com.thisit.southavencrm.login.presenter.ILoginPresenter;
+import com.thisit.southavencrm.login.presenter.LoginPresenter;
 
-public class ECardActivity extends AppCompatActivity {
+public class ECardActivity extends AppCompatActivity  implements  IGetprofileView{
     private Activity activity;
     public TextView title_tv;
     private FloatingActionButton card_fab;
     private BottomNavigationView bottomNavigationView;
-
+    private IGetprofilePresenter iGetprofilePresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +50,8 @@ public class ECardActivity extends AppCompatActivity {
         }
         card_fab = findViewById(R.id.card_fab);
         title_tv = (TextView) findViewById(R.id.title_tv);
-
+        iGetprofilePresenter = (IGetprofilePresenter) new GetprofilePresenter(this);
+        iGetprofilePresenter.apiCall(ConfigApp.getCompanyCode(), ConfigApp.getContactID());
 
         card_fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,4 +106,38 @@ public class ECardActivity extends AppCompatActivity {
             return true;
         }
     };
+
+
+
+
+
+    @Override
+    public void showProgress() {
+
+    }
+
+    @Override
+    public void hideProgress() {
+
+    }
+
+    @Override
+    public void CompanyCode() {
+        ToastMessage.toast("Company Code is empty");
+    }
+
+    @Override
+    public void ContactID() {
+        ToastMessage.toast("Contact ID  is empty");
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFailure() {
+
+    }
 }

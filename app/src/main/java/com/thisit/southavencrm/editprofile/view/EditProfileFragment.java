@@ -20,9 +20,10 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.thisit.southavencrm.ECardActivity;
+
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.ConfigApp;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.editprofile.model.EditProfileResponseModel;
 import com.thisit.southavencrm.editprofile.presenter.EditProfilePresenter;
 import com.thisit.southavencrm.editprofile.presenter.IEditProfilePresenter;
@@ -157,36 +158,6 @@ public class EditProfileFragment extends Fragment implements iEditProfile {
 
     @Override
     public void hideProgress() {
-
-    }
-
-    @Override
-    public void offlineDialog() {
-
-    }
-
-    @Override
-    public void hideOffLineDialog() {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine) {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine, Object object) {
-
-    }
-
-    @Override
-    public void onLineOffLineClickListener(boolean isConvertToOffLine) {
-
-    }
-
-    @Override
-    public void onLineOffLineCancelClickListener() {
 
     }
 }

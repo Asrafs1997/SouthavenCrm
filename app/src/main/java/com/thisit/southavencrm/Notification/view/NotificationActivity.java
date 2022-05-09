@@ -1,4 +1,4 @@
-package com.thisit.southavencrm;
+package com.thisit.southavencrm.Notification.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
 
 public class NotificationActivity extends AppCompatActivity {
     private Activity activity;

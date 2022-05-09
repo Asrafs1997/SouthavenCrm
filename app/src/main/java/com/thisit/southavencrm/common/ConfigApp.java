@@ -24,6 +24,12 @@ public class ConfigApp extends Application {
     static String CONTACTNAME = "ContactName";
     static String COMPANY_CODE = "companyCode";
     static String CONTACT_ID = "ContactID";
+    static String EMAIL = "email";
+    static String MOBILE_NUMBER = "mobilenumber";
+    static String POSTALCODE = "Postalcode";
+    static String ADDRESS = "Address";
+    static String DOB = "dob";
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -123,5 +129,46 @@ public class ConfigApp extends Application {
         editor.commit();
     }
 
+    public static String getEMAIL() {
+        return sharedPreferences.getString(EMAIL, "");
+    }
+
+    public static void setEMAIL(String email) {
+        editor.putString(EMAIL, email);
+        editor.commit();
+    }
+
+    public static String getMOBILE_NUMBER() {
+        return sharedPreferences.getString(MOBILE_NUMBER, "");
+    }
+
+    public static void setMOBILE_NUMBER(String mobilenumber) {
+        editor.putString(MOBILE_NUMBER, mobilenumber);
+        editor.commit();
+    }
+
+    public static String getPOSTALCODE() {
+        return sharedPreferences.getString(POSTALCODE, "");
+    }
+
+    public static void setPOSTALCODE(String Postalcode) {
+        editor.putString(POSTALCODE, Postalcode);
+        editor.commit();
+    }
+ public static String getADDRESS() {
+        return sharedPreferences.getString(ADDRESS, "");
+    }
+
+    public static void setADDRESS(String Address) {
+        editor.putString(ADDRESS, Address);
+        editor.commit();
+    }public static String getDOB() {
+        return sharedPreferences.getString(DOB, "");
+    }
+
+    public static void setDOB(String dob) {
+        editor.putString(DOB, dob);
+        editor.commit();
+    }
 
 }
