@@ -44,6 +44,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/username_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -92,7 +93,7 @@
             android:autofillHints="" />
 
         <EditText
-            android:id="@+id/name_et"
+            android:id="@+id/subjectmessage_EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -110,6 +111,7 @@
             android:autofillHints="" />
 
         <EditText
+            android:id="@+id/message_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

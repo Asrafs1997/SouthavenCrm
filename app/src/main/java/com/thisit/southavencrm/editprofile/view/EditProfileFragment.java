@@ -26,9 +26,7 @@ import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.editprofile.model.EditProfileResponseModel;
 import com.thisit.southavencrm.editprofile.presenter.EditProfilePresenter;
 import com.thisit.southavencrm.editprofile.presenter.IEditProfilePresenter;
-import com.thisit.southavencrm.login.presenter.ILoginPresenter;
-import com.thisit.southavencrm.login.presenter.LoginPresenter;
-import com.thisit.southavencrm.login.view.LoginActivity;
+
 
 public class EditProfileFragment extends Fragment implements iEditProfile {
     private View root;

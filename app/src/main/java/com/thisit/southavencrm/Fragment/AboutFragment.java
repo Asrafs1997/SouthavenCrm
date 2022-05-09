@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.thisit.southavencrm.ECardActivity;
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.contactUs.view.ContactFragment;
 
 public class AboutFragment extends Fragment {
     private View root;

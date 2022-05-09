@@ -16,5 +16,7 @@ public interface EditProfileAPI {
     @POST(Constants.EDIT_PROFILE)
     Call<EditProfileResponseModel>editProfileAPI(@Body RequestBody rawString, @Header("Authorization") String auth);
 
+
+    Call<EditProfileResponseModel> ContactUsAPi(RequestBody rawString, String auth);
 }
 

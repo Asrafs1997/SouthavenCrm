@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.thisit.southavencrm.ECardActivity;
-import com.thisit.southavencrm.ForgotpasswordActivity;
+import com.thisit.southavencrm.ForgotPassword.view.ForgotpasswordActivity;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
@@ -47,7 +47,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             LoginIDEditText.setSelection(ConfigApp.getLogin_ID().length());
             rememberMeCheckBox.setChecked(true);
         }
-
+        LoginIDEditText.setText("7708440879");
+        passwordEditText.setText("123456");
     }
 
 
@@ -103,20 +104,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         ToastMessage.toast("username or password is incorrect");
     }
 
-    @Override
-    public void onForgotPasswordSuccess() {
 
-    }
-
-    @Override
-    public void workStationNotAvailable() {
-
-    }
-
-    @Override
-    public void onSuccessForPermission(String roleId, String menuName) {
-
-    }
 
     @Override
     public void showProgress() {

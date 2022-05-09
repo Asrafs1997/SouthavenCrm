@@ -48,7 +48,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ForgotpasswordActivity"
+            android:name=".ForgotPassword.view.ForgotpasswordActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".HomeScreenActivity"
