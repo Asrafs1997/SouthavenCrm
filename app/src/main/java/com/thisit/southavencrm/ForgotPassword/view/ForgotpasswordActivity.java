@@ -87,33 +87,5 @@ public class ForgotpasswordActivity extends AppCompatActivity implements View.On
 
     }
 
-    @Override
-    public void offlineDialog() {
 
-    }
-
-    @Override
-    public void hideOffLineDialog() {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine) {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine, Object object) {
-
-    }
-
-    @Override
-    public void onLineOffLineClickListener(boolean isConvertToOffLine) {
-
-    }
-
-    @Override
-    public void onLineOffLineCancelClickListener() {
-
-    }
 }
