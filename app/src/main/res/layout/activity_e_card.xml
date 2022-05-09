@@ -41,44 +41,46 @@
         android:id="@+id/framecontainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar_layout">
+        android:layout_above="@id/coordinator"
+        android:layout_below="@id/toolbar_layout" />
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coordinator"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="@android:color/transparent"
+        android:layout_alignParentBottom="true">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomappbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/black">
 
-            <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/bottomappbar"
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomnavigationbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:backgroundTint="@color/black">
+                android:layout_height="match_parent"
+                android:layout_marginRight="16dp"
+                android:background="@android:color/transparent"
+                app:itemIconTint="@color/bottom_bar_item_selector"
+                app:itemTextColor="@color/bottom_bar_item_selector"
+                app:labelVisibilityMode="labeled"
+                app:menu="@menu/bottom_nav_menu" />
 
-                <com.google.android.material.bottomnavigation.BottomNavigationView
-                    android:id="@+id/bottomnavigationbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="16dp"
-                    android:background="@android:color/transparent"
-                    app:itemIconTint="@color/bottom_bar_item_selector"
-                    app:itemTextColor="@color/bottom_bar_item_selector"
-                    app:labelVisibilityMode="labeled"
-                    app:menu="@menu/bottom_nav_menu" />
+        </com.google.android.material.bottomappbar.BottomAppBar>
 
-            </com.google.android.material.bottomappbar.BottomAppBar>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/card_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:src="@drawable/card"
+            app:backgroundTint="@color/dark_brown"
+            app:fabSize="normal"
+            app:layout_anchor="@id/bottomappbar"
+            app:tint="@color/white" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/card_fab"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
-                android:src="@drawable/card"
-                app:backgroundTint="@color/dark_brown"
-                app:tint="@color/white"
-                app:fabSize="normal"
-                app:layout_anchor="@id/bottomappbar" />
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    </FrameLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </RelativeLayout>

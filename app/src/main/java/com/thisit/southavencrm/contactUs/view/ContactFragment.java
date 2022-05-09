@@ -12,11 +12,12 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.thisit.southavencrm.ECardActivity;
+
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.contactUs.presenter.ContactUsPresenter;
 import com.thisit.southavencrm.contactUs.presenter.IContactUsPresenter;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
 
 public class ContactFragment  extends Fragment implements iContactUsFragment {
 
@@ -108,21 +109,6 @@ public class ContactFragment  extends Fragment implements iContactUsFragment {
 
     @Override
     public void hideOffLineDialog() {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine) {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine, Object object) {
-
-    }
-
-    @Override
-    public void onLineOffLineClickListener(boolean isConvertToOffLine) {
 
     }
 

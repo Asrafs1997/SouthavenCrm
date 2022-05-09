@@ -11,9 +11,13 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.thisit.southavencrm.ECardActivity;
+
 import com.thisit.southavencrm.R;
+
 import com.thisit.southavencrm.contactUs.view.ContactFragment;
+
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
+
 
 public class AboutFragment extends Fragment {
     private View root;

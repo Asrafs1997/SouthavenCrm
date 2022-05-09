@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-
-    <fragment
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:id="@+id/frg"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/frg"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
 
 
-    <com.thisit.southavencrm.customfonts.TextViewBadScriptRegular
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:layout_below="@+id/frg"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:gravity="left|center"
-        android:text="@string/location_title"
-        android:textColor="@color/dark_brown"
-        android:textSize="18dp"
-        android:textStyle="bold|italic" />
+        <com.thisit.southavencrm.customfonts.TextViewBadScriptRegular
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_below="@+id/frg"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="left|center"
+            android:text="@string/location_title"
+            android:textColor="@color/dark_brown"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/locationrecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/title" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/locationrecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/title" />
 
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>
+
+

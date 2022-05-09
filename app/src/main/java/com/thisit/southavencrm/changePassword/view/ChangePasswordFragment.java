@@ -13,11 +13,14 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.thisit.southavencrm.ECardActivity;
+
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.changePassword.presenter.ChangePasswordPresentr;
 import com.thisit.southavencrm.changePassword.presenter.IChangePasswordPresentr;
 import com.thisit.southavencrm.common.ConfigApp;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
+
+import java.util.ArrayList;
 
 public class ChangePasswordFragment extends Fragment implements IChangePasswordFragment {
     private View root;
@@ -128,34 +131,5 @@ public class ChangePasswordFragment extends Fragment implements IChangePasswordF
 
     }
 
-    @Override
-    public void offlineDialog() {
-
-    }
-
-    @Override
-    public void hideOffLineDialog() {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine) {
-
-    }
-
-    @Override
-    public void convertToOffLineDialog(boolean isConvertToOffLine, Object object) {
-
-    }
-
-    @Override
-    public void onLineOffLineClickListener(boolean isConvertToOffLine) {
-
-    }
-
-    @Override
-    public void onLineOffLineCancelClickListener() {
-
-    }
 }
 
