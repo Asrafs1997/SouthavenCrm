@@ -11,7 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-import com.thisit.southavencrm.ForgotpasswordActivity;
+import com.thisit.southavencrm.ForgotPassword.view.ForgotpasswordActivity;
+
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
@@ -51,7 +52,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             LoginIDEditText.setSelection(ConfigApp.getLogin_ID().length());
             rememberMeCheckBox.setChecked(true);
         }
-
+        LoginIDEditText.setText("7708440879");
+        passwordEditText.setText("123456");
     }
 
 

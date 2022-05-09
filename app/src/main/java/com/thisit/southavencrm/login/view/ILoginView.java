@@ -8,4 +8,5 @@ public interface ILoginView extends IBaseView {
     void emptyPassword();
     void onSuccess();
     void onFailure();
+
 }
