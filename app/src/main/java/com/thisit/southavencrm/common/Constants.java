@@ -11,6 +11,8 @@ public interface Constants {
      String RESETPASSWORD = "api/B2B_Service/ResetPasswordEmailSend";
 
      String LOCATION_LIST = "api/B2B_Service/GetLocateUs_Southaven";
+     String FAQ_LIST = "api/B2B_Service/GetFAQ_Southaven";
+     String ORDER_LIST = "api/B2B_Service/GetOrderList_Southaven";
      String GETPROFILE = "api/B2B_Service/GetCustomerProfile_Southaven";
 
 }

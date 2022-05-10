@@ -43,7 +43,6 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
     private ArrayList<LocationListResponseModel> locationListResponseModelArrayList;
     private SupportMapFragment mapFragment;
     private GoogleMap mMap;
-    Geocoder geo;
     private double latitude, longitude;
 
 

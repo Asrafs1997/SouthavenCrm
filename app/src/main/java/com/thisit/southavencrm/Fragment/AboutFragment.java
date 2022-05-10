@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 
+import com.thisit.southavencrm.FAQList.view.FQAFragment;
 import com.thisit.southavencrm.R;
 
 import com.thisit.southavencrm.contactUs.view.ContactFragment;
@@ -21,7 +22,7 @@ import com.thisit.southavencrm.dashboard.view.ECardActivity;
 
 public class AboutFragment extends Fragment {
     private View root;
-    private LinearLayout contact_llv, privacy_llv;
+    private LinearLayout contact_llv, privacy_llv,membership_llv;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,10 +30,18 @@ public class AboutFragment extends Fragment {
         root = inflater.inflate(R.layout.fragment_about, container, false);
         contact_llv = root.findViewById(R.id.contact_llv);
         privacy_llv = root.findViewById(R.id.privacy_llv);
+        membership_llv = root.findViewById(R.id.membership_llv);
         contact_llv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getFragmentManager().beginTransaction().replace(R.id.framecontainer, new ContactFragment()).commit();
+            }
+        });
+
+        membership_llv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace(R.id.framecontainer, new FQAFragment()).commit();
             }
         });
         privacy_llv.setOnClickListener(new View.OnClickListener() {

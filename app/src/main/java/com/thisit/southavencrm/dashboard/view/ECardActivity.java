@@ -24,6 +24,7 @@ import com.thisit.southavencrm.Fragment.AboutFragment;
 import com.thisit.southavencrm.Fragment.CardFragment;
 import com.thisit.southavencrm.Fragment.HistroyFragment;
 import com.thisit.southavencrm.Fragment.ProfileFragment;
+import com.thisit.southavencrm.OrderList.view.OrderListFragment;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
@@ -84,7 +85,7 @@ public class ECardActivity extends AppCompatActivity  implements  IGetprofileVie
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.history:
-                    selectedFragment = new HistroyFragment();
+                    selectedFragment = new OrderListFragment();
                     break;
                 case R.id.location:
                     selectedFragment = new LocationFragment();

@@ -1,0 +1,84 @@
+package com.thisit.southavencrm.OrderList.presenter;
+
+import android.util.Log;
+
+import com.thisit.southavencrm.FAQList.model.FAQListResponseModel;
+import com.thisit.southavencrm.FAQList.presenter.IFAQListPresenter;
+import com.thisit.southavencrm.FAQList.view.FQAFragment;
+import com.thisit.southavencrm.FAQList.view.IFAQListView;
+import com.thisit.southavencrm.OrderList.model.OrderListResponseModel;
+import com.thisit.southavencrm.OrderList.view.IOrderListView;
+import com.thisit.southavencrm.OrderList.view.OrderListFragment;
+import com.thisit.southavencrm.common.BasicAuth;
+import com.thisit.southavencrm.common.ConfigApp;
+import com.thisit.southavencrm.common.Constants;
+import com.thisit.southavencrm.webClient.ApiClient;
+import com.thisit.southavencrm.webClientHandler.FAQAPI;
+import com.thisit.southavencrm.webClientHandler.OrderListAPI;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class OrderListPresenter implements IOrderListPresenter {
+    private IOrderListView iOrderListView;
+    String requestData;
+    public OrderListPresenter(OrderListFragment orderListFragment) {
+        this.iOrderListView=orderListFragment;
+    }
+
+    @Override
+    public void locationList(String CompanyCode) {
+
+        OrderListAPI orderListAPI = ApiClient.getClient(Constants.BASE_URL).create(OrderListAPI.class);
+
+        //String requestData = "{\\\"CompanyCode\\\":1}";
+      //String requestData = "{\"CompanyCode\":1,\"ContactID\":\"7930\",\"FromDate\":\"01/04/2022\",\"ToDate\":\"10/05/2022\"}";
+        JSONObject jsonObj = new JSONObject();
+        try {
+            jsonObj.put("CompanyCode",CompanyCode);
+            jsonObj.put("ContactID",ConfigApp.getContactID());
+            jsonObj.put("FromDate","01/04/2022");
+            jsonObj.put("ToDate","10/05/2022");
+            requestData = jsonObj.toString();
+            System.out.println("previewQR\t\t" + requestData);
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+       Log.d("getHoldOrderList", requestData);
+        Call<OrderListResponseModel> call = orderListAPI.holdList(requestData, BasicAuth.getAuth());
+        iOrderListView.showProgress();
+        call.enqueue(new Callback<OrderListResponseModel>() {
+            @Override
+            public void onResponse(Call<OrderListResponseModel> call, Response<OrderListResponseModel> response) {
+                iOrderListView.hideProgress();
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        if(response.body().isStatus()){
+                            System.out.println("response\t\t\t"+response.body().get$id());
+                            System.out.println("response001\t\t\t"+response.body().getMsg());
+                            System.out.println("response002\t\t\t"+response.body().getData().size());
+                            iOrderListView.getLocationList(response.body().getData());
+                        }
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<OrderListResponseModel> call, Throwable t) {
+                Log.i("onFailureResponse 001", t.getMessage().toString());
+                //ToastMessage.toast(t.getMessage());
+                iOrderListView.hideProgress();
+
+            }
+        });
+
+
+
+    }
+}
