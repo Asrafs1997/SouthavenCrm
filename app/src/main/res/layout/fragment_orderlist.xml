@@ -3,9 +3,56 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/date_picker_llv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
 
+        <EditText
+            android:id="@+id/ed_fromDate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_catalog"
+            android:backgroundTint="@color/white"
+            android:drawableRight="@drawable/ic_calendar"
+            android:drawablePadding="5dp"
+            android:editable="false"
+            android:hint="From Date"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/ed_to_date"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_catalog"
+            android:backgroundTint="@color/white"
+            android:drawableRight="@drawable/ic_calendar"
+            android:drawablePadding="5dp"
+            android:editable="false"
+            android:hint="To Date"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textSize="16sp" />
+
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/orderlistrecyclerView"
+        android:layout_below="@+id/date_picker_llv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

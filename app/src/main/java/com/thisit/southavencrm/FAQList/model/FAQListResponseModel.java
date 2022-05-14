@@ -12,6 +12,17 @@ public class FAQListResponseModel {
 
     private String msg;
 
+    private String Code;
+
+    private String Date;
+
+    private String Title;
+
+    private String ShortDescription;
+
+    @SerializedName("data")
+    @Expose
+    private ArrayList<FAQListResponseModel> data;
 
     public String get$id() {
         return $id;
@@ -37,9 +48,37 @@ public class FAQListResponseModel {
         this.msg = msg;
     }
 
-    @SerializedName("data")
-    @Expose
-    private ArrayList<FAQListResponseModel> data;
+    public String getCode() {
+        return Code;
+    }
+
+    public void setCode(String code) {
+        Code = code;
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
+
+    public String getTitle() {
+        return Title;
+    }
+
+    public void setTitle(String title) {
+        Title = title;
+    }
+
+    public String getShortDescription() {
+        return ShortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        ShortDescription = shortDescription;
+    }
 
     public ArrayList<FAQListResponseModel> getData() {
         return data;

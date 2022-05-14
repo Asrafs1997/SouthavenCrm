@@ -1,10 +1,14 @@
 package com.thisit.southavencrm.OrderList.view;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -26,6 +30,7 @@ import com.thisit.southavencrm.locateUs.adapter.LocationAdapter;
 import com.thisit.southavencrm.locateUs.model.LocationListResponseModel;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class OrderListFragment extends Fragment implements IOrderListView {
     private View root;
@@ -33,20 +38,43 @@ public class OrderListFragment extends Fragment implements IOrderListView {
     private IOrderListPresenter iOrderListPresenter;
     private ArrayList<OrderListResponseModel> orderListResponseModelArrayList;
     private RecyclerView orderlistrecyclerView;
-
+    private EditText fromDate, toDate;
+    Calendar c = Calendar.getInstance();
+    int mYear = c.get(Calendar.YEAR);
+    int mMonth = c.get(Calendar.MONTH);
+    int mDay = c.get(Calendar.DAY_OF_MONTH);
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_orderlist, container, false);
         activity = getActivity();
 
         orderlistrecyclerView = (RecyclerView) root.findViewById(R.id.orderlistrecyclerView);
+        fromDate = (EditText) root.findViewById(R.id.ed_fromDate);
+        toDate = (EditText) root.findViewById(R.id.ed_to_date);
         iOrderListPresenter = new OrderListPresenter(this);
         if (ConfigApp.isNetworkAvailable(activity)) {
             iOrderListPresenter.locationList(ConfigApp.getCompanyCode());
         } else {
             Toast.makeText(activity, "No Internet Connection", Toast.LENGTH_SHORT).show();
         }
-
+        fromDate.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    datePicker(true);
+                }
+                return true;
+            }
+        });
+        toDate.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    datePicker(false);
+                }
+                return true;
+            }
+        });
         return root;
     }
 
@@ -107,6 +135,25 @@ public class OrderListFragment extends Fragment implements IOrderListView {
 
     }
 
+    private void datePicker(final boolean isfrom) {
+        final DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),
+                new DatePickerDialog.OnDateSetListener() {
 
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        if (isfrom) {
+                            fromDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                        } else {
+                            toDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                        }
+//                        date = (dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+//                        isDateFirstClick = false;
+                    }
+                }, mYear, mMonth, mDay);
+
+        datePickerDialog.show();
+
+    }
 }
 

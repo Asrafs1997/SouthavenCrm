@@ -43,8 +43,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.btn_forgotpassword).setOnClickListener(this);
         findViewById(R.id.btn_register).setOnClickListener(this);
 
-        LoginIDEditText.setText("7708440879");
-        passwordEditText.setText("123456");
 
         if (!ConfigApp.getLogin_ID().isEmpty()) {
             LoginIDEditText.setText(ConfigApp.getLogin_ID());

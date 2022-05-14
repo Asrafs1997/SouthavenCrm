@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/background_transparent.xml" value="0.2203125" />
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/bg_grayedit.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/calander_ic_field.xml" value="0.19814814814814816" />
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/history_gray.xml" value="0.2203125" />
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/history_white.xml" value="0.2203125" />
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/home_gradient_login.xml" value="0.2203125" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/location_gray.xml" value="0.2203125" />
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/location_white.xml" value="0.2203125" />
         <entry key="..\:/Project/CRM/app/src/main/res/drawable/navigationbutton.xml" value="0.2203125" />
+        <entry key="..\:/Project/CRM/app/src/main/res/drawable/round_corner_catalog.xml" value="0.19814814814814816" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_e_card.xml" value="0.2" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_forgotpassword.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_homescreen.xml" value="0.20416666666666666" />
@@ -25,13 +27,19 @@
         <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_notification.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/base_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_about.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_changepassword.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_editprofile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_faqlist.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_location.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_orderlist.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_settings.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/item_layout_faq.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/item_loctionview.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/list_layout_heroes.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/profileslider_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Project/Southaven/app/src/main/res/drawable/background_transparent.xml" value="0.2203125" />
         <entry key="..\:/Project/Southaven/app/src/main/res/drawable/bg_grayedit.xml" value="0.2203125" />
