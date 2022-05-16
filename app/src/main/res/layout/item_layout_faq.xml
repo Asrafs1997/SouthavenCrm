@@ -20,7 +20,6 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:padding="2dp"
-                android:text="How long the Delivery?"
                 android:textAlignment="center"
                 android:textColor="@color/dark_brown"
                 android:textSize="18dp" />
@@ -40,9 +39,6 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
                     android:inputType="textMultiLine"
-                    android:text="Steven Rogers was born in the
-                     Lower East Side of Manhattan,New York City,
-                      in 1925 to poor Irish immigrants"
                     android:textStyle="bold" />
 
             </LinearLayout>

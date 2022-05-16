@@ -40,6 +40,10 @@
     <string name="privacy">Privacy Policy</string>
     <string name="membership">Membership FAQs</string>
     <string name="history">History</string>
+    <string name="contact_name">ContactName</string>
+    <string name="tran_date">TranDate</string>
+    <string name="tran_no">TranNo</string>
+    <string name="net_total">NetTotal</string>
     <string name="tran_history">Transaction History</string>
     <string name="likenote">Enjoy 10% off all regular-priced items </string>
     <string name="calculatornote">Exclusive access to past transactions </string>

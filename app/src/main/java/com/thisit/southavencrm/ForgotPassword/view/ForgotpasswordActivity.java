@@ -26,12 +26,10 @@ public class ForgotpasswordActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgotpassword);
         activity=ForgotpasswordActivity.this;
-
         iForgotPasswordPresenter = (IForgotPasswordPresenter) new ForgotPasswordPresenter(this);
         email_EditText=(EditText)findViewById(R.id.email_EditText);
         findViewById(R.id.btn_backlogin).setOnClickListener(this);
         findViewById(R.id.send_btn).setOnClickListener(this);
-
 
     }
 

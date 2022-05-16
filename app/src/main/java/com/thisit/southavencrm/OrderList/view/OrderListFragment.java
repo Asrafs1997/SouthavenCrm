@@ -26,6 +26,7 @@ import com.thisit.southavencrm.OrderList.presenter.IOrderListPresenter;
 import com.thisit.southavencrm.OrderList.presenter.OrderListPresenter;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.ConfigApp;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.locateUs.adapter.LocationAdapter;
 import com.thisit.southavencrm.locateUs.model.LocationListResponseModel;
 
@@ -133,6 +134,11 @@ public class OrderListFragment extends Fragment implements IOrderListView {
     @Override
     public void holdListClick(int position) {
 
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ((ECardActivity) getActivity()).title_tv.setText(R.string.tran_history);
     }
 
     private void datePicker(final boolean isfrom) {

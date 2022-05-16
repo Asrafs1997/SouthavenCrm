@@ -17,6 +17,7 @@ import com.smarteist.autoimageslider.SliderView;
 import com.thisit.southavencrm.ProfileSliderAdapter;
 import com.thisit.southavencrm.ProfileSliderBean;
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.editprofile.view.EditProfileFragment;
 import com.thisit.southavencrm.changePassword.view.ChangePasswordFragment;
 import com.thisit.southavencrm.login.view.LoginActivity;
@@ -92,6 +93,11 @@ public class ProfileFragment extends Fragment {
         });
 
         return root;
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ((ECardActivity) getActivity()).title_tv.setText(R.string.profile_acco);
     }
 }
 

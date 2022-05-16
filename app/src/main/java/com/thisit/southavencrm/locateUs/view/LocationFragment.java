@@ -23,6 +23,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.ConfigApp;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.locateUs.adapter.LocationAdapter;
 import com.thisit.southavencrm.locateUs.model.LocationListResponseModel;
 import com.thisit.southavencrm.locateUs.presenter.ILocationListPresenter;
@@ -147,6 +148,11 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
     public void onSuccess() {
 
     }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ((ECardActivity) getActivity()).title_tv.setText(R.string.locat_us);
+    }
 
     @Override
     public void holdListClick(int position) {
@@ -156,7 +162,7 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        for (int i=0;i<locationArrayList.size();i++){
+        for (int i = 0; i < locationArrayList.size(); i++) {
             mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
             CameraPosition googlePlex = CameraPosition.builder()
                     .target(new LatLng(1.301982, 103.839826))
@@ -168,8 +174,7 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(locationArrayList.get(i));
             mMap.addMarker(markerOptions);
-           // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationArrayList.get(i), 6));
+            // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationArrayList.get(i), 6));
         }
-    }
-}
 
+    }}

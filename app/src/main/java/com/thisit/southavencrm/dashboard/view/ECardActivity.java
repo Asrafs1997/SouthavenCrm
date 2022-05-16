@@ -1,7 +1,9 @@
 package com.thisit.southavencrm.dashboard.view;
 
 import android.app.Activity;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,32 +13,33 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.thisit.southavencrm.Fragment.AboutFragment;
 import com.thisit.southavencrm.Fragment.CardFragment;
-
+import com.thisit.southavencrm.Fragment.HistroyFragment;
 import com.thisit.southavencrm.Fragment.ProfileFragment;
 import com.thisit.southavencrm.OrderList.view.OrderListFragment;
 import com.thisit.southavencrm.R;
-import com.thisit.southavencrm.common.BaseActivity;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
 import com.thisit.southavencrm.dashboard.presenter.GetprofilePresenter;
 import com.thisit.southavencrm.dashboard.presenter.IGetprofilePresenter;
 import com.thisit.southavencrm.locateUs.view.LocationFragment;
+import com.thisit.southavencrm.login.presenter.ILoginPresenter;
+import com.thisit.southavencrm.login.presenter.LoginPresenter;
 
-
-public class ECardActivity extends BaseActivity implements  IGetprofileView{
+public class ECardActivity extends AppCompatActivity  implements  IGetprofileView{
     private Activity activity;
     public TextView title_tv;
     private FloatingActionButton card_fab;
     private BottomNavigationView bottomNavigationView;
     private IGetprofilePresenter iGetprofilePresenter;
-    private String Screentype;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +59,6 @@ public class ECardActivity extends BaseActivity implements  IGetprofileView{
             public void onClick(View v) {
                 title_tv.setText(R.string.my_card);
                 getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new CardFragment()).commit();
-                Screentype= String.valueOf(R.string.my_card);
             }
         });
 
@@ -94,7 +96,6 @@ public class ECardActivity extends BaseActivity implements  IGetprofileView{
                     break;
                 case R.id.about:
                     selectedFragment = new AboutFragment();
-                    Screentype(Screentype);
                     break;
             }
             // It will help to replace the
@@ -108,21 +109,7 @@ public class ECardActivity extends BaseActivity implements  IGetprofileView{
     };
 
 
-    @Override
-    public void onBackPressed() {
-        Screentype(Screentype);
-    }
 
-    private void Screentype(String title) {
-        if (title.equalsIgnoreCase("My E-Card")){
-            activity.finish();
-        }else if (title.equalsIgnoreCase("About")){
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.framecontainer, new ProfileFragment())
-                    .commit();
-        }
-    }
 
 
     @Override

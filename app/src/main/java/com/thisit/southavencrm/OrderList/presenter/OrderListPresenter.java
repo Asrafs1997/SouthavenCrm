@@ -35,18 +35,16 @@ public class OrderListPresenter implements IOrderListPresenter {
 
         OrderListAPI orderListAPI = ApiClient.getClient(Constants.BASE_URL).create(OrderListAPI.class);
 
-        //String requestData = "{\\\"CompanyCode\\\":1}";
-      //String requestData = "{\"CompanyCode\":1,\"ContactID\":\"7930\",\"FromDate\":\"01/04/2022\",\"ToDate\":\"10/05/2022\"}";
         JSONObject jsonObj = new JSONObject();
         try {
             jsonObj.put("CompanyCode",CompanyCode);
-            jsonObj.put("ContactID",ConfigApp.getContactID());
+            jsonObj.put("ContactID","7930");
             jsonObj.put("FromDate","01/04/2022");
             jsonObj.put("ToDate","10/05/2022");
             requestData = jsonObj.toString();
             System.out.println("previewQR\t\t" + requestData);
         } catch (JSONException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
        Log.d("getHoldOrderList", requestData);
