@@ -123,6 +123,11 @@ public class ECardActivity extends AppCompatActivity  implements  IGetprofileVie
     }
 
     @Override
+    public void offlineDialog() {
+
+    }
+
+    @Override
     public void CompanyCode() {
         ToastMessage.toast("Company Code is empty");
     }
@@ -134,6 +139,26 @@ public class ECardActivity extends AppCompatActivity  implements  IGetprofileVie
 
     @Override
     public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFailed() {
+
+    }
+
+    @Override
+    public void PrefixonSucess() throws ClassNotFoundException {
+
+    }
+
+    @Override
+    public void PrefixonFailed() {
+
+    }
+
+    @Override
+    public void onemptyprefix() {
 
     }
 

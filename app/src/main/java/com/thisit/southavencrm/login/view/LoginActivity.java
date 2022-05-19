@@ -103,6 +103,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
+    public void onFailed() {
+
+    }
+
+    @Override
+    public void PrefixonSucess() throws ClassNotFoundException {
+
+    }
+
+    @Override
+    public void PrefixonFailed() {
+
+    }
+
+    @Override
+    public void onemptyprefix() {
+
+    }
+
+    @Override
     public void onFailure() {
         ToastMessage.toast("username or password is incorrect");
     }
@@ -116,6 +136,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void hideProgress() {
+
+    }
+
+    @Override
+    public void offlineDialog() {
 
     }
 }

@@ -80,13 +80,13 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
                 mMap.clear(); //clear old markers
 
                 CameraPosition googlePlex = CameraPosition.builder()
-                        .target(new LatLng(1.301982, 103.839826))
+                        .target(new LatLng(latitude, longitude))
                         .zoom(10)
                         .bearing(0)
                         .tilt(45)
                         .build();
 
-                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 10000, null);
+                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1000, null);
 
                 mMap.addMarker(new MarkerOptions()
                         .position(new LatLng(latitude, longitude))
@@ -105,6 +105,11 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
 
     @Override
     public void hideProgress() {
+
+    }
+
+    @Override
+    public void offlineDialog() {
 
     }
 
@@ -148,6 +153,27 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
     public void onSuccess() {
 
     }
+
+    @Override
+    public void onFailed() {
+
+    }
+
+    @Override
+    public void PrefixonSucess() throws ClassNotFoundException {
+
+    }
+
+    @Override
+    public void PrefixonFailed() {
+
+    }
+
+    @Override
+    public void onemptyprefix() {
+
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -165,12 +191,12 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
         for (int i = 0; i < locationArrayList.size(); i++) {
             mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
             CameraPosition googlePlex = CameraPosition.builder()
-                    .target(new LatLng(1.301982, 103.839826))
+                    .target(new LatLng(latitude, longitude))
                     .zoom(10)
                     .bearing(0)
                     .tilt(45)
                     .build();
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 10000, null);
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1000, null);
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(locationArrayList.get(i));
             mMap.addMarker(markerOptions);

@@ -8,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="@dimen/textsize_small2"
         android:orientation="vertical">
 
 
@@ -25,6 +26,7 @@
                 android:layout_marginTop="5dp"
                 android:text="Title"
                 android:textColor="@color/black"
+                android:textSize="@dimen/textsize_small2"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
 
             <Spinner
@@ -41,14 +43,15 @@
                 android:padding="10dp"
                 android:popupBackground="@color/white"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="@dimen/textsize_small2" />
 
 
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:text="Name"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/textsize_small2"
                 android:textColor="@color/black"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
 
@@ -66,14 +69,15 @@
                 android:inputType="text"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="@dimen/textsize_small2" />
 
 
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:text="Mobile Number"
+                android:textSize="@dimen/textsize_small2"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
 
@@ -90,16 +94,17 @@
                 android:inputType="number"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="@dimen/textsize_small2" />
 
 
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:text="Email"
-                android:textColor="@color/black"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/textsize_small2"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/email_et"
@@ -114,18 +119,19 @@
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="@dimen/textsize_small2" />
 
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:text="Postal Code"
+                android:textSize="@dimen/textsize_small2"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
 
             <EditText
-                android:id="@+id/fin_no_et"
+                android:id="@+id/postalcode_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -137,13 +143,14 @@
                 android:inputType="number"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="@dimen/textsize_small2" />
 
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:text="Address"
+                android:textSize="@dimen/textsize_small2"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
 
@@ -162,14 +169,15 @@
                 android:minHeight="60dp"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="@dimen/textsize_small2" />
 
 
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:text="Date of Birth"
+                android:textSize="@dimen/textsize_small2"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
 
@@ -186,7 +194,7 @@
                 android:inputType="number"
                 android:padding="10dp"
                 android:textColor="@color/black"
-                android:textSize="14dp" />
+                android:textSize="@dimen/textsize_small2" />
 
 
             <Button

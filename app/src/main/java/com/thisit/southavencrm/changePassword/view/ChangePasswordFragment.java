@@ -15,17 +15,15 @@ import androidx.fragment.app.Fragment;
 
 
 import com.thisit.southavencrm.R;
-import com.thisit.southavencrm.changePassword.presenter.ChangePasswordPresentr;
-import com.thisit.southavencrm.changePassword.presenter.IChangePasswordPresentr;
+import com.thisit.southavencrm.changePassword.presenter.ChangePasswordPresenter;
+import com.thisit.southavencrm.changePassword.presenter.IChangePasswordPresenter;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
-
-import java.util.ArrayList;
 
 public class ChangePasswordFragment extends Fragment implements IChangePasswordFragment {
     private View root;
     private Activity activity;
-    private IChangePasswordPresentr iChangePasswordPresentr;
+    private IChangePasswordPresenter iChangePasswordPresentr;
     private EditText current_password, new_password, confirm_password;
     private Button Savebutton;
 
@@ -34,7 +32,7 @@ public class ChangePasswordFragment extends Fragment implements IChangePasswordF
         root = inflater.inflate(R.layout.fragment_changepassword, container, false);
         activity = getActivity();
 
-        iChangePasswordPresentr = new ChangePasswordPresentr(this);
+        iChangePasswordPresentr = new ChangePasswordPresenter(this);
         current_password = (EditText) root.findViewById(R.id.current_password);
         new_password = (EditText) root.findViewById(R.id.new_password);
         confirm_password = (EditText) root.findViewById(R.id.confirm_password);
@@ -128,6 +126,36 @@ public class ChangePasswordFragment extends Fragment implements IChangePasswordF
 
     @Override
     public void hideProgress() {
+
+    }
+
+    @Override
+    public void offlineDialog() {
+
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFailed() {
+
+    }
+
+    @Override
+    public void PrefixonSucess() throws ClassNotFoundException {
+
+    }
+
+    @Override
+    public void PrefixonFailed() {
+
+    }
+
+    @Override
+    public void onemptyprefix() {
 
     }
 

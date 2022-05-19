@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="@dimen/textsize_medium">
 
-    <TextView
+
+    <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/abouttext"
         android:textColor="@color/black"
         android:textSize="@dimen/textsize_small2" />
 
-    <TextView
+    <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -48,8 +49,9 @@
                 android:src="@drawable/ic_contact"
                 android:contentDescription="@string/todo" />
 
-            <TextView
-                android:layout_width="0dp"
+            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+
+            android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
@@ -90,7 +92,7 @@
                 android:src="@drawable/ic_lock"
                 android:contentDescription="@string/todo" />
 
-            <TextView
+            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -131,7 +133,7 @@
                 android:src="@drawable/membership"
                 android:contentDescription="@string/todo" />
 
-            <TextView
+            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

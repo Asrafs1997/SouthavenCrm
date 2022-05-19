@@ -46,8 +46,8 @@ public class ContactUsPresenter implements IContactUsPresenter {
             jsonObj.put("ContactID", ConfigApp.getContactCode());
             jsonObj.put("Salutation", "SOUTHAVEN");
             jsonObj.put("ContactName", ConfigApp.getContactName());
-            jsonObj.put("HandphoneNo", "123456789");
-            jsonObj.put("Email", "asraf123@gmail.com");
+            jsonObj.put("HandphoneNo", "");
+            jsonObj.put("Email", ConfigApp.getEMAIL());
             jsonObj.put("Subject", Subject);
             jsonObj.put("Message",Message);
             requestString = "{\"Model\":" + jsonObj.toString() + "}";

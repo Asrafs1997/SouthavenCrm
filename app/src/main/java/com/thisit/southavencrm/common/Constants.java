@@ -16,3 +16,4 @@ public interface Constants {
      String GETPROFILE = "api/B2B_Service/GetCustomerProfile_Southaven";
 
 }
+//{{base_url}}/api/B2B_Service/GetOrderList_Southaven?Requestdata={"CompanyCode":1,"ContactID":"7930","FromDate":"20/04/2022","ToDate":"19/05/2022"}

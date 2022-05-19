@@ -55,7 +55,7 @@ public class AboutFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((ECardActivity) getActivity()).title_tv.setText(R.string.about);
+        ((ECardActivity) getActivity()).title_tv.setText(R.string.about_us);
     }
 }
 
