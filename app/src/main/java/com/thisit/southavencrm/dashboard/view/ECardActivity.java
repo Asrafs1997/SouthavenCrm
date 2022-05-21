@@ -36,7 +36,6 @@ public class ECardActivity extends BaseActivity implements  IGetprofileView{
     private FloatingActionButton card_fab;
     private BottomNavigationView bottomNavigationView;
     private IGetprofilePresenter iGetprofilePresenter;
-    private String Screentype;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +55,6 @@ public class ECardActivity extends BaseActivity implements  IGetprofileView{
             public void onClick(View v) {
                 title_tv.setText(R.string.my_card);
                 getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new CardFragment()).commit();
-                Screentype= String.valueOf(R.string.my_card);
             }
         });
 
@@ -94,7 +92,6 @@ public class ECardActivity extends BaseActivity implements  IGetprofileView{
                     break;
                 case R.id.about:
                     selectedFragment = new AboutFragment();
-                    Screentype(Screentype);
                     break;
             }
             // It will help to replace the
@@ -108,27 +105,9 @@ public class ECardActivity extends BaseActivity implements  IGetprofileView{
     };
 
 
-    @Override
-    public void onBackPressed() {
-        Screentype(Screentype);
-    }
-
-    private void Screentype(String title) {
-        if (title.equalsIgnoreCase("My E-Card")){
-            activity.finish();
-        }else if (title.equalsIgnoreCase("About")){
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.framecontainer, new ProfileFragment())
-                    .commit();
-        }
-    }
 
 
-    @Override
-    public void showProgress() {
 
-    }
 
     @Override
     public void hideProgress() {
