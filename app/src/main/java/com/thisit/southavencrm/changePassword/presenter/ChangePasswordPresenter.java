@@ -18,11 +18,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ChangePasswordPresentr implements IChangePasswordPresentr {
+public class ChangePasswordPresenter implements IChangePasswordPresenter {
     private IChangePasswordFragment iChangePasswordFragment;
     private String requestString = "";
 
-    public ChangePasswordPresentr(IChangePasswordFragment iChangePasswordFragment) {
+    public ChangePasswordPresenter(IChangePasswordFragment iChangePasswordFragment) {
         this.iChangePasswordFragment = iChangePasswordFragment;
     }
 
@@ -48,7 +48,7 @@ public class ChangePasswordPresentr implements IChangePasswordPresentr {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
+            requestString="{\"Model\":{\"CompanyCode\":\"1\",\"ContactId\":\"7963\",\"Password\":\"123456\",\"NewPassword\":\"123456\"}}";
             System.out.println("requestString\t\t" + requestString);
             RequestBody rawString = RequestBody.create(MediaType.parse("application/json"), requestString);
             ChangePasswordAPI changePasswordAPI = ApiClient.getClient(Constants.BASE_URL).create(ChangePasswordAPI.class);
@@ -58,6 +58,7 @@ public class ChangePasswordPresentr implements IChangePasswordPresentr {
                 @Override
                 public void onResponse(Call<ChangePasswordRequestModel> call, Response<ChangePasswordRequestModel> response) {
                     iChangePasswordFragment.hideProgress();
+                    System.out.println("response"+response.toString());
                     if (response.isSuccessful() && response.body() != null) {
                         if (response.body().isStatus()) {
                             iChangePasswordFragment.onSuccess(response.body().getMsg());

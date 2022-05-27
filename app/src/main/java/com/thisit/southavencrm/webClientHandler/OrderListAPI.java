@@ -12,6 +12,5 @@ import retrofit2.http.Query;
 
 public interface OrderListAPI {
     @GET(Constants.ORDER_LIST)
-    //Call<ArrayList<LocationListResponseModel>> holdList(@Query("RequestData") String requestData, @Header("Authorization") String auth);
     Call<OrderListResponseModel> holdList(@Query("RequestData") String requsetDate, @Header("Authorization") String auth);
 }

@@ -8,10 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
-
-
 import com.thisit.southavencrm.FAQList.view.FQAFragment;
 import com.thisit.southavencrm.R;
 
@@ -58,7 +55,7 @@ public class AboutFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((ECardActivity) getActivity()).title_tv.setText(R.string.about);
+        ((ECardActivity) getActivity()).title_tv.setText(R.string.about_us);
     }
 }
 

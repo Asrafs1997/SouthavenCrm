@@ -37,7 +37,7 @@ public class FAQListPresenter implements IFAQListPresenter {
         call.enqueue(new Callback<FAQListResponseModel>() {
             @Override
             public void onResponse(Call<FAQListResponseModel> call, Response<FAQListResponseModel> response) {
-                ifaqListView.hideProgress();
+              ifaqListView.hideProgress();
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         if(response.body().isStatus()){

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    tools:ignore="MissingClass">
 
     <TextView
         android:layout_width="match_parent"
@@ -54,13 +55,14 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/bg_grayedit"
             android:gravity="left|center"
-            android:text="@string/user_name"
+            android:hint="@string/user_name"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="@dimen/textsize_small"
             android:autofillHints="" />
 
         <TextView
+            android:id="@+id/txt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -70,13 +72,14 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/bg_grayedit"
             android:gravity="left|center"
-            android:text="username.thisit@gmail.com"
+            android:hint="Email"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="@dimen/textsize_small"
             android:autofillHints="" />
 
         <TextView
+            android:id="@+id/txt_phoneno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -86,7 +89,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/bg_grayedit"
             android:gravity="left|center"
-            android:text="91746745"
+            android:hint="Phone No"
             android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="@dimen/textsize_small"

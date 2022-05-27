@@ -9,6 +9,11 @@ import android.net.NetworkInfo;
 import android.os.StrictMode;
 import android.util.Log;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class ConfigApp extends Application {
 
     @SuppressLint("StaticFieldLeak")
@@ -54,6 +59,47 @@ public class ConfigApp extends Application {
         return connected;
     }
 
+
+    public static String calenderOneMonthBeforDate() {
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, -1);
+        Date date = calendar.getTime();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        String dateOutput = format.format(date);
+        return dateOutput;
+    }
+
+    public static String calenderCurrentDate() {
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        String dateOutput = format.format(date);
+        return dateOutput;
+    }
+
+    public static String parseDateToddMMyyyytime(String time) {
+        System.out.println("parseDateToddMMyyyy : " + time);
+        String str = null;
+        try {
+            String inputPattern = "yyyy-MM-dd'T'HH:mm:ss";
+            //2021-05-05T04:25:21.000000Z
+            //2022-02-22T09:19:40.8
+
+            //String outputPattern = "dd/MMM/yyyy"; /*May 19, 2021*/
+            String outputPattern = "MMM/dd/yyyy"; /*May 19, 2021*/
+            //String outputPattern = "yyyy MMM , dd";
+            SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern);
+            SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
+
+            Date date = null;
+            date = inputFormat.parse(time);
+            str = outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return str;
+    }
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);

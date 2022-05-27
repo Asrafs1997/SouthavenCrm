@@ -1,6 +1,7 @@
 package com.thisit.southavencrm.locateUs.adapter;
 
 
+import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -21,6 +22,7 @@ import com.thisit.southavencrm.locateUs.model.LocationListResponseModel;
 import com.thisit.southavencrm.locateUs.view.ILocationListView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Viewholder> {
@@ -28,12 +30,12 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Viewho
     private Context context;
     private ArrayList<LocationListResponseModel> locationListResponseModelArrayList;
     private ILocationListView iLocationListView;
+
     public LocationAdapter(Context context, ArrayList<LocationListResponseModel> courseModelArrayList, ILocationListView iLocationListView) {
         this.context = context;
         this.locationListResponseModelArrayList = courseModelArrayList;
         this.iLocationListView = iLocationListView;
     }
-
 
 
     @NonNull
@@ -45,13 +47,13 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Viewho
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LocationAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull LocationAdapter.Viewholder holder, @SuppressLint("RecyclerView") int position) {
         // to set data to textview and imageview of each card layout
         LocationListResponseModel locationListResponseModel = locationListResponseModelArrayList.get(position);
         String phonenumber = "tel:" + locationListResponseModel.getPhoneNo();
         holder.location_name.setText(locationListResponseModel.getLocationName());
         holder.address_tv.setText(locationListResponseModel.getAddress1());
-        holder.Country_tv.setText(locationListResponseModel.getCountry()+"\t"+locationListResponseModel.getZipCode());
+        holder.Country_tv.setText(locationListResponseModel.getCountry() + "\t" + locationListResponseModel.getZipCode());
         holder.telnumber_tv.setText(locationListResponseModel.getPhoneNo());
         holder.fexnumber_tv.setText(locationListResponseModel.getFaxNo());
         holder.contact_img.setOnClickListener(new View.OnClickListener() {
@@ -67,23 +69,16 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Viewho
         holder.directions_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String coordinatesHolder = String.format(Locale.ENGLISH, "geo:%f,%f", locationListResponseModelArrayList.get(position).getLatitude()
+                        , locationListResponseModelArrayList.get(position).getLongitude());
 
-                Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/dir/?api=1&origin=18.519513,73.868315&destination=18.518496,73.879259&waypoints=18.520561,73.872435|18.519254,73.876614|18.52152,73.877327|18.52019,73.879935&travelmode=driving");
-                Intent intent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                intent.setPackage("com.google.android.apps.maps");
-                try {
-                    context.startActivity(intent);
-                } catch (ActivityNotFoundException ex) {
-                    try {
-                        Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                        context.startActivity(unrestrictedIntent);
-                    } catch (ActivityNotFoundException innerEx) {
-                        Toast.makeText(context, "Please install a maps application", Toast.LENGTH_LONG).show();
-                    }
-                }
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(coordinatesHolder));
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                context.startActivity(intent);
             }
         });
-
 
 
     }
@@ -94,8 +89,8 @@ public class LocationAdapter extends RecyclerView.Adapter<LocationAdapter.Viewho
     }
 
     public class Viewholder extends RecyclerView.ViewHolder {
-        private TextView location_name, address_tv, telnumber_tv, fexnumber_tv,Country_tv;
-        private ImageView contact_img,directions_img;
+        private TextView location_name, address_tv, telnumber_tv, fexnumber_tv, Country_tv;
+        private ImageView contact_img, directions_img;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);

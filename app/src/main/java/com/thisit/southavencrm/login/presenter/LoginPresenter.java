@@ -19,9 +19,11 @@ import retrofit2.Response;
 public class LoginPresenter implements ILoginPresenter {
 
     private ILoginView iLoginView;
+
     public LoginPresenter(LoginActivity iLoginView) {
         this.iLoginView = iLoginView;
     }
+
     @Override
     public void apiCall(final String LoginID, final String password) {
         if (LoginID.isEmpty()) {
@@ -30,7 +32,7 @@ public class LoginPresenter implements ILoginPresenter {
             iLoginView.emptyPassword();
         } else {
             //String requestData = "{\"LoginID\":\"88561711\",\"Password\":\"ef51f2f2\"}";
-            String requestData = "{\"LoginID\":" + LoginID + ",\"Password\":\"" + password+ "\"}";
+            String requestData = "{\"LoginID\":" + LoginID + ",\"Password\":\"" + password + "\"}";
             Log.i("loginAPI", requestData);
             LoginAPI loginAPI = ApiClient.getClient(Constants.BASE_URL).create(LoginAPI.class);
 //            RequestBody rawString = RequestBody.create(MediaType.parse("application/json"), requestData);
@@ -43,18 +45,23 @@ public class LoginPresenter implements ILoginPresenter {
                     iLoginView.hideProgress();
                     if (response.isSuccessful()) {
                         if (response.body() != null) {
-                            if(response.body().isStatus()){
-                                ConfigApp.setCompanyCode(response.body().getData().get(0).getCompanyCode());
-                                ConfigApp.setContactCode(response.body().getData().get(0).getContactCode());
-                                ConfigApp.setContactName(response.body().getData().get(0).getContactName());
-                                ConfigApp.setContactID(response.body().getData().get(0).getContactID());
-                                ConfigApp.setEMAIL(response.body().getData().get(0).getEmail());
-                                System.out.println("response"+response.body().getData().get(0).getContactID());
-                                ConfigApp.setLogin_ID(LoginID);
-                                ConfigApp.setPassword(password);
-                                iLoginView.onSuccess();
+                            if (response.body().isStatus()) {
+                                if (response.body().getData().size() > 0) {
+                                    ConfigApp.setCompanyCode(response.body().getData().get(0).getCompanyCode());
+                                    ConfigApp.setContactCode(response.body().getData().get(0).getContactCode());
+                                    ConfigApp.setContactName(response.body().getData().get(0).getContactName());
+                                    ConfigApp.setContactID(response.body().getData().get(0).getContactID());
+                                    ConfigApp.setEMAIL(response.body().getData().get(0).getEmail());
+                                    ConfigApp.setLogin_ID(LoginID);
+                                    ConfigApp.setPassword(password);
+                                }
+                                iLoginView.onSuccess(response.body().getMsg());
+                            } else {
+                                iLoginView.onFailure(response.body().getMsg());
                             }
 
+                        } else {
+                            iLoginView.onFailure("username or password is incorrect");
                         }
                     }
                 }

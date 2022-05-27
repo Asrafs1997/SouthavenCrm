@@ -3,13 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:id="@+id/date_picker_llv"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="visible">
 
-        <EditText
+        <TextView
             android:id="@+id/ed_fromDate"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -29,7 +31,7 @@
             android:padding="8dp"
             android:textSize="16sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/ed_to_date"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -50,10 +52,22 @@
             android:textSize="16sp" />
 
     </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/orderlistrecyclerView"
-        android:layout_below="@+id/date_picker_llv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/date_picker_llv"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/no_record_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="No record found"
+        android:textSize="25sp"
+        android:visibility="gone" />
 
 </RelativeLayout>

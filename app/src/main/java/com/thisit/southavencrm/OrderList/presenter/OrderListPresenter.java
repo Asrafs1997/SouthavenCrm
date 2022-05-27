@@ -31,22 +31,20 @@ public class OrderListPresenter implements IOrderListPresenter {
     }
 
     @Override
-    public void locationList(String CompanyCode) {
+    public void locationList(String CompanyCode,String fromDate, String toDate) {
 
         OrderListAPI orderListAPI = ApiClient.getClient(Constants.BASE_URL).create(OrderListAPI.class);
-
-        //String requestData = "{\\\"CompanyCode\\\":1}";
-      //String requestData = "{\"CompanyCode\":1,\"ContactID\":\"7930\",\"FromDate\":\"01/04/2022\",\"ToDate\":\"10/05/2022\"}";
         JSONObject jsonObj = new JSONObject();
         try {
             jsonObj.put("CompanyCode",CompanyCode);
+            //jsonObj.put("ContactID","7930");
             jsonObj.put("ContactID",ConfigApp.getContactID());
-            jsonObj.put("FromDate","01/04/2022");
-            jsonObj.put("ToDate","10/05/2022");
+            jsonObj.put("FromDate",fromDate);//"01/04/2022"
+            jsonObj.put("ToDate",toDate);//"10/05/2022"
             requestData = jsonObj.toString();
             System.out.println("previewQR\t\t" + requestData);
         } catch (JSONException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
        Log.d("getHoldOrderList", requestData);
@@ -59,9 +57,6 @@ public class OrderListPresenter implements IOrderListPresenter {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         if(response.body().isStatus()){
-                            System.out.println("response\t\t\t"+response.body().get$id());
-                            System.out.println("response001\t\t\t"+response.body().getMsg());
-                            System.out.println("response002\t\t\t"+response.body().getData().size());
                             iOrderListView.getLocationList(response.body().getData());
                         }
 

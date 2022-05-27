@@ -3,6 +3,7 @@ package com.thisit.southavencrm.login.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ILoginPresenter iLoginPresenter;
     private EditText LoginIDEditText, passwordEditText;
     private CheckBox rememberMeCheckBox;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +73,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             } else if (passwordEditText.getText().toString().length() == 0) {
                 passwordEditText.setError("Enter the password");
                 passwordEditText.requestFocus();
-            }else {
+            } else {
                 if (ConfigApp.isNetworkAvailable(activity)) {
                     iLoginPresenter.apiCall(LoginIDEditText.getText().toString(), passwordEditText.getText().toString());
                 } else {
@@ -93,6 +95,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
+    public void onSuccess(String massage) {
+
+    }
+
+    @Override
     public void onSuccess() {
         if (rememberMeCheckBox.isChecked()) {
             ConfigApp.setContactCode(LoginIDEditText.getText().toString());
@@ -103,10 +110,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void onFailure() {
-        ToastMessage.toast("username or password is incorrect");
+    public void onFailed() {
+
     }
 
+    @Override
+    public void PrefixonSucess() throws ClassNotFoundException {
+
+    }
+
+    @Override
+    public void PrefixonFailed() {
+
+    }
+
+    @Override
+    public void onemptyprefix() {
+
+    }
+
+    @Override
+    public void onFailure(String massage) {
+        ToastMessage.toast("username or password is incorrect");
+        new AlertDialog.Builder(this)
+                .setTitle("Login Failed")
+                .setMessage(massage)
+                .setCancelable(false)
+                .setNegativeButton("OKAY", null)
+                .show();
+    }
 
 
     @Override
@@ -116,6 +148,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void hideProgress() {
+
+    }
+
+    @Override
+    public void offlineDialog() {
 
     }
 }

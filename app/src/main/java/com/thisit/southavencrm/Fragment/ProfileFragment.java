@@ -17,6 +17,9 @@ import com.smarteist.autoimageslider.SliderView;
 import com.thisit.southavencrm.ProfileSliderAdapter;
 import com.thisit.southavencrm.ProfileSliderBean;
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.ConfigApp;
+import com.thisit.southavencrm.customfonts.TextviewSourceSansProBold;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.editprofile.view.EditProfileFragment;
 import com.thisit.southavencrm.changePassword.view.ChangePasswordFragment;
 import com.thisit.southavencrm.login.view.LoginActivity;
@@ -27,6 +30,7 @@ public class ProfileFragment extends Fragment {
     private View root;
     private Activity activity;
     private LinearLayout editprofile_llv, changepassword_llv, edit_settings_llv, logout_llv;
+    private TextviewSourceSansProBold txtUsername;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,11 +40,12 @@ public class ProfileFragment extends Fragment {
         ArrayList<ProfileSliderBean> sliderDataArrayList = new ArrayList<>();
 
         SliderView sliderView = root.findViewById(R.id.slider);
-        editprofile_llv = (LinearLayout) root.findViewById(R.id.editprofile_llv);
-        changepassword_llv = (LinearLayout) root.findViewById(R.id.changepassword_llv);
-        edit_settings_llv = (LinearLayout) root.findViewById(R.id.edit_settings_llv);
-        logout_llv = (LinearLayout) root.findViewById(R.id.logout_llv);
-
+        editprofile_llv = root.findViewById(R.id.editprofile_llv);
+        changepassword_llv =  root.findViewById(R.id.changepassword_llv);
+        edit_settings_llv =  root.findViewById(R.id.edit_settings_llv);
+        logout_llv =  root.findViewById(R.id.logout_llv);
+        txtUsername =  root.findViewById(R.id.username);
+        txtUsername.setText(ConfigApp.getContactName());
         sliderDataArrayList.add(new ProfileSliderBean(R.drawable.background2));
         sliderDataArrayList.add(new ProfileSliderBean(R.drawable.shop));
         sliderDataArrayList.add(new ProfileSliderBean(R.drawable.background1));
@@ -92,6 +97,11 @@ public class ProfileFragment extends Fragment {
         });
 
         return root;
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ((ECardActivity) getActivity()).title_tv.setText(R.string.profile_acco);
     }
 }
 

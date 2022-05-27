@@ -8,24 +8,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.contactUs.presenter.ContactUsPresenter;
 import com.thisit.southavencrm.contactUs.presenter.IContactUsPresenter;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
 
-public class ContactFragment  extends Fragment implements iContactUsFragment {
+public class ContactFragment  extends  BaseFragment implements iContactUsFragment {
 
     private View root;
     private Activity activity;
     private IContactUsPresenter iContactUsPresenter;
     private Button Savebutton;
     private EditText subjectmessage_EditText,message_et;
+    private TextView txtUsername,txtEmail,txtPhoneNo;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,10 +36,17 @@ public class ContactFragment  extends Fragment implements iContactUsFragment {
         activity = getActivity();
 
         iContactUsPresenter = new ContactUsPresenter(this);
-        Savebutton = (Button) root.findViewById(R.id.Savebutton);
-        subjectmessage_EditText = (EditText) root.findViewById(R.id.subjectmessage_EditText);
-        message_et = (EditText) root.findViewById(R.id.message_et);
+        Savebutton = root.findViewById(R.id.Savebutton);
+        subjectmessage_EditText = root.findViewById(R.id.subjectmessage_EditText);
+        message_et = root.findViewById(R.id.message_et);
+        txtUsername =  root.findViewById(R.id.username_textView);
+        txtEmail=  root.findViewById(R.id.txt_email);
+        txtPhoneNo=  root.findViewById(R.id.txt_phoneno);
 
+        txtUsername.setText(ConfigApp.getContactName());
+        txtEmail.setText(ConfigApp.getEMAIL());
+        txtEmail.setText(ConfigApp.getEMAIL());
+        txtPhoneNo.setText(ConfigApp.getMOBILE_NUMBER());
 
         Savebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +87,7 @@ public class ContactFragment  extends Fragment implements iContactUsFragment {
         new AlertDialog.Builder(getActivity())
                 .setTitle("Thank you")
                 .setMessage("Thank you for contacting us. We have received your message")
-                .setCancelable(false)
+                .setCancelable(true)
                 .setNegativeButton("ok", null)
                 .show();
     }
@@ -87,7 +97,7 @@ public class ContactFragment  extends Fragment implements iContactUsFragment {
         new AlertDialog.Builder(getActivity())
                 .setTitle("Contact Failed")
                 .setMessage("We are unable to receive your message at this time. please try again later.")
-                .setCancelable(false)
+                .setCancelable(true)
                 .setNegativeButton("close", null)
                 .show();
     }

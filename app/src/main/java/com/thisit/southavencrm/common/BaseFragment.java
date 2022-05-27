@@ -19,4 +19,34 @@ public class BaseFragment extends Fragment implements IBaseView {
         }
     }
 
+    @Override
+    public void offlineDialog() {
+
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFailed() {
+
+    }
+
+    @Override
+    public void PrefixonSucess() throws ClassNotFoundException {
+
+    }
+
+    @Override
+    public void PrefixonFailed() {
+
+    }
+
+    @Override
+    public void onemptyprefix() {
+
+    }
+
 }

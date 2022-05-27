@@ -28,7 +28,7 @@ public class FQAFragment extends BaseFragment implements IFAQListView {
     private Activity activity;
     private IFAQListPresenter ifaqListPresenter;
     private ArrayList<FAQListResponseModel> faqListResponseModelArrayList;
-private RecyclerView faqlistrecyclerView;
+    private RecyclerView faqlistrecyclerView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_faqlist, container, false);

@@ -20,8 +20,10 @@
     <string name="profile_acco">Account</string>
     <string name="about">About</string>
     <string name="about_us">About Us</string>
+    <string name="settings">Settings</string>
+    <string name="title_please_wait">Please Wait</string>
     <string name="contactus">Contact Us</string>
-    <string name="mr">Mr</string>
+    <string name="mr">Mr/Mrs</string>
 
     <string name="contacthint">Subject of your message</string>
     <string name="contacthint2">Your message (1000 characters max)</string>
@@ -40,11 +42,15 @@
     <string name="privacy">Privacy Policy</string>
     <string name="membership">Membership FAQs</string>
     <string name="history">History</string>
+    <string name="contact_name">ContactName</string>
+    <string name="tran_date">TranDate</string>
+    <string name="tran_no">TranNo</string>
+    <string name="net_total">NetTotal</string>
     <string name="tran_history">Transaction History</string>
     <string name="likenote">Enjoy 10% off all regular-priced items </string>
     <string name="calculatornote">Exclusive access to past transactions </string>
     <string name="vipprivileges">VIP Privileges </string>
-    <string name="aboutcontact">Please provide the following information and our representative will get in touch with you as quickly as posible. You can also visit the FAQ section where you can find the list of the most frequently asked questions. </string>
+    <string name="aboutcontact">Please provide the following information and our representative will get in touch with you as quickly as possible. You can also visit the FAQ section where you can find the list of the most frequently asked questions. </string>
     <string name="abouttext2">In addition, we have accessories to exude the wholesome chic look. Our pleasant environment coupled with friendly dedicated retail executives, makes you shopping at Southaven satisfying and enjoyable </string>
     <string name="abouttext">Southaven\'s team of local designers brings you a heavenly fashion gem in singapore. We provide femele consumers with the ultimate shopping experience for apparels.Giving you the confidence needs of everyday life. Southaven\'s range of apparels offers you a wide array of ladies wear that is unique and stylish. </string>
     <string name="vipdiscription">Sorry, you have yet to qualify as our VIP Member.</string>
@@ -58,7 +64,7 @@
     <string name="current_password">Current Password</string>
     <string name="new_password">New Password</string>
     <string name="confirm_password">Confirm New Password</string>
-    <string name="Promotion">Promotion</string>
+    <string name="Promotion">Promotions</string>
     <string name="Promotion_llb">Receive news on all upcoming sales!</string>
     <string name="Order">Order Updates</string>
     <string name="Order_llb">Get notifations on your Orders and\nalterations</string>
@@ -72,4 +78,5 @@
     <string name="btn_backlogin">Back to Login</string>
     <string name="btn_forgotpassword">Forgot your password?</string>
     <string name="forgotpassword_llb">Please enter the email address you\'ve \nregistered with us.</string>
+    <string name="ok" />
 </resources>

@@ -1,7 +1,9 @@
 package com.thisit.southavencrm.dashboard.view;
 
 import android.app.Activity;
-
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,26 +13,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.thisit.southavencrm.Fragment.AboutFragment;
 import com.thisit.southavencrm.Fragment.CardFragment;
-
+import com.thisit.southavencrm.Fragment.HistroyFragment;
 import com.thisit.southavencrm.Fragment.ProfileFragment;
 import com.thisit.southavencrm.OrderList.view.OrderListFragment;
 import com.thisit.southavencrm.R;
-import com.thisit.southavencrm.common.BaseActivity;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
 import com.thisit.southavencrm.dashboard.presenter.GetprofilePresenter;
 import com.thisit.southavencrm.dashboard.presenter.IGetprofilePresenter;
 import com.thisit.southavencrm.locateUs.view.LocationFragment;
+import com.thisit.southavencrm.login.presenter.ILoginPresenter;
+import com.thisit.southavencrm.login.presenter.LoginPresenter;
 
-
-public class ECardActivity extends BaseActivity implements  IGetprofileView{
+public class ECardActivity extends AppCompatActivity  implements  IGetprofileView{
     private Activity activity;
     public TextView title_tv;
     private FloatingActionButton card_fab;
@@ -105,12 +109,18 @@ public class ECardActivity extends BaseActivity implements  IGetprofileView{
     };
 
 
+    @Override
+    public void showProgress() {
 
-
-
+    }
 
     @Override
     public void hideProgress() {
+
+    }
+
+    @Override
+    public void offlineDialog() {
 
     }
 
@@ -126,6 +136,26 @@ public class ECardActivity extends BaseActivity implements  IGetprofileView{
 
     @Override
     public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFailed() {
+
+    }
+
+    @Override
+    public void PrefixonSucess() throws ClassNotFoundException {
+
+    }
+
+    @Override
+    public void PrefixonFailed() {
+
+    }
+
+    @Override
+    public void onemptyprefix() {
 
     }
 

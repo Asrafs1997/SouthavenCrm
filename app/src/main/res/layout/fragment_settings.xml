@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
+        android:padding="@dimen/textsize_small2"
         android:layout_marginRight="15dp"
         android:orientation="vertical">
 
@@ -18,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="4dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,24 +44,25 @@
                 <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="@dimen/textsize_small"
                     android:text="@string/Promotion_llb"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                     android:textColor="@color/black" />
             </LinearLayout>
 
+
             <Switch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:layout_gravity="center" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textsize_medium"
             android:padding="4dp"
             android:orientation="horizontal">
 
@@ -85,7 +88,8 @@
                 <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
+                    android:textSize="16dp"
+                    android:layout_marginTop="@dimen/textsize_small"
                     android:text="@string/Order_llb"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                     android:textColor="@color/black" />
@@ -94,9 +98,7 @@
             <Switch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:layout_gravity="center" />
 
         </LinearLayout>
 

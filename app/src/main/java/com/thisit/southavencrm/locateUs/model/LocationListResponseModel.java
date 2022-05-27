@@ -30,9 +30,25 @@ public class LocationListResponseModel {
 
     private String FaxNo;
 
-    private String Latitude;
+    private Double Latitude;
 
-    private String Longitude;
+    private Double Longitude;
+
+    public Double getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        Latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return Longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        Longitude = longitude;
+    }
 
     public String get$id() {
         return $id;
@@ -130,21 +146,9 @@ public class LocationListResponseModel {
         FaxNo = faxNo;
     }
 
-    public String getLatitude() {
-        return Latitude;
-    }
 
-    public void setLatitude(String latitude) {
-        Latitude = latitude;
-    }
 
-    public String getLongitude() {
-        return Longitude;
-    }
 
-    public void setLongitude(String longitude) {
-        Longitude = longitude;
-    }
 
     public ArrayList<LocationListResponseModel> getData() {
         return data;
