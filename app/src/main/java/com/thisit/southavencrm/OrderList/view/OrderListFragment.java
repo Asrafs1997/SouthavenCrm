@@ -200,7 +200,7 @@ public class OrderListFragment extends Fragment implements IOrderListView {
 //                        date = (dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
 //                        isDateFirstClick = false;
                     }
-                }, mDay, mMonth, mYear);
+                }, mDay, mYear, mMonth);
 
         datePickerDialog.show();
 
