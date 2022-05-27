@@ -187,8 +187,7 @@ public class OrderListFragment extends Fragment implements IOrderListView {
     }
 
 
-<<<<<<< HEAD
-                    @Override
+
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
                         if (isfrom) {
@@ -199,9 +198,6 @@ public class OrderListFragment extends Fragment implements IOrderListView {
 //                        date = (dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
 //                        isDateFirstClick = false;
                     }
-                }, mDay, mYear, mMonth);
-=======
->>>>>>> ea0b532a0d81411aa8ccfb370552c705b57f8e96
 
     public static class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
         @Override

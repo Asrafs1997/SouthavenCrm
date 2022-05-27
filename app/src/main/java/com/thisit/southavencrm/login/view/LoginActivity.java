@@ -53,8 +53,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             LoginIDEditText.setSelection(ConfigApp.getLogin_ID().length());
             rememberMeCheckBox.setChecked(true);
         }
-        LoginIDEditText.setText("7708440879");
-        passwordEditText.setText("123456");
+
     }
 
 
@@ -115,20 +114,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     }
 
-    @Override
-    public void PrefixonSucess() throws ClassNotFoundException {
-
-    }
-
-    @Override
-    public void PrefixonFailed() {
-
-    }
-
-    @Override
-    public void onemptyprefix() {
-
-    }
 
     @Override
     public void onFailure(String massage) {
