@@ -34,10 +34,10 @@ public class OrderListPresenter implements IOrderListPresenter {
     public void locationList(String CompanyCode,String fromDate, String toDate) {
 
         OrderListAPI orderListAPI = ApiClient.getClient(Constants.BASE_URL).create(OrderListAPI.class);
-
         JSONObject jsonObj = new JSONObject();
         try {
             jsonObj.put("CompanyCode",CompanyCode);
+            //jsonObj.put("ContactID","7930");
             jsonObj.put("ContactID",ConfigApp.getContactID());
             jsonObj.put("FromDate",fromDate);//"01/04/2022"
             jsonObj.put("ToDate",toDate);//"10/05/2022"

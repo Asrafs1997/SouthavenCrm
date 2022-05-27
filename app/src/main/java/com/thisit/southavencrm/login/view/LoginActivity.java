@@ -3,6 +3,7 @@ package com.thisit.southavencrm.login.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     private ILoginPresenter iLoginPresenter;
     private EditText LoginIDEditText, passwordEditText;
     private CheckBox rememberMeCheckBox;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +74,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             } else if (passwordEditText.getText().toString().length() == 0) {
                 passwordEditText.setError("Enter the password");
                 passwordEditText.requestFocus();
-            }else {
+            } else {
                 if (ConfigApp.isNetworkAvailable(activity)) {
                     iLoginPresenter.apiCall(LoginIDEditText.getText().toString(), passwordEditText.getText().toString());
                 } else {
@@ -91,6 +93,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void emptyPassword() {
         ToastMessage.toast("password is empty");
+    }
+
+    @Override
+    public void onSuccess(String massage) {
+
     }
 
     @Override
@@ -124,10 +131,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
     @Override
-    public void onFailure() {
+    public void onFailure(String massage) {
         ToastMessage.toast("username or password is incorrect");
+        new AlertDialog.Builder(this)
+                .setTitle("Login Failed")
+                .setMessage(massage)
+                .setCancelable(false)
+                .setNegativeButton("OKAY", null)
+                .show();
     }
-
 
 
     @Override

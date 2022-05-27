@@ -6,7 +6,7 @@ import com.thisit.southavencrm.common.IBaseView;
 public interface ILoginView extends IBaseView {
     void emptyUserName();
     void emptyPassword();
-    void onSuccess();
-    void onFailure();
+    void onSuccess(String massage);
+    void onFailure(String massage);
 
 }

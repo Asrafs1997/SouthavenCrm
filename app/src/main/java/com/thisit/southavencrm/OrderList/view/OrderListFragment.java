@@ -2,6 +2,8 @@ package com.thisit.southavencrm.OrderList.view;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -31,21 +33,19 @@ import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.locateUs.adapter.LocationAdapter;
 import com.thisit.southavencrm.locateUs.model.LocationListResponseModel;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class OrderListFragment extends Fragment implements IOrderListView {
     private View root;
     private Activity activity;
-    private IOrderListPresenter iOrderListPresenter;
+    private static IOrderListPresenter iOrderListPresenter;
     private ArrayList<OrderListResponseModel> orderListResponseModelArrayList;
     private RecyclerView orderlistrecyclerView;
-    private EditText fromDate, toDate;
+    private static TextView fromDate, toDate;
     private TextView record_text;
-    Calendar c = Calendar.getInstance();
-    int mYear = c.get(Calendar.YEAR);
-    int mMonth = c.get(Calendar.MONTH);
-    int mDay = c.get(Calendar.DAY_OF_MONTH);
+    static boolean  isfrom;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_orderlist, container, false);
@@ -61,22 +61,23 @@ public class OrderListFragment extends Fragment implements IOrderListView {
         fromDate.setText(ConfigApp.calenderOneMonthBeforDate());
         toDate.setText(ConfigApp.calenderCurrentDate());
 
-        fromDate.setOnTouchListener(new View.OnTouchListener() {
+        fromDate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    datePicker(true);
-                }
-                return true;
+            public void onClick(View view) {
+                isfrom = true;
+                DialogFragment newFragment = new SelectDateFragment();
+                newFragment.show(getActivity().getFragmentManager(), "DatePicker");
+
             }
         });
-        toDate.setOnTouchListener(new View.OnTouchListener() {
+
+
+        toDate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    datePicker(false);
-                }
-                return true;
+            public void onClick(View view) {
+                isfrom = false;
+                DialogFragment newFragment = new SelectDateFragment();
+                newFragment.show(getActivity().getFragmentManager(), "DatePicker");
             }
         });
 
@@ -109,6 +110,8 @@ public class OrderListFragment extends Fragment implements IOrderListView {
     public void getLocationList(ArrayList<OrderListResponseModel> holdListResponseModelArrayList) {
         orderListResponseModelArrayList = new ArrayList<OrderListResponseModel>();
         if (holdListResponseModelArrayList.size() > 0) {
+            record_text.setVisibility(View.GONE);
+            orderlistrecyclerView.setVisibility(View.VISIBLE);
             for (int i = 0; i < holdListResponseModelArrayList.size(); i++) {
                 OrderListResponseModel orderListResponseModel = new OrderListResponseModel();
                 orderListResponseModel.set$id(holdListResponseModelArrayList.get(i).get$id());
@@ -128,8 +131,6 @@ public class OrderListFragment extends Fragment implements IOrderListView {
                 orderListResponseModel.setLocationName(holdListResponseModelArrayList.get(i).getLocationName());
                 orderListResponseModel.setLocationCode(holdListResponseModelArrayList.get(i).getLocationCode());
                 orderListResponseModelArrayList.add(orderListResponseModel);
-                record_text.setVisibility(View.GONE);
-                orderlistrecyclerView.setVisibility(View.VISIBLE);
                 if (orderListResponseModelArrayList.size() > 0) {
                     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
                     OrderlistAdapter adapter = new OrderlistAdapter(activity, orderListResponseModelArrayList, this);
@@ -185,10 +186,8 @@ public class OrderListFragment extends Fragment implements IOrderListView {
         ((ECardActivity) getActivity()).title_tv.setText(R.string.tran_history);
     }
 
-    private void datePicker(final boolean isfrom) {
-        final DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),
-                new DatePickerDialog.OnDateSetListener() {
 
+<<<<<<< HEAD
                     @Override
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
@@ -201,9 +200,43 @@ public class OrderListFragment extends Fragment implements IOrderListView {
 //                        isDateFirstClick = false;
                     }
                 }, mDay, mYear, mMonth);
+=======
+>>>>>>> ea0b532a0d81411aa8ccfb370552c705b57f8e96
 
-        datePickerDialog.show();
+    public static class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final Calendar calendar = Calendar.getInstance();
+            int yy = calendar.get(Calendar.YEAR);
+            int mm = calendar.get(Calendar.MONTH);
+            int dd = calendar.get(Calendar.DAY_OF_MONTH);
+
+            //return new DatePickerDialog(getActivity(), android.R.style.Theme_Material_Light_Dialog_NoActionBar, this, yy, mm, dd);
+            return new DatePickerDialog(getActivity(), android.R.style.Theme_Material_Light_Dialog_Alert, this, yy, mm, dd);
+        }
+
+        public void onDateSet(DatePicker view, int yy, int mm, int dd) {
+            populateSetDate(yy, mm + 1, dd);
+        }
+
+        public void populateSetDate(int year, int month, int day) {
+            DecimalFormat mFormat = new DecimalFormat("00");
+            String Dates = mFormat.format(Double.valueOf(day)) + "/" + mFormat.format(Double.valueOf(month)) + "/" + mFormat.format(Double.valueOf(year));
+            if (isfrom) {
+                fromDate.setText(Dates);
+            } else {
+                toDate.setText(Dates);
+            }
+
+            if (ConfigApp.isNetworkAvailable(getActivity())) {
+                iOrderListPresenter.locationList(ConfigApp.getCompanyCode(),fromDate.getText().toString(),toDate.getText().toString());
+            } else {
+                Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+            }
+        }
 
     }
+
+
 }
 

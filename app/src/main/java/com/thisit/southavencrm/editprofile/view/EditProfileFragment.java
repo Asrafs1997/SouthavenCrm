@@ -21,6 +21,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 
+import com.thisit.southavencrm.Fragment.ProfileFragment;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.common.ConfigApp;
@@ -151,11 +152,36 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
                 .setCancelable(false)
                 .setNegativeButton("ok", null)
                 .show();
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+        alertDialogBuilder
+                .setTitle("Membership Updated")
+                .setMessage("Your details has been updated");
+        alertDialogBuilder.setPositiveButton("yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        getActivity().getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.framecontainer, new ProfileFragment())
+                                .commit();
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+
+
     }
 
     @Override
     public void onFailure() {
-
+        new AlertDialog.Builder(getActivity())
+                .setTitle("Membership Updated")
+                .setMessage("Your details has been updated")
+                .setCancelable(false)
+                .setNegativeButton("ok", null)
+                .show();
     }
 
     @Override

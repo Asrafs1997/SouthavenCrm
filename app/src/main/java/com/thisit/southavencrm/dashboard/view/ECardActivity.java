@@ -109,9 +109,6 @@ public class ECardActivity extends AppCompatActivity  implements  IGetprofileVie
     };
 
 
-
-
-
     @Override
     public void showProgress() {
 
