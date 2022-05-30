@@ -1,28 +1,21 @@
 package com.thisit.southavencrm.dashboard.view;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.thisit.southavencrm.Fragment.AboutFragment;
 import com.thisit.southavencrm.Fragment.CardFragment;
-import com.thisit.southavencrm.Fragment.HistroyFragment;
 import com.thisit.southavencrm.Fragment.ProfileFragment;
 import com.thisit.southavencrm.OrderList.view.OrderListFragment;
 import com.thisit.southavencrm.R;
@@ -31,8 +24,7 @@ import com.thisit.southavencrm.common.ToastMessage;
 import com.thisit.southavencrm.dashboard.presenter.GetprofilePresenter;
 import com.thisit.southavencrm.dashboard.presenter.IGetprofilePresenter;
 import com.thisit.southavencrm.locateUs.view.LocationFragment;
-import com.thisit.southavencrm.login.presenter.ILoginPresenter;
-import com.thisit.southavencrm.login.presenter.LoginPresenter;
+
 
 public class ECardActivity extends AppCompatActivity  implements  IGetprofileView{
     private Activity activity;
@@ -79,9 +71,7 @@ public class ECardActivity extends AppCompatActivity  implements  IGetprofileVie
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            // By using switch we can easily get
-            // the selected fragment
-            // by using there id.
+
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.history:
@@ -98,8 +88,7 @@ public class ECardActivity extends AppCompatActivity  implements  IGetprofileVie
                     selectedFragment = new AboutFragment();
                     break;
             }
-            // It will help to replace the
-            // one fragment to other.
+
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.framecontainer, selectedFragment)
