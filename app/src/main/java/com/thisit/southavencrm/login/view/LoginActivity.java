@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.thisit.southavencrm.ForgotPassword.view.ForgotpasswordActivity;
 
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.BaseActivity;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
@@ -23,7 +24,7 @@ import com.thisit.southavencrm.login.presenter.LoginPresenter;
 import com.thisit.southavencrm.registration.presenter.IRegistrationPresenter;
 import com.thisit.southavencrm.registration.view.RegisterActivity;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener, ILoginView {
+public class LoginActivity extends BaseActivity implements View.OnClickListener, ILoginView {
 
     private Activity activity;
     private ILoginPresenter iLoginPresenter;
@@ -52,8 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             LoginIDEditText.setSelection(ConfigApp.getLogin_ID().length());
             rememberMeCheckBox.setChecked(true);
         }
-        LoginIDEditText.setText("7708440879");
-        passwordEditText.setText("123456");
+
     }
 
 
@@ -114,20 +114,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    @Override
-    public void PrefixonSucess() throws ClassNotFoundException {
-
-    }
-
-    @Override
-    public void PrefixonFailed() {
-
-    }
-
-    @Override
-    public void onemptyprefix() {
-
-    }
 
     @Override
     public void onFailure(String massage) {
