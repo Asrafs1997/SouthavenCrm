@@ -187,6 +187,16 @@ public class OrderListFragment extends Fragment implements IOrderListView {
     }
 
 
+    /*public void onDateSet(DatePicker view, int year,
+                          int monthOfYear, int dayOfMonth) {
+        if (isfrom) {
+            fromDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+        } else {
+            toDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+        }
+//                        date = (dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+//                        isDateFirstClick = false;
+    }*/
 
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
@@ -198,6 +208,7 @@ public class OrderListFragment extends Fragment implements IOrderListView {
 //                        date = (dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
 //                        isDateFirstClick = false;
                     }
+
 
     public static class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
         @Override
