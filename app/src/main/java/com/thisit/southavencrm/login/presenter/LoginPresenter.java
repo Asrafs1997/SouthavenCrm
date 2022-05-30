@@ -55,9 +55,9 @@ public class LoginPresenter implements ILoginPresenter {
                                     ConfigApp.setLogin_ID(LoginID);
                                     ConfigApp.setPassword(password);
                                 }
-                                iLoginView.onSuccess(response.body().getMsg());
+                                iLoginView.onSuccess();
                             } else {
-                                iLoginView.onFailure(response.body().getMsg());
+                                iLoginView.onFailed();
                             }
 
                         } else {

@@ -200,7 +200,7 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
                     .build();
             LatLng sydney = new LatLng(locationListResponseModelArrayList.get(i).getLatitude(),
                     locationListResponseModelArrayList.get(i).getLongitude());
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1000, null);
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1500, null);
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(sydney);
             markerOptions.title(locationListResponseModelArrayList.get(i).getLocationName());
