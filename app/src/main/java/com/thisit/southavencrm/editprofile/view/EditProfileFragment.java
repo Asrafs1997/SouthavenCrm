@@ -38,7 +38,7 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
     private IEditProfilePresenter iEditProfilePresenter;
     private String[] titles = new String[]{"Mr", "Ms", "Mrs", "Mdm"};
     private Button Savebutton;
-    private EditText name_et,mobile_number_et,email_et,postalcode_et,Address_et,dob_et;
+    private EditText name_et, mobile_number_et, email_et, postalcode_et, Address_et, dob_et;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -87,7 +87,7 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
             public void onClick(View view) {
                 if (ConfigApp.isNetworkAvailable(activity)) {
 
-                    EditProfileResponseModel editProfileResponseModel = new  EditProfileResponseModel();
+                    EditProfileResponseModel editProfileResponseModel = new EditProfileResponseModel();
                     editProfileResponseModel.setContactName(name_et.getText().toString());
                     editProfileResponseModel.setHandphoneNo(mobile_number_et.getText().toString());
                     editProfileResponseModel.setEmail(email_et.getText().toString());
@@ -184,14 +184,6 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
                 .show();
     }
 
-    @Override
-    public void showProgress() {
 
-    }
-
-    @Override
-    public void hideProgress() {
-
-    }
 }
 

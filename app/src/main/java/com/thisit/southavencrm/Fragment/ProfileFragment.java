@@ -17,6 +17,7 @@ import com.smarteist.autoimageslider.SliderView;
 import com.thisit.southavencrm.ProfileSliderAdapter;
 import com.thisit.southavencrm.ProfileSliderBean;
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.customfonts.TextviewSourceSansProBold;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
@@ -26,7 +27,7 @@ import com.thisit.southavencrm.login.view.LoginActivity;
 
 import java.util.ArrayList;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends BaseFragment {
     private View root;
     private Activity activity;
     private LinearLayout editprofile_llv, changepassword_llv, edit_settings_llv, logout_llv;
@@ -86,6 +87,7 @@ public class ProfileFragment extends Fragment {
                         .setCancelable(false)
                         .setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+                                ConfigApp.setCompanyCode("null");
                                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                                 getActivity().startActivity(intent);
                                 getActivity().finish();

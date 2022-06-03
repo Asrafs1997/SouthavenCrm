@@ -13,11 +13,12 @@ import android.widget.Toast;
 import com.thisit.southavencrm.ForgotPassword.presenter.ForgotPasswordPresenter;
 import com.thisit.southavencrm.ForgotPassword.presenter.IForgotPasswordPresenter;
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.BaseActivity;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
 import com.thisit.southavencrm.login.view.LoginActivity;
 
-public class ForgotpasswordActivity extends AppCompatActivity implements View.OnClickListener, IForgotPasswordView {
+public class ForgotpasswordActivity extends BaseActivity implements View.OnClickListener, IForgotPasswordView {
     private Activity activity;
     private EditText email_EditText;
     private IForgotPasswordPresenter iForgotPasswordPresenter;
@@ -73,46 +74,6 @@ public class ForgotpasswordActivity extends AppCompatActivity implements View.On
                 .setCancelable(false)
                 .setNegativeButton("close", null)
                 .show();
-    }
-
-    @Override
-    public void showProgress() {
-
-    }
-
-    @Override
-    public void hideProgress() {
-
-    }
-
-    @Override
-    public void offlineDialog() {
-
-    }
-
-    @Override
-    public void onSuccess() {
-
-    }
-
-    @Override
-    public void onFailed() {
-
-    }
-
-    @Override
-    public void PrefixonSucess() throws ClassNotFoundException {
-
-    }
-
-    @Override
-    public void PrefixonFailed() {
-
-    }
-
-    @Override
-    public void onemptyprefix() {
-
     }
 
 

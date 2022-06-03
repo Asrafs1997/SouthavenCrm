@@ -8,9 +8,10 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
 
-public class HistroyFragment extends Fragment {
+public class HistroyFragment extends BaseFragment {
 
     public HistroyFragment() {
         // require a empty public constructor

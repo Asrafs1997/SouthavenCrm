@@ -17,7 +17,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class GetprofilePresenter implements IGetprofilePresenter {
+public class GetprofilePresenter  implements IGetprofilePresenter {
     private IGetprofileView iGetprofileView;
 
     public GetprofilePresenter(ECardActivity eCardActivity) {

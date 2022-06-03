@@ -5,7 +5,6 @@ import android.util.Log;
 import com.thisit.southavencrm.common.BasicAuth;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.Constants;
-import com.thisit.southavencrm.editprofile.view.EditProfileFragment;
 import com.thisit.southavencrm.login.model.LoginResponseModel;
 import com.thisit.southavencrm.login.view.ILoginView;
 import com.thisit.southavencrm.login.view.LoginActivity;
@@ -26,6 +25,7 @@ public class LoginPresenter implements ILoginPresenter {
 
     @Override
     public void apiCall(final String LoginID, final String password) {
+
         if (LoginID.isEmpty()) {
             iLoginView.emptyUserName();
         } else if (password.isEmpty()) {
@@ -41,9 +41,11 @@ public class LoginPresenter implements ILoginPresenter {
             iLoginView.showProgress();
             call.enqueue(new Callback<LoginResponseModel>() {
                 @Override
+
                 public void onResponse(Call<LoginResponseModel> call, Response<LoginResponseModel> response) {
                     iLoginView.hideProgress();
                     if (response.isSuccessful()) {
+                        Log.i("response\t\t", response.toString());
                         if (response.body() != null) {
                             if (response.body().isStatus()) {
                                 if (response.body().getData().size() > 0) {
@@ -54,14 +56,16 @@ public class LoginPresenter implements ILoginPresenter {
                                     ConfigApp.setEMAIL(response.body().getData().get(0).getEmail());
                                     ConfigApp.setLogin_ID(LoginID);
                                     ConfigApp.setPassword(password);
+                                    iLoginView.onSuccess();
+                                }else {
+                                    iLoginView.onFailure(response.body().getMsg());
                                 }
-                                iLoginView.onSuccess();
                             } else {
-                                iLoginView.onFailed();
+                                iLoginView.onFailure(response.body().getMsg());
                             }
 
                         } else {
-                            iLoginView.onFailure("username or password is incorrect");
+                            iLoginView.onFailure(response.body().getMsg());
                         }
                     }
                 }

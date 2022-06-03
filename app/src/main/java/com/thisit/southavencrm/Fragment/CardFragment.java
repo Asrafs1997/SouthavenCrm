@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.BaseFragment;
 
-public class CardFragment extends Fragment {
+public class CardFragment extends BaseFragment {
 
     public CardFragment(){
         // require a empty public constructor

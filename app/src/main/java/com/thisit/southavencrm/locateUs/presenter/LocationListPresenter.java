@@ -38,11 +38,11 @@ public class LocationListPresenter implements ILocationListPresenter {
         String requestData = "{\"CompanyCode\":" +CompanyCode + "}";
         Log.d("getHoldOrderList", requestData);
         Call<LocationListResponseModel> call = locationAPI.holdList(requestData, BasicAuth.getAuth());
-        iLocationListView.showProgress();
+
         call.enqueue(new Callback<LocationListResponseModel>() {
             @Override
             public void onResponse(Call<LocationListResponseModel> call, Response<LocationListResponseModel> response) {
-                iLocationListView.hideProgress();
+
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         if(response.body().isStatus()){

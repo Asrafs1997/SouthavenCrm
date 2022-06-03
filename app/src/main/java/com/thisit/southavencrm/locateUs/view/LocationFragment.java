@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.locateUs.adapter.LocationAdapter;
@@ -32,7 +33,7 @@ import com.thisit.southavencrm.locateUs.presenter.LocationListPresenter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class LocationFragment extends Fragment implements ILocationListView, OnMapReadyCallback {
+public class LocationFragment extends BaseFragment implements ILocationListView, OnMapReadyCallback {
     private View root;
     private Activity activity;
     private RecyclerView locationrecyclerView;
@@ -91,20 +92,8 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
     }
 
 
-    @Override
-    public void showProgress() {
 
-    }
 
-    @Override
-    public void hideProgress() {
-
-    }
-
-    @Override
-    public void offlineDialog() {
-
-    }
 
     @Override
     public void getLocationList(ArrayList<LocationListResponseModel> holdListResponseModelArrayList) {
@@ -154,25 +143,6 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
 
     }
 
-    @Override
-    public void onFailed() {
-
-    }
-
-    @Override
-    public void PrefixonSucess() throws ClassNotFoundException {
-
-    }
-
-    @Override
-    public void PrefixonFailed() {
-
-    }
-
-    @Override
-    public void onemptyprefix() {
-
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -194,7 +164,7 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
             CameraPosition googlePlex = CameraPosition.builder()
                     .target(new LatLng(locationListResponseModelArrayList.get(i).getLatitude()
                             , locationListResponseModelArrayList.get(i).getLongitude()))
-                    .zoom(10)
+                    .zoom(100)
                     .bearing(0)
                     .tilt(45)
                     .build();
@@ -206,7 +176,7 @@ public class LocationFragment extends Fragment implements ILocationListView, OnM
             markerOptions.title(locationListResponseModelArrayList.get(i).getLocationName());
             markerOptions.snippet(locationListResponseModelArrayList.get(i).getAddress1());
             mMap.addMarker(markerOptions);
-            // mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationArrayList.get(i), 6));
+            //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationArrayList.get(i), 6));
         }
 
     }

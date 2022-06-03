@@ -4,12 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="5dp"
+        app:srcCompat="@drawable/vip" />
+
     <LinearLayout
         android:id="@+id/date_picker_llv"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/ed_fromDate"
@@ -57,7 +65,7 @@
         android:id="@+id/orderlistrecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/date_picker_llv"
+        android:layout_below="@+id/imageView"
         android:padding="10dp" />
 
     <TextView

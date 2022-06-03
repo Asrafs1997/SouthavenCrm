@@ -1,5 +1,7 @@
 package com.thisit.southavencrm.changePassword.presenter;
 
+import android.util.Log;
+
 import com.thisit.southavencrm.changePassword.view.IChangePasswordFragment;
 import com.thisit.southavencrm.changePassword.model.ChangePasswordRequestModel;
 import com.thisit.southavencrm.common.BasicAuth;
@@ -36,20 +38,11 @@ public class ChangePasswordPresenter implements IChangePasswordPresenter {
         } else if (confirmpassword == null || confirmpassword.isEmpty()) {
             ToastMessage.toast("confirm password  is empty");
         } else {
-            //ChangePasswordjsonObj  = "{\"Model\":{\"CompanyCode\":\"1\",\"ContactId\":\"7708440879\",\"Password\":\"123456\",\"NewPassword\":\"123456\"}}";
-            JSONObject jsonObj = new JSONObject();
-            try {
-                jsonObj.put("CompanyCode", ConfigApp.getCompanyCode());
-                jsonObj.put("ContactId", ConfigApp.getContactID());
-                jsonObj.put("Password", currentpassword);
-                jsonObj.put("NewPassword", newpassword);
-                requestString = "{\"Model\":" + jsonObj.toString() + "}";
-            } catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            requestString="{\"Model\":{\"CompanyCode\":\"1\",\"ContactId\":\"7963\",\"Password\":\"123456\",\"NewPassword\":\"123456\"}}";
-            System.out.println("requestString\t\t" + requestString);
+
+            String requestData = "{\"CompanyCode\":" + ConfigApp.getCompanyCode() + ",\"ContactID\":\"" + ConfigApp.getContactID() + "\",\"Password\":\"" + currentpassword + "\",\"NewPassword\":\"" + newpassword + "\"}";
+            requestString = "{\"Model\":" + requestData + "}";
+            Log.d("requestData1", requestString);
+
             RequestBody rawString = RequestBody.create(MediaType.parse("application/json"), requestString);
             ChangePasswordAPI changePasswordAPI = ApiClient.getClient(Constants.BASE_URL).create(ChangePasswordAPI.class);
             Call<ChangePasswordRequestModel> call = changePasswordAPI.ChangePassword(rawString, BasicAuth.getAuth());
@@ -58,14 +51,11 @@ public class ChangePasswordPresenter implements IChangePasswordPresenter {
                 @Override
                 public void onResponse(Call<ChangePasswordRequestModel> call, Response<ChangePasswordRequestModel> response) {
                     iChangePasswordFragment.hideProgress();
-                    System.out.println("response"+response.toString());
-                    if (response.isSuccessful() && response.body() != null) {
-                        if (response.body().isStatus()) {
-                            iChangePasswordFragment.onSuccess(response.body().getMsg());
-                        } else {
-                            iChangePasswordFragment.onFailure(response.body().getMsg());
-                        }
-                        return;
+
+                    if (response.body().isStatus()) {
+                        iChangePasswordFragment.onSuccess(response.body().getMsg());
+                    } else {
+                        iChangePasswordFragment.onFailure(response.body().getMsg());
                     }
                     ToastMessage.toast(response.message());
                 }
@@ -73,7 +63,7 @@ public class ChangePasswordPresenter implements IChangePasswordPresenter {
                 @Override
                 public void onFailure(Call<ChangePasswordRequestModel> call, Throwable t) {
                     iChangePasswordFragment.hideProgress();
-                    //ToastMessage.toast(context, t.getMessage());
+                    System.out.println("getMessage"+t.getMessage());
                 }
             });
 

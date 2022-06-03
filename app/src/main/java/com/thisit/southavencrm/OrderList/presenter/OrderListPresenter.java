@@ -37,7 +37,7 @@ public class OrderListPresenter implements IOrderListPresenter {
         JSONObject jsonObj = new JSONObject();
         try {
             jsonObj.put("CompanyCode",CompanyCode);
-            //jsonObj.put("ContactID","7930");
+           // jsonObj.put("ContactID","6861");
             jsonObj.put("ContactID",ConfigApp.getContactID());
             jsonObj.put("FromDate",fromDate);//"01/04/2022"
             jsonObj.put("ToDate",toDate);//"10/05/2022"
@@ -54,10 +54,12 @@ public class OrderListPresenter implements IOrderListPresenter {
             @Override
             public void onResponse(Call<OrderListResponseModel> call, Response<OrderListResponseModel> response) {
                 iOrderListView.hideProgress();
+                Log.d(" toString ", response.toString());
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         if(response.body().isStatus()){
                             iOrderListView.getLocationList(response.body().getData());
+                            System.out.println("response.body().getData()"+response.body().getData().size());
                         }
 
                     }

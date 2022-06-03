@@ -7,12 +7,7 @@ public interface iContactUsFragment extends IBaseView {
 
     void onFailure();
 
-    void showProgress();
+  
 
-    void hideProgress();
-
-    void offlineDialog();
-
-    void hideOffLineDialog();
-    void onLineOffLineCancelClickListener();
+ 
 }

@@ -1,11 +1,13 @@
 package com.thisit.southavencrm.dashboard.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,8 +19,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.thisit.southavencrm.Fragment.AboutFragment;
 import com.thisit.southavencrm.Fragment.CardFragment;
 import com.thisit.southavencrm.Fragment.ProfileFragment;
+import com.thisit.southavencrm.Notification.view.NotificationActivity;
 import com.thisit.southavencrm.OrderList.view.OrderListFragment;
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.BaseActivity;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
 import com.thisit.southavencrm.dashboard.presenter.GetprofilePresenter;
@@ -26,12 +30,13 @@ import com.thisit.southavencrm.dashboard.presenter.IGetprofilePresenter;
 import com.thisit.southavencrm.locateUs.view.LocationFragment;
 
 
-public class ECardActivity extends AppCompatActivity  implements  IGetprofileView{
+public class ECardActivity extends BaseActivity implements  IGetprofileView{
     private Activity activity;
     public TextView title_tv;
     private FloatingActionButton card_fab;
     private BottomNavigationView bottomNavigationView;
     private IGetprofilePresenter iGetprofilePresenter;
+    private ImageView notification_img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +50,15 @@ public class ECardActivity extends AppCompatActivity  implements  IGetprofileVie
         title_tv = (TextView) findViewById(R.id.title_tv);
         iGetprofilePresenter = (IGetprofilePresenter) new GetprofilePresenter(this);
         iGetprofilePresenter.apiCall(ConfigApp.getCompanyCode(), ConfigApp.getContactID());
+        notification_img = (ImageView) findViewById(R.id.notification_img);
+        notification_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, NotificationActivity.class);
+                startActivity(intent);
+              //  finish();
+            }
+        });
 
         card_fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +67,6 @@ public class ECardActivity extends AppCompatActivity  implements  IGetprofileVie
                 getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new CardFragment()).commit();
             }
         });
-
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnavigationbar);
 
@@ -98,20 +111,7 @@ public class ECardActivity extends AppCompatActivity  implements  IGetprofileVie
     };
 
 
-    @Override
-    public void showProgress() {
 
-    }
-
-    @Override
-    public void hideProgress() {
-
-    }
-
-    @Override
-    public void offlineDialog() {
-
-    }
 
     @Override
     public void CompanyCode() {
@@ -125,26 +125,6 @@ public class ECardActivity extends AppCompatActivity  implements  IGetprofileVie
 
     @Override
     public void onSuccess() {
-
-    }
-
-    @Override
-    public void onFailed() {
-
-    }
-
-    @Override
-    public void PrefixonSucess() throws ClassNotFoundException {
-
-    }
-
-    @Override
-    public void PrefixonFailed() {
-
-    }
-
-    @Override
-    public void onemptyprefix() {
 
     }
 
