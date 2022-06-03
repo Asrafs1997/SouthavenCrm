@@ -28,6 +28,7 @@ import com.thisit.southavencrm.OrderList.model.OrderListResponseModel;
 import com.thisit.southavencrm.OrderList.presenter.IOrderListPresenter;
 import com.thisit.southavencrm.OrderList.presenter.OrderListPresenter;
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.locateUs.adapter.LocationAdapter;
@@ -37,7 +38,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class OrderListFragment extends Fragment implements IOrderListView {
+public class OrderListFragment extends BaseFragment implements IOrderListView {
     private View root;
     private Activity activity;
     private static IOrderListPresenter iOrderListPresenter;
@@ -91,20 +92,7 @@ public class OrderListFragment extends Fragment implements IOrderListView {
     }
 
 
-    @Override
-    public void showProgress() {
 
-    }
-
-    @Override
-    public void hideProgress() {
-
-    }
-
-    @Override
-    public void offlineDialog() {
-
-    }
 
     @Override
     public void getLocationList(ArrayList<OrderListResponseModel> holdListResponseModelArrayList) {
@@ -156,25 +144,6 @@ public class OrderListFragment extends Fragment implements IOrderListView {
 
     }
 
-    @Override
-    public void onFailed() {
-
-    }
-
-    @Override
-    public void PrefixonSucess() throws ClassNotFoundException {
-
-    }
-
-    @Override
-    public void PrefixonFailed() {
-
-    }
-
-    @Override
-    public void onemptyprefix() {
-
-    }
 
     @Override
     public void holdListClick(int position) {

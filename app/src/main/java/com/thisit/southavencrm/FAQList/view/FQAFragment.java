@@ -45,17 +45,6 @@ public class FQAFragment extends BaseFragment implements IFAQListView {
     }
 
 
-
-    @Override
-    public void showProgress() {
-
-    }
-
-    @Override
-    public void hideProgress() {
-
-    }
-
     @Override
     public void getLocationList(ArrayList<FAQListResponseModel> holdListResponseModelArrayList) {
         faqListResponseModelArrayList = new ArrayList<FAQListResponseModel>();

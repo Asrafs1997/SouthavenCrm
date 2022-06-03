@@ -6,12 +6,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.BaseActivity;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
 
-public class NotificationActivity extends AppCompatActivity {
+public class NotificationActivity extends BaseActivity implements View.OnClickListener  {
     private Activity activity;
     private TextView close_btn;
 
@@ -21,7 +23,6 @@ public class NotificationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notification);
         activity = NotificationActivity.this;
         close_btn = (TextView) findViewById(R.id.close_btn);
-
         close_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,5 +31,10 @@ public class NotificationActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

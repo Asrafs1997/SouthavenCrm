@@ -102,30 +102,9 @@ public class ContactFragment  extends  BaseFragment implements iContactUsFragmen
                 .show();
     }
 
-    @Override
-    public void showProgress() {
 
-    }
 
-    @Override
-    public void hideProgress() {
 
-    }
-
-    @Override
-    public void offlineDialog() {
-
-    }
-
-    @Override
-    public void hideOffLineDialog() {
-
-    }
-
-    @Override
-    public void onLineOffLineCancelClickListener() {
-
-    }
 }
 
 

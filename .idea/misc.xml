@@ -29,6 +29,7 @@
         <entry key="..\:/Project/CRM/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/base_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_about.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_card.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_changepassword.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_editprofile.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/CRM/app/src/main/res/layout/fragment_faqlist.xml" value="0.20416666666666666" />
@@ -63,5 +64,5 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

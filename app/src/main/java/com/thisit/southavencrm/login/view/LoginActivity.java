@@ -1,7 +1,5 @@
 package com.thisit.southavencrm.login.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -21,7 +19,6 @@ import com.thisit.southavencrm.common.ToastMessage;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.login.presenter.ILoginPresenter;
 import com.thisit.southavencrm.login.presenter.LoginPresenter;
-import com.thisit.southavencrm.registration.presenter.IRegistrationPresenter;
 import com.thisit.southavencrm.registration.view.RegisterActivity;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener, ILoginView {
@@ -66,14 +63,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         } else if (id == R.id.btn_register) {
             Intent intent = new Intent(activity, RegisterActivity.class);
             startActivity(intent);
+            finish();
         } else if (id == R.id.btn_login) {
             if (LoginIDEditText.getText().toString().length() == 0) {
-                LoginIDEditText.setError("Enter the Email");
-                LoginIDEditText.requestFocus();
-            } else if (passwordEditText.getText().toString().length() == 0) {
-                passwordEditText.setError("Enter the password");
-                passwordEditText.requestFocus();
-            } else {
+
+            }  else {
                 if (ConfigApp.isNetworkAvailable(activity)) {
                     iLoginPresenter.apiCall(LoginIDEditText.getText().toString(), passwordEditText.getText().toString());
                 } else {
@@ -86,17 +80,17 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void emptyUserName() {
-        ToastMessage.toast("username is empty");
+      //  ToastMessage.toast("username is empty");
+
+        LoginIDEditText.setError("Enter the Email");
+        LoginIDEditText.requestFocus();
     }
 
     @Override
     public void emptyPassword() {
-        ToastMessage.toast("password is empty");
-    }
-
-    @Override
-    public void onSuccess(String message) {
-
+       // ToastMessage.toast("password is empty");
+        passwordEditText.setError("Enter the password");
+        passwordEditText.requestFocus();
     }
 
     @Override
@@ -110,35 +104,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
     @Override
-    public void onFailed() {
-
-    }
-
-
-    @Override
-    public void onFailure(String massage) {
+    public void onFailure(String msg) {
         ToastMessage.toast("username or password is incorrect");
         new AlertDialog.Builder(this)
                 .setTitle("Login Failed")
-                .setMessage(massage)
+                .setMessage(msg)
                 .setCancelable(false)
                 .setNegativeButton("OKAY", null)
                 .show();
-    }
-
-
-    @Override
-    public void showProgress() {
-
-    }
-
-    @Override
-    public void hideProgress() {
-
-    }
-
-    @Override
-    public void offlineDialog() {
-
     }
 }

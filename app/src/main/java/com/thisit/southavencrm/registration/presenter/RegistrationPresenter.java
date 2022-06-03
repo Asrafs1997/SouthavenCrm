@@ -76,7 +76,6 @@ public class RegistrationPresenter implements IRegistrationPresenter {
                 @Override
                 public void onResponse(@NonNull Call<RegistrationRequestModel> call, @NonNull Response<RegistrationRequestModel> response) {
                     iRegistrationView.hideProgress();
-                    Log.i("response 001\t\t\t", response.body().getMsg());
                     if (response.isSuccessful()) {
                         if (response.body().isStatus()){
                             iRegistrationView.onSuccess(response.body().getMsg());

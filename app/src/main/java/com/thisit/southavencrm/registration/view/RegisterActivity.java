@@ -7,19 +7,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.thisit.southavencrm.Notification.view.NotificationActivity;
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.common.BaseActivity;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.ToastMessage;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
+import com.thisit.southavencrm.login.view.LoginActivity;
 import com.thisit.southavencrm.registration.model.RegistrationRequestModel;
 import com.thisit.southavencrm.registration.presenter.IRegistrationPresenter;
 import com.thisit.southavencrm.registration.presenter.RegistrationPresenter;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener,IRegistrationView  {
+public class RegisterActivity extends BaseActivity implements View.OnClickListener,IRegistrationView  {
     private Activity activity;
     private Spinner title_spi;
     private String[] titles = new String[]{"Mr", "Ms", "Mrs", "Mdm"};
@@ -27,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             emailID_EditText,password_EditText,conformpassword_EditText,postalcode_EditText,
             Address_EditText,date_Of_Birth_EditText;
     private IRegistrationPresenter iRegistrationPresenter;
+    private TextView btn_login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +50,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         postalcode_EditText = (EditText) findViewById(R.id.postalcode_EditText);
         Address_EditText = (EditText) findViewById(R.id.Address_EditText);
         date_Of_Birth_EditText = (EditText) findViewById(R.id.date_Of_Birth_EditText);
+        btn_login = (TextView) findViewById(R.id.btn_login);
+
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+
+        });
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, titles);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -110,44 +128,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    @Override
-    public void showProgress() {
-
-    }
 
     @Override
-    public void hideProgress() {
-
-    }
-
-    @Override
-    public void offlineDialog() {
-
-    }
-
-    @Override
-    public void onSuccess() {
-
-    }
-
-    @Override
-    public void onFailed() {
-
-    }
-
-    @Override
-    public void PrefixonSucess() throws ClassNotFoundException {
-
-    }
-
-    @Override
-    public void PrefixonFailed() {
-
-    }
-
-    @Override
-    public void onemptyprefix() {
-
+    public void onBackPressed() {
+        Intent intent = new Intent(activity, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override

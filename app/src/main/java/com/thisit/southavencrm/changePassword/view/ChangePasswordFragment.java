@@ -17,10 +17,11 @@ import androidx.fragment.app.Fragment;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.changePassword.presenter.ChangePasswordPresenter;
 import com.thisit.southavencrm.changePassword.presenter.IChangePasswordPresenter;
+import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
 
-public class ChangePasswordFragment extends Fragment implements IChangePasswordFragment {
+public class ChangePasswordFragment extends BaseFragment implements IChangePasswordFragment {
     private View root;
     private Activity activity;
     private IChangePasswordPresenter iChangePasswordPresentr;
@@ -74,20 +75,7 @@ public class ChangePasswordFragment extends Fragment implements IChangePasswordF
     }
 
 
-    @Override
-    public void emptycurrentPassword() {
 
-    }
-
-    @Override
-    public void emptynewPassword() {
-
-    }
-
-    @Override
-    public void emptyconfirmPassword() {
-
-    }
 
     @Override
     public void onSuccess(String msg) {
@@ -119,45 +107,9 @@ public class ChangePasswordFragment extends Fragment implements IChangePasswordF
 
 
 
-    @Override
-    public void showProgress() {
 
-    }
 
-    @Override
-    public void hideProgress() {
 
-    }
-
-    @Override
-    public void offlineDialog() {
-
-    }
-
-    @Override
-    public void onSuccess() {
-
-    }
-
-    @Override
-    public void onFailed() {
-
-    }
-
-    @Override
-    public void PrefixonSucess() throws ClassNotFoundException {
-
-    }
-
-    @Override
-    public void PrefixonFailed() {
-
-    }
-
-    @Override
-    public void onemptyprefix() {
-
-    }
 
 }
 

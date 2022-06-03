@@ -108,4 +108,7 @@ public class LoginResponseModel {
     public void setData(ArrayList<LoginResponseModel> data) {
         this.data = data;
     }
+
+
+
 }
