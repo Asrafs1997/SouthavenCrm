@@ -95,7 +95,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     }
 
     @Override
-    public void onSuccess(String massage) {
+    public void onSuccess(String message) {
 
     }
 
