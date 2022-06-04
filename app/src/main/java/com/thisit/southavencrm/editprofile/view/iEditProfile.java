@@ -9,7 +9,7 @@ public interface iEditProfile extends IBaseView {
     void emptyPostalCode();
     void emptyAddress();
     void emptyDateOfBirth();
-    void onSuccess();
-    void onFailure();
+    void onSuccess(String msg);
+    void onFailure(String msg);
 
 }

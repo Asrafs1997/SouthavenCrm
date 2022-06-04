@@ -2,8 +2,10 @@ package com.thisit.southavencrm.editprofile.view;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,17 +13,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-
 
 import com.thisit.southavencrm.Fragment.ProfileFragment;
+import com.thisit.southavencrm.OrderList.view.OrderListFragment;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.common.ConfigApp;
@@ -29,6 +29,9 @@ import com.thisit.southavencrm.dashboard.view.ECardActivity;
 import com.thisit.southavencrm.editprofile.model.EditProfileResponseModel;
 import com.thisit.southavencrm.editprofile.presenter.EditProfilePresenter;
 import com.thisit.southavencrm.editprofile.presenter.IEditProfilePresenter;
+
+import java.text.DecimalFormat;
+import java.util.Calendar;
 
 
 public class EditProfileFragment extends BaseFragment implements iEditProfile {
@@ -38,14 +41,13 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
     private IEditProfilePresenter iEditProfilePresenter;
     private String[] titles = new String[]{"Mr", "Ms", "Mrs", "Mdm"};
     private Button Savebutton;
-    private EditText name_et, mobile_number_et, email_et, postalcode_et, Address_et, dob_et;
-
+    private EditText name_et, mobile_number_et, email_et, postalcode_et, Address_et;
+private static TextView dob_et;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_editprofile, container, false);
         activity = getActivity();
         iEditProfilePresenter = (IEditProfilePresenter) new EditProfilePresenter(this);
-
         title_spi = (Spinner) root.findViewById(R.id.title_spi);
         Savebutton = (Button) root.findViewById(R.id.Savebutton);
         name_et = (EditText) root.findViewById(R.id.name_et);
@@ -53,7 +55,8 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
         email_et = (EditText) root.findViewById(R.id.email_et);
         postalcode_et = (EditText) root.findViewById(R.id.postalcode_et);
         Address_et = (EditText) root.findViewById(R.id.Address_et);
-        dob_et = (EditText) root.findViewById(R.id.dob_et);
+        dob_et = (TextView) root.findViewById(R.id.dob_et);
+
 
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, titles);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -101,6 +104,16 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
                 }
             }
         });
+
+        dob_et.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment newFragment = new SelectDateFragment();
+                newFragment.show(getActivity().getFragmentManager(), "DatePicker");
+
+            }
+        });
+
         return root;
 
 
@@ -145,18 +158,11 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
     }
 
     @Override
-    public void onSuccess() {
-        new AlertDialog.Builder(getActivity())
-                .setTitle("Membership Updated")
-                .setMessage("Your details has been updated")
-                .setCancelable(false)
-                .setNegativeButton("ok", null)
-                .show();
-
+    public void onSuccess(String msg) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
         alertDialogBuilder
                 .setTitle("Membership Updated")
-                .setMessage("Your details has been updated");
+                .setMessage(msg);
         alertDialogBuilder.setPositiveButton("yes",
                 new DialogInterface.OnClickListener() {
                     @Override
@@ -175,15 +181,37 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
     }
 
     @Override
-    public void onFailure() {
+    public void onFailure(String msg) {
         new AlertDialog.Builder(getActivity())
                 .setTitle("Membership Updated")
-                .setMessage("Your details has been updated")
+                .setMessage(msg)
                 .setCancelable(false)
                 .setNegativeButton("ok", null)
                 .show();
     }
+    public static class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            final Calendar calendar = Calendar.getInstance();
+            int yy = calendar.get(Calendar.YEAR);
+            int mm = calendar.get(Calendar.MONTH);
+            int dd = calendar.get(Calendar.DAY_OF_MONTH);
 
+            //return new DatePickerDialog(getActivity(), android.R.style.Theme_Material_Light_Dialog_NoActionBar, this, yy, mm, dd);
+            return new DatePickerDialog(getActivity(), android.R.style.Theme_Material_Light_Dialog_Alert, this, yy, mm, dd);
+        }
+
+        public void onDateSet(DatePicker view, int yy, int mm, int dd) {
+            populateSetDate(yy, mm + 1, dd);
+        }
+
+        public void populateSetDate(int year, int month, int day) {
+            DecimalFormat mFormat = new DecimalFormat("00");
+            String Dates = mFormat.format(Double.valueOf(day)) + "/" + mFormat.format(Double.valueOf(month)) + "/" + mFormat.format(Double.valueOf(year));
+            dob_et.setText(Dates);
+        }
+
+    }
 
 }
 

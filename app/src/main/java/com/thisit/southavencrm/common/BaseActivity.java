@@ -8,12 +8,16 @@ import android.view.ViewGroup;
 import android.view.Window;
 
 import com.thisit.southavencrm.R;
+import com.thisit.southavencrm.dashboard.presenter.GetprofilePresenter;
+import com.thisit.southavencrm.dashboard.presenter.IGetprofilePresenter;
+import com.thisit.southavencrm.dashboard.view.IGetprofileView;
 
 
 import java.util.Objects;
 
 public class BaseActivity extends AppCompatActivity implements IBaseView {
     private Dialog dialog;
+
 //    private boolean apiInProgress;
 
     @Override
@@ -42,6 +46,7 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
 //        if (apiInProgress) {
 //            showProgress();
 //        }
+
     }
 
     @Override
@@ -59,5 +64,6 @@ public class BaseActivity extends AppCompatActivity implements IBaseView {
             dialog.dismiss();
         }
     }
+
 
 }

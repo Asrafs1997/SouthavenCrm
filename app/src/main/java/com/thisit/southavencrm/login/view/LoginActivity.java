@@ -96,7 +96,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void onSuccess() {
         if (rememberMeCheckBox.isChecked()) {
-            ConfigApp.setContactCode(LoginIDEditText.getText().toString());
+            ConfigApp.setLogin_ID(LoginIDEditText.getText().toString());
             ConfigApp.setPassword(passwordEditText.getText().toString());
         }
         startActivity(new Intent(LoginActivity.this, ECardActivity.class));

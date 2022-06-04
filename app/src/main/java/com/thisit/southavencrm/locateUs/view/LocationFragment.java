@@ -75,7 +75,7 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
 
                 CameraPosition googlePlex = CameraPosition.builder()
                         .target(new LatLng(locationListResponseModelArrayList.get(position).getLatitude(), locationListResponseModelArrayList.get(position).getLongitude()))
-                        .zoom(10)
+                        .zoom(12)
                         .bearing(0)
                         .tilt(45)
                         .build();
@@ -164,7 +164,7 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
             CameraPosition googlePlex = CameraPosition.builder()
                     .target(new LatLng(locationListResponseModelArrayList.get(i).getLatitude()
                             , locationListResponseModelArrayList.get(i).getLongitude()))
-                    .zoom(100)
+                    .zoom(12)
                     .bearing(0)
                     .tilt(45)
                     .build();

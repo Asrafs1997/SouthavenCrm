@@ -54,7 +54,7 @@ public class EditProfilePresenter implements IEditProfilePresenter {
             JSONObject jsonObj = new JSONObject();
             try {
                 jsonObj.put("CompanyCode", "1");
-                jsonObj.put("ContactID", ConfigApp.getContactCode());
+                jsonObj.put("ContactID", ConfigApp.getContactID());
                 jsonObj.put("Salutation", "SOUTHAVEN");
                 jsonObj.put("ContactName", editProfileResponseModel.getContactName());
                 //jsonObj.put("LastName", editProfileResponseModel.getLastName());
@@ -79,16 +79,14 @@ public class EditProfilePresenter implements IEditProfilePresenter {
                 @Override
                 public void onResponse(@NonNull Call<EditProfileResponseModel> call, @NonNull Response<EditProfileResponseModel> response) {
                     iEditProfile.hideProgress();
-                    Log.i("response 001\t\t\t", response.body().getMsg());
                     if (response.isSuccessful()) {
                         if (response.body().isStatus()) {
-                            iEditProfile.onSuccess();
+                            iEditProfile.onSuccess(response.body().getMsg());
                         } else {
-                            ToastMessage.toast(response.body().getMsg());
+                            iEditProfile.onFailure(response.body().getMsg());
                         }
                         return;
                     }
-
                 }
 
                 @Override

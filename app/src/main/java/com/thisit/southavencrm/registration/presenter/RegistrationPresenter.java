@@ -59,10 +59,9 @@ public class RegistrationPresenter implements IRegistrationPresenter {
                 jsonObj.put("DOB", registrationRequestModel.getDOB());
                 jsonObj.put("Password", registrationRequestModel.getPassword());
                 ConfigApp.setCompanyCode(registrationRequestModel.getCompanyCode());
-                ConfigApp.setContactCode(registrationRequestModel.getContactID());
                 ConfigApp.setContactName(registrationRequestModel.getContactName());
                 RegistrationjsonObj = "{\"Model\":" +jsonObj.toString()+"}";
-                System.out.println("previewQR\t\t" + RegistrationjsonObj);
+                System.out.println("registration json object data\t\t" + RegistrationjsonObj);
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

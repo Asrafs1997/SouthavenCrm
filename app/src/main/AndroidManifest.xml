@@ -45,7 +45,7 @@
             android:value="AIzaSyA9ZXddogVa3SzehWB4l_CIjw9irbuFpQk" />
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".GeneralSettings.view.GeneralSettingsActivity"
             android:theme="@style/Theme.Design.NoActionBar"
             tools:ignore="IntentFilterExportedReceiver">
             <intent-filter>

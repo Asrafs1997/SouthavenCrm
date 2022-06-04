@@ -45,7 +45,6 @@ public class GetprofilePresenter  implements IGetprofilePresenter {
                     if (response.isSuccessful()) {
                         if (response.body() != null) {
                             if(response.body().isStatus()){
-
                                 ConfigApp.setCompanyCode(response.body().getData().get(0).getCompanyCode());
                                 ConfigApp.setContactName(response.body().getData().get(0).getContactName());
                                 ConfigApp.setMOBILE_NUMBER(response.body().getData().get(0).getHandphoneNo());
@@ -53,8 +52,7 @@ public class GetprofilePresenter  implements IGetprofilePresenter {
                                 ConfigApp.setPOSTALCODE(response.body().getData().get(0).getPostalcode());
                                 ConfigApp.setADDRESS(response.body().getData().get(0).getAddress());
                                 ConfigApp.setDOB(response.body().getData().get(0).getDOB());
-                                System.out.println("response 0001"+response.body().getData().get(0).getEmail());
-
+                                System.out.println("response getDOB "+response.body().getData().get(0).getDOB());
                                 iGetprofileView.onSuccess();
                             }
 

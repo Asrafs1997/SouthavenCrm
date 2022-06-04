@@ -84,6 +84,7 @@ public class ContactFragment  extends  BaseFragment implements iContactUsFragmen
 
     @Override
     public void onSuccess() {
+
         new AlertDialog.Builder(getActivity())
                 .setTitle("Thank you")
                 .setMessage("Thank you for contacting us. We have received your message")

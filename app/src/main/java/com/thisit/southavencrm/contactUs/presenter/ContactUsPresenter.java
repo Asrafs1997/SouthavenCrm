@@ -32,12 +32,11 @@ public class ContactUsPresenter implements IContactUsPresenter {
 
 
     @Override
-    public void apiCall(String  Subject ,String Message) {
+    public void apiCall(String Subject, String Message) {
 
 
-        System.out.println("ContactUsResponseModel 001  "+Message);
-        System.out.println("ContactUsResponseModel 0012  "+Subject);
-
+        System.out.println("ContactUsResponseModel 001  " + Message);
+        System.out.println("ContactUsResponseModel 0012  " + Subject);
 
 
         JSONObject jsonObj = new JSONObject();
@@ -49,7 +48,7 @@ public class ContactUsPresenter implements IContactUsPresenter {
             jsonObj.put("HandphoneNo", "");
             jsonObj.put("Email", ConfigApp.getEMAIL());
             jsonObj.put("Subject", Subject);
-            jsonObj.put("Message",Message);
+            jsonObj.put("Message", Message);
             requestString = "{\"Model\":" + jsonObj.toString() + "}";
             System.out.println("previewQR\t\t" + requestString);
         } catch (JSONException e) {
@@ -65,15 +64,10 @@ public class ContactUsPresenter implements IContactUsPresenter {
             @Override
             public void onResponse(Call<ContactUsResponseModel> call, Response<ContactUsResponseModel> response) {
                 iContactUs.hideProgress();
-                System.out.println("isSuccessful\t\t" + response.isSuccessful());
-
-                if (response.isSuccessful() && response.body() != null) {
-                    if (response.body().isStatus()) {
-                        iContactUs.onSuccess();
-                    } else {
-                        iContactUs.onFailure();
-                    }
-                    return;
+                if (response.body().isStatus()) {
+                    iContactUs.onSuccess();
+                } else {
+                    iContactUs.onFailure();
                 }
                 ToastMessage.toast(response.message());
             }

@@ -181,7 +181,7 @@
                 android:textColor="@color/black"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
 
-            <EditText
+            <TextView
                 android:id="@+id/dob_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
