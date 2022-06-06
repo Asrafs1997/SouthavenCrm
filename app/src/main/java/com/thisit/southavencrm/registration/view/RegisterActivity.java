@@ -32,15 +32,16 @@ import com.thisit.southavencrm.registration.presenter.RegistrationPresenter;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
-public class RegisterActivity extends BaseActivity implements View.OnClickListener,IRegistrationView  {
+public class RegisterActivity extends BaseActivity implements View.OnClickListener, IRegistrationView {
     private Activity activity;
     private Spinner title_spi;
     private String[] titles = new String[]{"Mr", "Ms", "Mrs", "Mdm"};
-    private EditText firstname_EditText,lastname_EditText,mobilenum_EditText,
-            emailID_EditText,password_EditText,conformpassword_EditText,postalcode_EditText,
+    private EditText firstname_EditText, lastname_EditText, mobilenum_EditText,
+            emailID_EditText, password_EditText, conformpassword_EditText, postalcode_EditText,
             Address_EditText;
     private IRegistrationPresenter iRegistrationPresenter;
-    private static TextView btn_login ,date_Of_Birth_EditText;
+    private static TextView btn_login, date_Of_Birth_EditText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,36 +94,38 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.arrowback_img) {
+            Intent intent = new Intent(activity, LoginActivity.class);
+            startActivity(intent);
             activity.finish();
-        }else if (id == R.id.Savebutton) {
+        } else if (id == R.id.Savebutton) {
             if (firstname_EditText.getText().toString().length() == 0) {
                 firstname_EditText.setError("Enter the First Name");
                 firstname_EditText.requestFocus();
-            }else if (lastname_EditText.getText().toString().length() == 0) {
+            } else if (lastname_EditText.getText().toString().length() == 0) {
                 lastname_EditText.setError("Enter the Last Name");
                 lastname_EditText.requestFocus();
-            }else if (mobilenum_EditText.getText().toString().length() == 0) {
+            } else if (mobilenum_EditText.getText().toString().length() == 0) {
                 mobilenum_EditText.setError("Enter the Mobile Number");
                 mobilenum_EditText.requestFocus();
-            }else if (emailID_EditText.getText().toString().length() == 0) {
+            } else if (emailID_EditText.getText().toString().length() == 0) {
                 emailID_EditText.setError("Enter the Email ID");
                 emailID_EditText.requestFocus();
-            }else if (password_EditText.getText().toString().length() == 0) {
+            } else if (password_EditText.getText().toString().length() == 0) {
                 password_EditText.setError("Enter the Password");
                 password_EditText.requestFocus();
-            }else if (conformpassword_EditText.getText().toString().length() == 0) {
+            } else if (conformpassword_EditText.getText().toString().length() == 0) {
                 conformpassword_EditText.setError("Enter the confirm  password");
                 conformpassword_EditText.requestFocus();
-            }else if (postalcode_EditText.getText().toString().length() == 0) {
+            } else if (postalcode_EditText.getText().toString().length() == 0) {
                 postalcode_EditText.setError("Enter the postal code");
                 postalcode_EditText.requestFocus();
-            }else if (Address_EditText.getText().toString().length() == 0) {
+            } else if (Address_EditText.getText().toString().length() == 0) {
                 Address_EditText.setError("Enter the Address");
                 Address_EditText.requestFocus();
-            }else if (date_Of_Birth_EditText.getText().toString().length() == 0) {
+            } else if (date_Of_Birth_EditText.getText().toString().length() == 0) {
                 date_Of_Birth_EditText.setError("Enter the date Of Birth");
                 date_Of_Birth_EditText.requestFocus();
-            }else {
+            } else {
                 if (ConfigApp.isNetworkAvailable(activity)) {
                     RegistrationRequestModel registrationRequestModel = new RegistrationRequestModel();
                     registrationRequestModel.setCompanyCode("1");

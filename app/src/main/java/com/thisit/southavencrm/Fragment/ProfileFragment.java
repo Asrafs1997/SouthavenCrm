@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+import com.thisit.southavencrm.EditSettings.view.EditSettingsFragment;
 import com.thisit.southavencrm.ProfileSliderAdapter;
 import com.thisit.southavencrm.ProfileSliderBean;
 import com.thisit.southavencrm.R;

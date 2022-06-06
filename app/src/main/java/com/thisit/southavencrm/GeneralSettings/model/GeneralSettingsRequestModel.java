@@ -1,5 +1,10 @@
 package com.thisit.southavencrm.GeneralSettings.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+
 public class GeneralSettingsRequestModel {
 
  private String $id;
@@ -13,6 +18,10 @@ public class GeneralSettingsRequestModel {
  private String SettingValue ;
 
  private String SettingDescription ;
+
+ @SerializedName("data")
+ @Expose
+ private ArrayList<GeneralSettingsRequestModel> data;
 
  public String get$id() {
   return $id;
@@ -60,5 +69,15 @@ public class GeneralSettingsRequestModel {
 
  public void setSettingDescription(String settingDescription) {
   SettingDescription = settingDescription;
+
  }
+
+ public ArrayList<GeneralSettingsRequestModel> getData() {
+  return data;
+ }
+
+ public void setData(ArrayList<GeneralSettingsRequestModel> data) {
+  this.data = data;
+ }
+
 }

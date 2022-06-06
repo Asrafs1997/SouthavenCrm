@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.StrictMode;
+import android.provider.Settings;
 import android.util.Log;
 
 import java.text.ParseException;
@@ -78,6 +79,11 @@ public class ConfigApp extends Application {
         return dateOutput;
     }
 
+    public static String getAndroidID(Context context) {
+        String android_id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        return android_id;
+    }
+
     public static String parseDateToddMMyyyytime(String time) {
         System.out.println("parseDateToddMMyyyy : " + time);
         String str = null;
@@ -100,6 +106,7 @@ public class ConfigApp extends Application {
         }
         return str;
     }
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -135,7 +142,6 @@ public class ConfigApp extends Application {
         editor.putString(LOGIN_ID, LOGIN_ID);
         editor.commit();
     }
-
 
 
     public static String getContactCode() {
@@ -201,14 +207,17 @@ public class ConfigApp extends Application {
         editor.putString(POSTALCODE, Postalcode);
         editor.commit();
     }
- public static String getADDRESS() {
+
+    public static String getADDRESS() {
         return sharedPreferences.getString(ADDRESS, "");
     }
 
     public static void setADDRESS(String Address) {
         editor.putString(ADDRESS, Address);
         editor.commit();
-    }public static String getDOB() {
+    }
+
+    public static String getDOB() {
         return sharedPreferences.getString(DOB, "");
     }
 
