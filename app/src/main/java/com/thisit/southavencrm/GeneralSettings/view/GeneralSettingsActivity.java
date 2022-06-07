@@ -28,7 +28,7 @@ public class GeneralSettingsActivity extends BaseActivity implements IGeneralSet
 
         iGeneralSettingsPresenter = new GeneralSettingsPresenter(this);
         if (ConfigApp.isNetworkAvailable(this)) {
-            iGeneralSettingsPresenter.apiCall("1");
+            iGeneralSettingsPresenter.apiCall(ConfigApp.getCompanyCode());
         } else {
             Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
         }

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,6 @@ public class ProfileFragment extends BaseFragment {
         edit_settings_llv =  root.findViewById(R.id.edit_settings_llv);
         logout_llv =  root.findViewById(R.id.logout_llv);
         txtUsername =  root.findViewById(R.id.username);
-        txtUsername.setText(ConfigApp.getContactName());
         sliderDataArrayList.add(new ProfileSliderBean(R.drawable.background2));
         sliderDataArrayList.add(new ProfileSliderBean(R.drawable.shop));
         sliderDataArrayList.add(new ProfileSliderBean(R.drawable.background1));
@@ -101,10 +101,22 @@ public class ProfileFragment extends BaseFragment {
 
         return root;
     }
+
+
+    @Override
+    public void onResume() {
+        txtUsername.setText(ConfigApp.getContactName());
+        super.onResume();
+    }
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((ECardActivity) getActivity()).title_tv.setText(R.string.profile_acco);
+        ((ECardActivity) getActivity()).ishome=true;
+        ((ECardActivity) getActivity()).isabout=false;
+        ((ECardActivity) getActivity()).isprofile=false;
     }
 }
 

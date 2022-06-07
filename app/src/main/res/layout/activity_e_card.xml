@@ -48,8 +48,8 @@
         android:id="@+id/coordinator"
         android:layout_width="match_parent"
         android:layout_height="85dp"
-        android:background="@android:color/transparent"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent">
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomappbar"
@@ -62,7 +62,6 @@
                 android:id="@+id/bottomnavigationbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginRight="16dp"
                 android:background="@android:color/transparent"
                 app:itemIconTint="@color/bottom_bar_item_selector"
                 app:itemTextColor="@color/bottom_bar_item_selector"
@@ -75,7 +74,6 @@
             android:id="@+id/card_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
             android:src="@drawable/card"
             app:backgroundTint="@color/dark_brown"
             app:fabSize="normal"

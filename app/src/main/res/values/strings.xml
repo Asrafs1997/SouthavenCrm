@@ -41,6 +41,7 @@
     <string name="register_dob">Date of Birth in YYYY-MM-DD</string>
     <string name="privacy">Privacy Policy</string>
     <string name="membership">Membership FAQs</string>
+    <string name="title_faqs">FAQs</string>
     <string name="history">History</string>
     <string name="contact_name">ContactName</string>
     <string name="tran_date">TranDate</string>

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.BaseFragment;
@@ -66,6 +68,10 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
     }
 
     private void GoogleMapview(int position) {
+
+
+
+
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap mMap) {
@@ -75,22 +81,20 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
 
                 CameraPosition googlePlex = CameraPosition.builder()
                         .target(new LatLng(locationListResponseModelArrayList.get(position).getLatitude(), locationListResponseModelArrayList.get(position).getLongitude()))
-                        .zoom(12)
+                        .zoom(11)
                         .bearing(0)
                         .tilt(45)
                         .build();
 
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1000, null);
-
+               // mMap.setInfoWindowAdapter(new CustomInfoAdapter(this));
                 mMap.addMarker(new MarkerOptions()
                         .position(new LatLng(locationListResponseModelArrayList.get(position).getLongitude(), locationListResponseModelArrayList.get(position).getLongitude()))
                         .title(locationListResponseModelArrayList.get(position).getLocationName())
                         .snippet(locationListResponseModelArrayList.get(position).getAddress1()));
             }
         });
-
     }
-
 
 
 
@@ -164,13 +168,13 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
             CameraPosition googlePlex = CameraPosition.builder()
                     .target(new LatLng(locationListResponseModelArrayList.get(i).getLatitude()
                             , locationListResponseModelArrayList.get(i).getLongitude()))
-                    .zoom(12)
+                    .zoom(11)
                     .bearing(0)
                     .tilt(45)
                     .build();
             LatLng sydney = new LatLng(locationListResponseModelArrayList.get(i).getLatitude(),
                     locationListResponseModelArrayList.get(i).getLongitude());
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1500, null);
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1000, null);
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(sydney);
             markerOptions.title(locationListResponseModelArrayList.get(i).getLocationName());
@@ -180,5 +184,4 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
         }
 
     }
-
 }

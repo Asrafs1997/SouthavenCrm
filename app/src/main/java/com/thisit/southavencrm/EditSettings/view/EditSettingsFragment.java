@@ -83,6 +83,9 @@ public class EditSettingsFragment extends BaseFragment implements IEditSettingsV
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((ECardActivity) getActivity()).title_tv.setText(R.string.settings);
+        ((ECardActivity) getActivity()).ishome=false;
+        ((ECardActivity) getActivity()).isabout=false;
+        ((ECardActivity) getActivity()).isprofile=true;
     }
 
 
@@ -99,12 +102,16 @@ public class EditSettingsFragment extends BaseFragment implements IEditSettingsV
     @Override
     public void HasPromoNotification(boolean HasPromoNotification) {
         HasPromoNotification_switch.setChecked(HasPromoNotification);
+        System.out.println("HasPromoNotification"+HasPromoNotification);
         HasPromo = HasPromoNotification;
+        System.out.println("HasPromo"+HasPromo);
     }
 
     @Override
     public void HasOrderNotification(boolean HasOrderNotification) {
         HasOrderNotification_switch.setChecked(HasOrderNotification);
+        System.out.println("HasOrderNotification"+HasOrderNotification);
         HasOrder = HasOrderNotification;
+        System.out.println("HasOrder"+HasOrder);
     }
 }

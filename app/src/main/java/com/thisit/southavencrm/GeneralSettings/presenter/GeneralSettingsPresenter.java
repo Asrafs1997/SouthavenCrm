@@ -32,8 +32,6 @@ public class GeneralSettingsPresenter implements IGeneralSettingsPresenter {
 
     @Override
     public void apiCall(String CompanyCode) {
-        System.out.println("Companycode/msd/" + CompanyCode.toString());
-
         if (CompanyCode.isEmpty()) {
             ToastMessage.toast("companycode is empty");
         }else {
@@ -41,7 +39,6 @@ public class GeneralSettingsPresenter implements IGeneralSettingsPresenter {
             Log.i("generalsettingsApi", requestData);
             GeneralSettingsApi generalSettingsApi = ApiClient.getClient(Constants.BASE_URL).create(GeneralSettingsApi.class);
 //            RequestBody rawString = RequestBody.create(MediaType.parse("application/json"), requestData);
-
             Call<GeneralSettingsRequestModel> call = generalSettingsApi.general(requestData, BasicAuth.getAuth());
             iGeneralSettingsView.showProgress();
             call.enqueue(new Callback<GeneralSettingsRequestModel>() {
@@ -49,7 +46,6 @@ public class GeneralSettingsPresenter implements IGeneralSettingsPresenter {
                 public void onResponse(Call<GeneralSettingsRequestModel> call, Response<GeneralSettingsRequestModel> response) {
                     iGeneralSettingsView.hideProgress();
                     if (response.isSuccessful()) {
-                        Log.i("response\t\t", response.toString());
                         if (response.body() != null) {
                             if (response.body().isStatus()) {
                                 if (response.body().getData().size() > 0) {

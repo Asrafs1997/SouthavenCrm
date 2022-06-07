@@ -64,12 +64,14 @@ public class ContactUsPresenter implements IContactUsPresenter {
             @Override
             public void onResponse(Call<ContactUsResponseModel> call, Response<ContactUsResponseModel> response) {
                 iContactUs.hideProgress();
+
+                System.out.println("ContactUs response\t\t" + response.toString());
                 if (response.body().isStatus()) {
                     iContactUs.onSuccess();
                 } else {
                     iContactUs.onFailure();
                 }
-                ToastMessage.toast(response.message());
+              //  ToastMessage.toast(response.message());
             }
 
             @Override

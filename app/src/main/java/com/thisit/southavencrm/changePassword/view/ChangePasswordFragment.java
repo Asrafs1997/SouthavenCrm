@@ -70,8 +70,9 @@ public class ChangePasswordFragment extends BaseFragment implements IChangePassw
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((ECardActivity) getActivity()).title_tv.setText(R.string.change_password); // here are other names according to each fragment
-
-        //((ECardActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new CardFragment()).commit();
+        ((ECardActivity) getActivity()).ishome=false;
+        ((ECardActivity) getActivity()).isabout=false;
+        ((ECardActivity) getActivity()).isprofile=true;
     }
 
 

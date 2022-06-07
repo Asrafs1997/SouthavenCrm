@@ -57,6 +57,9 @@ public class AboutFragment extends BaseFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((ECardActivity) getActivity()).title_tv.setText(R.string.about_us);
+        ((ECardActivity) getActivity()).ishome=true;
+        ((ECardActivity) getActivity()).isabout=false;
+        ((ECardActivity) getActivity()).isprofile=false;
     }
 }
 

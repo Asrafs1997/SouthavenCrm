@@ -118,7 +118,10 @@ public class EditSettingsPresenter implements IEditSettingsPresenter {
             @Override
             public void onResponse(@NonNull Call<DeviceSettingResponseModel> call, @NonNull Response<DeviceSettingResponseModel> response) {
                 iEditSettingsView.hideProgress();
+                System.out.println("response123"+response.toString());
+                System.out.println("response12df3"+response.body().isStatus());
                 if (response.isSuccessful()) {
+
                     if (response.body().isStatus()) {
                         iEditSettingsView.onSuccess();
                     } else {

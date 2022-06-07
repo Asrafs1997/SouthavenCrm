@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import androidx.annotation.RequiresApi;
+
 import com.thisit.southavencrm.Fragment.ProfileFragment;
 import com.thisit.southavencrm.OrderList.view.OrderListFragment;
 import com.thisit.southavencrm.R;
@@ -31,7 +34,9 @@ import com.thisit.southavencrm.editprofile.presenter.EditProfilePresenter;
 import com.thisit.southavencrm.editprofile.presenter.IEditProfilePresenter;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 
 public class EditProfileFragment extends BaseFragment implements iEditProfile {
@@ -41,8 +46,10 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
     private IEditProfilePresenter iEditProfilePresenter;
     private String[] titles = new String[]{"Mr", "Ms", "Mrs", "Mdm"};
     private Button Savebutton;
+    private SimpleDateFormat dateFormatter;
     private EditText name_et, mobile_number_et, email_et, postalcode_et, Address_et;
-private static TextView dob_et;
+    private static TextView dob_et;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_editprofile, container, false);
@@ -56,7 +63,7 @@ private static TextView dob_et;
         postalcode_et = (EditText) root.findViewById(R.id.postalcode_et);
         Address_et = (EditText) root.findViewById(R.id.Address_et);
         dob_et = (TextView) root.findViewById(R.id.dob_et);
-
+        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
 
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, titles);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -85,11 +92,11 @@ private static TextView dob_et;
         Address_et.setText(ConfigApp.getADDRESS());
         dob_et.setText(ConfigApp.parseDateToddMMyyyytime(ConfigApp.getDOB()));
 
+
         Savebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (ConfigApp.isNetworkAvailable(activity)) {
-
                     EditProfileResponseModel editProfileResponseModel = new EditProfileResponseModel();
                     editProfileResponseModel.setContactName(name_et.getText().toString());
                     editProfileResponseModel.setHandphoneNo(mobile_number_et.getText().toString());
@@ -105,12 +112,25 @@ private static TextView dob_et;
             }
         });
 
-        dob_et.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogFragment newFragment = new SelectDateFragment();
-                newFragment.show(getActivity().getFragmentManager(), "DatePicker");
 
+
+        dob_et.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance(Locale.getDefault());
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                //todo
+                                Calendar newDate = Calendar.getInstance();
+                                newDate.set(year, month, dayOfMonth);
+                                dob_et.setText(dateFormatter.format(newDate.getTime()));
+
+                            }
+                        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+                datePickerDialog.show();
             }
         });
 
@@ -124,6 +144,9 @@ private static TextView dob_et;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((ECardActivity) getActivity()).title_tv.setText(R.string.edit_profile);
+        ((ECardActivity) getActivity()).ishome=false;
+        ((ECardActivity) getActivity()).isabout=false;
+        ((ECardActivity) getActivity()).isprofile=true;
     }
 
 
@@ -162,11 +185,13 @@ private static TextView dob_et;
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
         alertDialogBuilder
                 .setTitle("Membership Updated")
+                .setCancelable(true)
                 .setMessage(msg);
         alertDialogBuilder.setPositiveButton("yes",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
+                        ConfigApp.setContactName(name_et.getText().toString());
                         getActivity().getSupportFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.framecontainer, new ProfileFragment())
@@ -189,29 +214,8 @@ private static TextView dob_et;
                 .setNegativeButton("ok", null)
                 .show();
     }
-    public static class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            final Calendar calendar = Calendar.getInstance();
-            int yy = calendar.get(Calendar.YEAR);
-            int mm = calendar.get(Calendar.MONTH);
-            int dd = calendar.get(Calendar.DAY_OF_MONTH);
 
-            //return new DatePickerDialog(getActivity(), android.R.style.Theme_Material_Light_Dialog_NoActionBar, this, yy, mm, dd);
-            return new DatePickerDialog(getActivity(), android.R.style.Theme_Material_Light_Dialog_Alert, this, yy, mm, dd);
-        }
 
-        public void onDateSet(DatePicker view, int yy, int mm, int dd) {
-            populateSetDate(yy, mm + 1, dd);
-        }
-
-        public void populateSetDate(int year, int month, int day) {
-            DecimalFormat mFormat = new DecimalFormat("00");
-            String Dates = mFormat.format(Double.valueOf(day)) + "/" + mFormat.format(Double.valueOf(month)) + "/" + mFormat.format(Double.valueOf(year));
-            dob_et.setText(Dates);
-        }
-
-    }
 
 }
 

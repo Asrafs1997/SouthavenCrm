@@ -19,6 +19,7 @@ import com.thisit.southavencrm.FAQList.presenter.IFAQListPresenter;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.common.ConfigApp;
+import com.thisit.southavencrm.dashboard.view.ECardActivity;
 
 
 import java.util.ArrayList;
@@ -84,6 +85,13 @@ public class FQAFragment extends BaseFragment implements IFAQListView {
 
     }
 
-
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ((ECardActivity) getActivity()).title_tv.setText(R.string.title_faqs);
+        ((ECardActivity) getActivity()).ishome=false;
+        ((ECardActivity) getActivity()).isabout=true;
+        ((ECardActivity) getActivity()).isprofile=false;
+    }
 }
 

@@ -2,6 +2,7 @@ package com.thisit.southavencrm.contactUs.view;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 
+import com.thisit.southavencrm.Fragment.AboutFragment;
+import com.thisit.southavencrm.Fragment.ProfileFragment;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.common.ConfigApp;
@@ -35,7 +38,6 @@ public class ContactFragment  extends  BaseFragment implements iContactUsFragmen
         root = inflater.inflate(R.layout.fragment_contact, container, false);
         activity = getActivity();
 
-        iContactUsPresenter = new ContactUsPresenter(this);
         Savebutton = root.findViewById(R.id.Savebutton);
         subjectmessage_EditText = root.findViewById(R.id.subjectmessage_EditText);
         message_et = root.findViewById(R.id.message_et);
@@ -45,9 +47,8 @@ public class ContactFragment  extends  BaseFragment implements iContactUsFragmen
 
         txtUsername.setText(ConfigApp.getContactName());
         txtEmail.setText(ConfigApp.getEMAIL());
-        txtEmail.setText(ConfigApp.getEMAIL());
         txtPhoneNo.setText(ConfigApp.getMOBILE_NUMBER());
-
+        iContactUsPresenter = new ContactUsPresenter(this);
         Savebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,6 +78,9 @@ public class ContactFragment  extends  BaseFragment implements iContactUsFragmen
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((ECardActivity) getActivity()).title_tv.setText(R.string.contactus);
+        ((ECardActivity) getActivity()).ishome=false;
+        ((ECardActivity) getActivity()).isabout=true;
+        ((ECardActivity) getActivity()).isprofile=false;
     }
 
 
@@ -84,13 +88,25 @@ public class ContactFragment  extends  BaseFragment implements iContactUsFragmen
 
     @Override
     public void onSuccess() {
-
-        new AlertDialog.Builder(getActivity())
-                .setTitle("Thank you")
-                .setMessage("Thank you for contacting us. We have received your message")
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+        alertDialogBuilder
+                .setTitle("Membership Updated")
                 .setCancelable(true)
-                .setNegativeButton("ok", null)
-                .show();
+                .setMessage("Thank you for contacting us. We have received your message");
+        alertDialogBuilder.setPositiveButton("Close",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        getActivity().getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.framecontainer, new AboutFragment())
+                                .commit();
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+
     }
 
     @Override

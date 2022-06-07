@@ -79,6 +79,7 @@ public class EditProfilePresenter implements IEditProfilePresenter {
                 @Override
                 public void onResponse(@NonNull Call<EditProfileResponseModel> call, @NonNull Response<EditProfileResponseModel> response) {
                     iEditProfile.hideProgress();
+                    System.out.println("response EditProfile\t\t" + response.toString());
                     if (response.isSuccessful()) {
                         if (response.body().isStatus()) {
                             iEditProfile.onSuccess(response.body().getMsg());

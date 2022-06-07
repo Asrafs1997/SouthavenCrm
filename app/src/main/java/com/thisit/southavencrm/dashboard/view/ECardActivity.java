@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,13 +32,14 @@ import com.thisit.southavencrm.dashboard.presenter.IGetprofilePresenter;
 import com.thisit.southavencrm.locateUs.view.LocationFragment;
 
 
-public class ECardActivity extends BaseActivity implements  IGetprofileView{
+public class ECardActivity extends BaseActivity {
     private Activity activity;
     public TextView title_tv;
     private FloatingActionButton card_fab;
     private BottomNavigationView bottomNavigationView;
-    private IGetprofilePresenter iGetprofilePresenter;
     private ImageView notification_img;
+    public boolean ishome = false, isprofile = false, isabout = false;
+    private boolean backPressed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,37 +51,29 @@ public class ECardActivity extends BaseActivity implements  IGetprofileView{
         }
         card_fab = findViewById(R.id.card_fab);
         title_tv = (TextView) findViewById(R.id.title_tv);
-        iGetprofilePresenter = (IGetprofilePresenter) new GetprofilePresenter(this);
-        iGetprofilePresenter.apiCall(ConfigApp.getCompanyCode(), ConfigApp.getContactID());
         notification_img = (ImageView) findViewById(R.id.notification_img);
         notification_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(activity, NotificationActivity.class);
                 startActivity(intent);
-              //  finish();
+                //  finish();
             }
         });
 
         card_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                title_tv.setText(R.string.my_card);
                 getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new CardFragment()).commit();
             }
         });
 
+
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnavigationbar);
-
         bottomNavigationView.setBackground(null);
-
-
-
         getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new CardFragment()).commit();
-        title_tv.setText(R.string.my_card);
         bottomNavigationView.setSelectedItemId(R.id.card);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
-
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -110,26 +105,20 @@ public class ECardActivity extends BaseActivity implements  IGetprofileView{
         }
     };
 
-
-
-
     @Override
-    public void CompanyCode() {
-        ToastMessage.toast("Company Code is empty");
+    public void onBackPressed() {
+        if (ishome) {
+
+        } else if (isprofile) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new ProfileFragment()).commit();
+            bottomNavigationView.setSelectedItemId(R.id.profile);
+        } else if (isabout) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new AboutFragment()).commit();
+            bottomNavigationView.setSelectedItemId(R.id.about);
+        } else {
+           activity.finish();
+        }
+
     }
 
-    @Override
-    public void ContactID() {
-        ToastMessage.toast("Contact ID  is empty");
-    }
-
-    @Override
-    public void onSuccess() {
-
-    }
-
-    @Override
-    public void onFailure() {
-
-    }
 }

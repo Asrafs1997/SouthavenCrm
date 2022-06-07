@@ -1,5 +1,6 @@
 package com.thisit.southavencrm.registration.view;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -7,6 +8,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -30,7 +32,9 @@ import com.thisit.southavencrm.registration.presenter.IRegistrationPresenter;
 import com.thisit.southavencrm.registration.presenter.RegistrationPresenter;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener, IRegistrationView {
     private Activity activity;
@@ -41,7 +45,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             Address_EditText;
     private IRegistrationPresenter iRegistrationPresenter;
     private static TextView btn_login, date_Of_Birth_EditText;
-
+    private SimpleDateFormat dateFormatter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +64,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         Address_EditText = (EditText) findViewById(R.id.Address_EditText);
         date_Of_Birth_EditText = (TextView) findViewById(R.id.date_Of_Birth_EditText);
         btn_login = (TextView) findViewById(R.id.btn_login);
-
+        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,11 +77,22 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         });
 
         date_Of_Birth_EditText.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
-            public void onClick(View view) {
-                DialogFragment newFragment = new SelectDateFragment();
-                newFragment.show(getFragmentManager(), "DatePicker");
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance(Locale.getDefault());
+                DatePickerDialog datePickerDialog = new DatePickerDialog(activity,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                //todo
+                                Calendar newDate = Calendar.getInstance();
+                                newDate.set(year, month, dayOfMonth);
+                                date_Of_Birth_EditText.setText(dateFormatter.format(newDate.getTime()));
 
+                            }
+                        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+                datePickerDialog.show();
             }
         });
 
@@ -180,30 +195,6 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onFailure(String msg) {
         ToastMessage.toast("Username or Password is incorrect");
-    }
-
-    public static class SelectDateFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            final Calendar calendar = Calendar.getInstance();
-            int yy = calendar.get(Calendar.YEAR);
-            int mm = calendar.get(Calendar.MONTH);
-            int dd = calendar.get(Calendar.DAY_OF_MONTH);
-
-            //return new DatePickerDialog(getActivity(), android.R.style.Theme_Material_Light_Dialog_NoActionBar, this, yy, mm, dd);
-            return new DatePickerDialog(getActivity(), android.R.style.Theme_Material_Light_Dialog_Alert, this, yy, mm, dd);
-        }
-
-        public void onDateSet(DatePicker view, int yy, int mm, int dd) {
-            populateSetDate(yy, mm + 1, dd);
-        }
-
-        public void populateSetDate(int year, int month, int day) {
-            DecimalFormat mFormat = new DecimalFormat("00");
-            String Dates = mFormat.format(Double.valueOf(day)) + "/" + mFormat.format(Double.valueOf(month)) + "/" + mFormat.format(Double.valueOf(year));
-            date_Of_Birth_EditText.setText(Dates);
-        }
-
     }
 
 }
