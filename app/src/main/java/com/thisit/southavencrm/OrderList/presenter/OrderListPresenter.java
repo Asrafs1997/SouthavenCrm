@@ -37,10 +37,12 @@ public class OrderListPresenter implements IOrderListPresenter {
         JSONObject jsonObj = new JSONObject();
         try {
             jsonObj.put("CompanyCode",CompanyCode);
-           // jsonObj.put("ContactID","6861");
-            jsonObj.put("ContactID",ConfigApp.getContactID());
-            jsonObj.put("FromDate",fromDate);//"01/04/2022"
-            jsonObj.put("ToDate",toDate);//"10/05/2022"
+            jsonObj.put("ContactID","6861");
+            jsonObj.put("FromDate","01/02/2022");//"01/02/2022"
+            jsonObj.put("ToDate","03/06/2022");//"03/06/2022"
+           // jsonObj.put("ContactID",ConfigApp.getContactID());
+           // jsonObj.put("FromDate",fromDate);//"01/04/2022"
+           // jsonObj.put("ToDate",toDate);//"10/05/2022"
             requestData = jsonObj.toString();
             System.out.println("previewQR\t\t" + requestData);
         } catch (JSONException e) {
@@ -59,7 +61,7 @@ public class OrderListPresenter implements IOrderListPresenter {
                     if (response.body() != null) {
                         if(response.body().isStatus()){
                             iOrderListView.getLocationList(response.body().getData());
-                            System.out.println("response.body().getData()"+response.body().getData().size());
+                            System.out.println("response.body().getData()"+response.body().getData().get(0).getTranNo());
                         }
 
                     }
