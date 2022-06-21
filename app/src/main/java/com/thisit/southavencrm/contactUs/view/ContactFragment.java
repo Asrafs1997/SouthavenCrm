@@ -37,14 +37,12 @@ public class ContactFragment  extends  BaseFragment implements iContactUsFragmen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_contact, container, false);
         activity = getActivity();
-
         Savebutton = root.findViewById(R.id.Savebutton);
         subjectmessage_EditText = root.findViewById(R.id.subjectmessage_EditText);
         message_et = root.findViewById(R.id.message_et);
         txtUsername =  root.findViewById(R.id.username_textView);
         txtEmail=  root.findViewById(R.id.txt_email);
         txtPhoneNo=  root.findViewById(R.id.txt_phoneno);
-
         txtUsername.setText(ConfigApp.getContactName());
         txtEmail.setText(ConfigApp.getEMAIL());
         txtPhoneNo.setText(ConfigApp.getMOBILE_NUMBER());
@@ -69,7 +67,6 @@ public class ContactFragment  extends  BaseFragment implements iContactUsFragmen
             }
         });
         return root;
-
 
     }
 

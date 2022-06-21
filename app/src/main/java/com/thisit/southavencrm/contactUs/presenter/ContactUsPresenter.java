@@ -45,10 +45,11 @@ public class ContactUsPresenter implements IContactUsPresenter {
             jsonObj.put("ContactID", ConfigApp.getContactCode());
             jsonObj.put("Salutation", "SOUTHAVEN");
             jsonObj.put("ContactName", ConfigApp.getContactName());
-            jsonObj.put("HandphoneNo", "");
+            jsonObj.put("HandphoneNo", ConfigApp.getMOBILE_NUMBER());
             jsonObj.put("Email", ConfigApp.getEMAIL());
             jsonObj.put("Subject", Subject);
             jsonObj.put("Message", Message);
+            System.out.println("jsonObj123" +jsonObj.toString());
             requestString = "{\"Model\":" + jsonObj.toString() + "}";
             System.out.println("previewQR\t\t" + requestString);
         } catch (JSONException e) {
@@ -77,6 +78,7 @@ public class ContactUsPresenter implements IContactUsPresenter {
             @Override
             public void onFailure(Call<ContactUsResponseModel> call, Throwable t) {
                 iContactUs.hideProgress();
+
                 //ToastMessage.toast(context, t.getMessage());
             }
         });

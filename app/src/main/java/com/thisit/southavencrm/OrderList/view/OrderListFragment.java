@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -23,6 +24,7 @@ import com.thisit.southavencrm.FAQList.model.FAQListResponseModel;
 import com.thisit.southavencrm.FAQList.presenter.FAQListPresenter;
 import com.thisit.southavencrm.FAQList.presenter.IFAQListPresenter;
 import com.thisit.southavencrm.FAQList.view.IFAQListView;
+import com.thisit.southavencrm.OrderDetail.view.OrderDetailActivity;
 import com.thisit.southavencrm.OrderList.adapter.OrderlistAdapter;
 import com.thisit.southavencrm.OrderList.model.OrderListResponseModel;
 import com.thisit.southavencrm.OrderList.presenter.IOrderListPresenter;
@@ -61,6 +63,7 @@ public class OrderListFragment extends BaseFragment implements IOrderListView {
 
         fromDate.setText(ConfigApp.calenderOneMonthBeforDate());
         toDate.setText(ConfigApp.calenderCurrentDate());
+
 
         fromDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,7 +150,10 @@ public class OrderListFragment extends BaseFragment implements IOrderListView {
 
     @Override
     public void holdListClick(int position) {
-
+        Intent intent = new Intent(activity, OrderDetailActivity.class);
+        intent.putExtra("CompanyCode", orderListResponseModelArrayList.get(position).getCompanyCode());
+        intent.putExtra("TranNo", orderListResponseModelArrayList.get(position).getTranNo());
+        startActivity(intent);
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {

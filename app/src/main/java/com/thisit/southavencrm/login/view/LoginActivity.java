@@ -34,6 +34,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     private EditText LoginIDEditText, passwordEditText;
     private CheckBox rememberMeCheckBox;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +80,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                     Toast.makeText(activity, "No Internet Connection", Toast.LENGTH_SHORT).show();
                 }
             }
-
         }
     }
 

@@ -3,7 +3,6 @@ package com.thisit.southavencrm.dashboard.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.thisit.southavencrm.login.model.LoginResponseModel;
 
 import java.util.ArrayList;
 
