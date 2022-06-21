@@ -78,6 +78,7 @@ public class ContactUsPresenter implements IContactUsPresenter {
             @Override
             public void onFailure(Call<ContactUsResponseModel> call, Throwable t) {
                 iContactUs.hideProgress();
+
                 //ToastMessage.toast(context, t.getMessage());
             }
         });
