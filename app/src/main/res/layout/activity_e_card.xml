@@ -65,7 +65,7 @@
                 android:background="@android:color/transparent"
                 app:itemIconTint="@color/bottom_bar_item_selector"
                 app:itemTextColor="@color/bottom_bar_item_selector"
-                app:labelVisibilityMode="labeled"
+                app:labelVisibilityMode="unlabeled"
                 app:menu="@menu/bottom_nav_menu" />
 
         </com.google.android.material.bottomappbar.BottomAppBar>

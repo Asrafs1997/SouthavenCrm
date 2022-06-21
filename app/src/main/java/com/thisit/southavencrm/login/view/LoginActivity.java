@@ -21,6 +21,12 @@ import com.thisit.southavencrm.login.presenter.ILoginPresenter;
 import com.thisit.southavencrm.login.presenter.LoginPresenter;
 import com.thisit.southavencrm.registration.view.RegisterActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class LoginActivity extends BaseActivity implements View.OnClickListener, ILoginView {
 
     private Activity activity;
@@ -42,8 +48,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         findViewById(R.id.btn_login).setOnClickListener(this);
         findViewById(R.id.btn_forgotpassword).setOnClickListener(this);
         findViewById(R.id.btn_register).setOnClickListener(this);
-
-
+        
         if (!ConfigApp.getLogin_ID().isEmpty()) {
             LoginIDEditText.setText(ConfigApp.getLogin_ID());
             passwordEditText.setText(ConfigApp.getPassword());

@@ -32,9 +32,6 @@ public class GeneralSettingsPresenter implements IGeneralSettingsPresenter {
 
     @Override
     public void apiCall(String CompanyCode) {
-        if (CompanyCode.isEmpty()) {
-            ToastMessage.toast("companycode is empty");
-        }else {
             String requestData = "{\"CompanyCode\":" + CompanyCode + "}";
             Log.i("generalsettingsApi", requestData);
             GeneralSettingsApi generalSettingsApi = ApiClient.getClient(Constants.BASE_URL).create(GeneralSettingsApi.class);
@@ -74,7 +71,7 @@ public class GeneralSettingsPresenter implements IGeneralSettingsPresenter {
                 }
             });
 
-        }
+
     }
 
 }

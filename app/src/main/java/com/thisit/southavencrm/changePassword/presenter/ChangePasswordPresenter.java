@@ -2,6 +2,7 @@ package com.thisit.southavencrm.changePassword.presenter;
 
 import android.util.Log;
 
+import com.thisit.southavencrm.changePassword.view.ChangePasswordFragment;
 import com.thisit.southavencrm.changePassword.view.IChangePasswordFragment;
 import com.thisit.southavencrm.changePassword.model.ChangePasswordRequestModel;
 import com.thisit.southavencrm.common.BasicAuth;
@@ -24,8 +25,8 @@ public class ChangePasswordPresenter implements IChangePasswordPresenter {
     private IChangePasswordFragment iChangePasswordFragment;
     private String requestString = "";
 
-    public ChangePasswordPresenter(IChangePasswordFragment iChangePasswordFragment) {
-        this.iChangePasswordFragment = iChangePasswordFragment;
+    public ChangePasswordPresenter(ChangePasswordFragment changePasswordFragment) {
+        this.iChangePasswordFragment = changePasswordFragment;
     }
 
 
