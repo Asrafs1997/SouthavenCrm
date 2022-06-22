@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 
+import com.thisit.southavencrm.Fragment.AboutFragment;
+import com.thisit.southavencrm.Fragment.ProfileFragment;
 import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.changePassword.presenter.ChangePasswordPresenter;
 import com.thisit.southavencrm.changePassword.presenter.IChangePasswordPresenter;
@@ -76,41 +78,39 @@ public class ChangePasswordFragment extends BaseFragment implements IChangePassw
     }
 
 
-
-
-    @Override
+   @Override
     public void onSuccess(String msg) {
-        new AlertDialog.Builder(getActivity())
-                .setTitle("Successfully")
-                .setMessage(msg)
-                .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                })
-                .show();
-    }
+       AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+       alertDialogBuilder
+               .setTitle("Password Changed")
+               .setCancelable(true)
+               .setMessage("Password successfully changed.");
+       alertDialogBuilder.setPositiveButton("OK",
+               new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface arg0, int arg1) {
+                       getActivity().getSupportFragmentManager()
+                               .beginTransaction()
+                               .replace(R.id.framecontainer, new ProfileFragment())
+                               .commit();
+                   }
+               });
 
+       AlertDialog alertDialog = alertDialogBuilder.create();
+       alertDialog.show();
+
+   }
     @Override
     public void onFailure(String msg) {
         new AlertDialog.Builder(getActivity())
                 .setTitle("Invalid Password")
-                .setMessage(msg)
-                .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-                })
+                .setMessage("Please try again with the correct password.")
+                .setCancelable(true)
+                .setNegativeButton("close", null)
                 .show();
     }
 
-
-
-
-
-
-
 }
+
+
 

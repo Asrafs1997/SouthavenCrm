@@ -54,9 +54,9 @@ public class ChangePasswordPresenter implements IChangePasswordPresenter {
                     iChangePasswordFragment.hideProgress();
 
                     if (response.body().isStatus()) {
-                        iChangePasswordFragment.onSuccess(response.body().getMsg());
+                        iChangePasswordFragment.onSuccess("");
                     } else {
-                        iChangePasswordFragment.onFailure(response.body().getMsg());
+                        iChangePasswordFragment.onFailure("");
                     }
                     ToastMessage.toast(response.message());
                 }
