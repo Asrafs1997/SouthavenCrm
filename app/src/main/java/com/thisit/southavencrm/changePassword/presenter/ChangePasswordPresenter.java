@@ -43,11 +43,12 @@ public class ChangePasswordPresenter implements IChangePasswordPresenter {
         } else if (confirmpassword == null || confirmpassword.isEmpty()) {
             ToastMessage.toast("confirm password  is empty");
         } else {
+
             JSONObject jsonObj = new JSONObject();
             try {
                 jsonObj.put("CompanyCode", "1");
                 jsonObj.put("ContactID", ConfigApp.getContactID());
-                jsonObj.put("Password",currentpassword);
+                jsonObj.put("Password", currentpassword);
                 jsonObj.put("NewPassword", newpassword);
                 requestString = "{\"Model\":" + jsonObj.toString() + "}";
                 System.out.println("previewQR\t\t" + requestString);
@@ -58,29 +59,27 @@ public class ChangePasswordPresenter implements IChangePasswordPresenter {
             RequestBody rawString = RequestBody.create(MediaType.parse("application/json"), requestString);
             ChangePasswordAPI changePasswordAPI = ApiClient.getClient(Constants.BASE_URL).create(ChangePasswordAPI.class);
             Call<ChangePasswordRequestModel> call = changePasswordAPI.ChangePassword(rawString, BasicAuth.getAuth());
-
             iChangePasswordFragment.showProgress();
             call.enqueue(new Callback<ChangePasswordRequestModel>() {
                 @Override
-                public void onResponse(@NonNull Call<ChangePasswordRequestModel> call, @NonNull Response<ChangePasswordRequestModel> response) {
+                public void onResponse(Call<ChangePasswordRequestModel> call, Response<ChangePasswordRequestModel> response) {
                     iChangePasswordFragment.hideProgress();
-                    System.out.println("response EditProfile\t\t" + response.toString());
-                    if (response.isSuccessful()) {
-                        if (response.body().isStatus()) {
-                            iChangePasswordFragment.onSuccess(response.body().getMsg());
-                        } else {
-                            iChangePasswordFragment.onFailure(response.body().getMsg());
-                        }
-                        return;
+
+                    if (response.body().isStatus()) {
+                        iChangePasswordFragment.onSuccess("");
+                    } else {
+                        iChangePasswordFragment.onFailure("");
                     }
+                    ToastMessage.toast(response.message());
                 }
 
                 @Override
-                public void onFailure(@NonNull Call<ChangePasswordRequestModel> call, @NonNull Throwable t) {
+                public void onFailure(Call<ChangePasswordRequestModel> call, Throwable t) {
                     iChangePasswordFragment.hideProgress();
-                    //Toast.makeText(context, "Image upload is failed", Toast.LENGTH_SHORT).show();
+                    System.out.println("getMessage" + t.getMessage());
                 }
             });
+
 
         }
     }

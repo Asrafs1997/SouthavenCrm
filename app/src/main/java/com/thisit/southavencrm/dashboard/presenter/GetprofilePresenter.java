@@ -43,16 +43,18 @@ public class GetprofilePresenter  implements IGetprofilePresenter {
                     if (response.isSuccessful()) {
                         if (response.body() != null) {
                             if(response.body().isStatus()){
-                                ConfigApp.setCompanyCode(response.body().getData().get(0).getCompanyCode());
-                                ConfigApp.setContactName(response.body().getData().get(0).getContactName());
-                                ConfigApp.setMOBILE_NUMBER(response.body().getData().get(0).getHandphoneNo());
-                                ConfigApp.setEMAIL(response.body().getData().get(0).getEmail());
-                                ConfigApp.setPOSTALCODE(response.body().getData().get(0).getPostalcode());
-                                ConfigApp.setADDRESS(response.body().getData().get(0).getAddress());
-                                ConfigApp.setDOB(response.body().getData().get(0).getDOB());
-                                ConfigApp.setTitle(response.body().getData().get(0).getTitle());
-                                System.out.println("response getDOB "+response.body().getData().get(0).getDOB());
-                                //iGetprofileView.onSuccess();
+                                if(response.body().getData().size()>0){
+                                    ConfigApp.setCompanyCode(response.body().getData().get(0).getCompanyCode());
+                                    ConfigApp.setContactName(response.body().getData().get(0).getContactName());
+                                    ConfigApp.setMOBILE_NUMBER(response.body().getData().get(0).getHandphoneNo());
+                                    ConfigApp.setEMAIL(response.body().getData().get(0).getEmail());
+                                    ConfigApp.setPOSTALCODE(response.body().getData().get(0).getPostalcode());
+                                    ConfigApp.setADDRESS(response.body().getData().get(0).getAddress());
+                                    ConfigApp.setDOB(response.body().getData().get(0).getDOB());
+                                    ConfigApp.setTitle(response.body().getData().get(0).getTitle());
+                                    System.out.println("response getDOB "+response.body().getData().get(0).getDOB());
+                                    //iGetprofileView.onSuccess();
+                                }
                             }
 
                         }

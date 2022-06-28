@@ -13,6 +13,7 @@ import com.thisit.southavencrm.R;
 
 import com.thisit.southavencrm.common.BaseActivity;
 import com.thisit.southavencrm.common.ConfigApp;
+import com.thisit.southavencrm.common.ToastMessage;
 
 
 public class GeneralSettingsActivity extends BaseActivity implements IGeneralSettingsView{
@@ -25,7 +26,9 @@ public class GeneralSettingsActivity extends BaseActivity implements IGeneralSet
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         image = findViewById(R.id.image);
-
+        if (ConfigApp.getCompanyCode().isEmpty()) {
+          ConfigApp.setCompanyCode("1");
+        }
         iGeneralSettingsPresenter = new GeneralSettingsPresenter(this);
         if (ConfigApp.isNetworkAvailable(this)) {
             iGeneralSettingsPresenter.apiCall(ConfigApp.getCompanyCode());

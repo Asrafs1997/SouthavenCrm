@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Southaven</string>
     <string name="my_card">My E-Card</string>
+    <string name="company_code">1</string>
     <string name="image_view">show app icon</string>
     <string name="vip_img">VIP Image view</string>
     <string name="his_text1">Sorry,you have yet to qualify as our VIP Member.</string>

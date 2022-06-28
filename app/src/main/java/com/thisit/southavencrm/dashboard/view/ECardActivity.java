@@ -40,6 +40,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+
 public class ECardActivity extends BaseActivity {
     private Activity activity;
     public TextView title_tv;
@@ -76,7 +77,9 @@ public class ECardActivity extends BaseActivity {
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new CardFragment()).commit();
 
-                bottomNavigationView.getMenu().findItem(menuItem.getItemId()).setCheckable(false);
+                if (menuItem!= null) {
+                    bottomNavigationView.getMenu().findItem(menuItem.getItemId()).setCheckable(false);
+                }
             }
         });
 
@@ -130,7 +133,7 @@ public class ECardActivity extends BaseActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new AboutFragment()).commit();
             bottomNavigationView.setSelectedItemId(R.id.about);
         } else {
-           activity.finish();
+            activity.finish();
         }
 
     }
