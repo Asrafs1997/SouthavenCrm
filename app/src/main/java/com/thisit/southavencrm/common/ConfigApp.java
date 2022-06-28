@@ -35,6 +35,7 @@ public class ConfigApp extends Application {
     static String POSTALCODE = "Postalcode";
     static String ADDRESS = "Address";
     static String DOB = "dob";
+    static String Title = "title";
 
     @Override
     public void onCreate() {
@@ -93,7 +94,8 @@ public class ConfigApp extends Application {
             //2022-02-22T09:19:40.8
 
             //String outputPattern = "dd/MMM/yyyy"; /*May 19, 2021*/
-            String outputPattern = "MMM/dd/yyyy"; /*May 19, 2021*/
+            // String outputPattern = "MMM/dd/yyyy"; /*May 19, 2021*/
+            String outputPattern = "YYYY-MM-dd"; /*May 19, 2021*/
             //String outputPattern = "yyyy MMM , dd";
             SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern);
             SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
@@ -138,8 +140,8 @@ public class ConfigApp extends Application {
         return sharedPreferences.getString(LOGIN_ID, "");
     }
 
-    public static void setLogin_ID(String LOGIN_ID) {
-        editor.putString(LOGIN_ID, LOGIN_ID);
+    public static void setLogin_ID(String loginId) {
+        editor.putString(LOGIN_ID, loginId);
         editor.commit();
     }
 
@@ -226,4 +228,12 @@ public class ConfigApp extends Application {
         editor.commit();
     }
 
+    public static String getTitle() {
+        return sharedPreferences.getString(Title, "");
+    }
+
+    public static void setTitle(String title) {
+        editor.putString(Title, title);
+        editor.commit();
+    }
 }

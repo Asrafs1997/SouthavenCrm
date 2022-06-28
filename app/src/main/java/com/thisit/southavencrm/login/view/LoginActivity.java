@@ -49,11 +49,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         findViewById(R.id.btn_login).setOnClickListener(this);
         findViewById(R.id.btn_forgotpassword).setOnClickListener(this);
         findViewById(R.id.btn_register).setOnClickListener(this);
-        
+
+
+
         if (!ConfigApp.getLogin_ID().isEmpty()) {
             LoginIDEditText.setText(ConfigApp.getLogin_ID());
             passwordEditText.setText(ConfigApp.getPassword());
-            LoginIDEditText.setSelection(ConfigApp.getLogin_ID().length());
+           // LoginIDEditText.setSelection(ConfigApp.getLogin_ID().length());
             rememberMeCheckBox.setChecked(true);
         }
 
@@ -71,14 +73,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             startActivity(intent);
             finish();
         } else if (id == R.id.btn_login) {
-            if (LoginIDEditText.getText().toString().length() == 0) {
-
-            }  else {
-                if (ConfigApp.isNetworkAvailable(activity)) {
-                    iLoginPresenter.apiCall(LoginIDEditText.getText().toString(), passwordEditText.getText().toString());
-                } else {
-                    Toast.makeText(activity, "No Internet Connection", Toast.LENGTH_SHORT).show();
-                }
+            if (ConfigApp.isNetworkAvailable(activity)) {
+                iLoginPresenter.apiCall(LoginIDEditText.getText().toString(), passwordEditText.getText().toString());
+            } else {
+                Toast.makeText(activity, "No Internet Connection", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -100,10 +98,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void onSuccess() {
-        if (rememberMeCheckBox.isChecked()) {
-            ConfigApp.setLogin_ID(LoginIDEditText.getText().toString());
-            ConfigApp.setPassword(passwordEditText.getText().toString());
-        }
         startActivity(new Intent(LoginActivity.this, ECardActivity.class));
         finish();
     }

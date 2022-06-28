@@ -8,9 +8,15 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -31,9 +37,11 @@ import com.thisit.southavencrm.registration.model.RegistrationRequestModel;
 import com.thisit.southavencrm.registration.presenter.IRegistrationPresenter;
 import com.thisit.southavencrm.registration.presenter.RegistrationPresenter;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener, IRegistrationView {
@@ -46,6 +54,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private IRegistrationPresenter iRegistrationPresenter;
     private static TextView btn_login, date_Of_Birth_EditText;
     private SimpleDateFormat dateFormatter;
+    private String postalcode = "",Titlestr="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +74,9 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         Address_EditText = (EditText) findViewById(R.id.Address_EditText);
         date_Of_Birth_EditText = (TextView) findViewById(R.id.date_Of_Birth_EditText);
         btn_login = (TextView) findViewById(R.id.btn_login);
-        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+        //   dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+        dateFormatter = new SimpleDateFormat("YYYY-MM-dd", Locale.US);
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,9 +108,54 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             }
         });
 
+
+        postalcode_EditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                // TODO Auto-generated method stub
+                postalcode = postalcode_EditText.getText().toString();
+                if (postalcode_EditText.getText().toString().length() >= 6) {
+                    getAddressByPostalCode(postalcode);
+                }
+
+            }
+        });
+
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, titles);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         title_spi.setAdapter(adapter);
+
+
+
+        title_spi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // TODO Auto-generated method stub
+                Titlestr= title_spi.getSelectedItem().toString();
+                //Toast.makeText(getActivity(), title_spi.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
 
         findViewById(R.id.arrowback_img).setOnClickListener(this);
         findViewById(R.id.Savebutton).setOnClickListener(this);
@@ -145,7 +202,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     RegistrationRequestModel registrationRequestModel = new RegistrationRequestModel();
                     registrationRequestModel.setCompanyCode("1");
                     registrationRequestModel.setContactID("0");
-                    registrationRequestModel.setSalutation("SOUTHAVEN");
+                    registrationRequestModel.setSalutation(title_spi.getSelectedItem().toString());
                     registrationRequestModel.setContactName(firstname_EditText.getText().toString());
                     registrationRequestModel.setLastName(lastname_EditText.getText().toString());
                     registrationRequestModel.setHandphoneNo(mobilenum_EditText.getText().toString());
@@ -154,6 +211,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                     registrationRequestModel.setAddress1(Address_EditText.getText().toString());
                     registrationRequestModel.setDOB(date_Of_Birth_EditText.getText().toString());
                     registrationRequestModel.setPassword(password_EditText.getText().toString());
+                    registrationRequestModel.setSalutation(Titlestr);
                     iRegistrationPresenter.apiCall(registrationRequestModel);
                 } else {
                     Toast.makeText(activity, "No Internet Connection", Toast.LENGTH_SHORT).show();
@@ -163,6 +221,57 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
+    public void getAddressByPostalCode(String val_pcode) {
+
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+
+        try {
+            if (ConfigApp.isNetworkAvailable(activity)) {
+            List<Address> addresses1 = geocoder.getFromLocationName(val_pcode, 1);
+            if (!addresses1.isEmpty()) {
+                Address obj1 = addresses1.get(0);
+                if (obj1 != null) {
+                    List<Address> addresses = geocoder.getFromLocation(obj1.getLatitude(), obj1.getLongitude(), 1);
+                    Address obj = addresses.get(0);
+
+                    String streetnum ="" ,address="",Country="";
+
+                    if (!TextUtils.isEmpty(obj.getFeatureName()) && !obj.getFeatureName().equalsIgnoreCase("null")) {
+                        streetnum=obj.getFeatureName();
+                    }else {
+                        streetnum="";
+                    }
+
+                    if (!TextUtils.isEmpty(obj.getThoroughfare()) && !obj.getThoroughfare().equalsIgnoreCase("null")) {
+                        address=",\t"+obj.getThoroughfare();
+                    }else {
+                        address="";
+                    }
+
+                    if (!TextUtils.isEmpty(obj.getCountryName()) && !obj.getCountryName().equalsIgnoreCase("null")) {
+                        Country=",\t"+obj.getCountryName();
+                    }else {
+                        Country="";
+                    }
+
+                    Address_EditText.setText(streetnum+address+Country);
+
+             /*       System.out.println("getThoroughfare" + obj.getThoroughfare());
+                    System.out.println("getPostalCode" + obj.getPostalCode());
+                    System.out.println("getSubThoroughfare" + obj.getSubThoroughfare());
+                    System.out.println("getPremises" + obj.getPremises());
+                    System.out.println("getCountryName" + obj.getCountryName());
+                    System.out.println("getFeatureName" + obj.getFeatureName());
+                    System.out.println("getFeatureName" + "#" + obj.getFeatureName());*/
+                }
+            }
+            }else {
+                Toast.makeText(activity, "No Internet Connection", Toast.LENGTH_SHORT).show();
+            }
+        } catch (IOException e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
 
     @Override
     public void onBackPressed() {
@@ -188,6 +297,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onSuccess(String msg) {
+        ConfigApp.setTitle(Titlestr);
         startActivity(new Intent(activity, ECardActivity.class));
         finish();
     }

@@ -50,6 +50,7 @@ public class GetprofilePresenter  implements IGetprofilePresenter {
                                 ConfigApp.setPOSTALCODE(response.body().getData().get(0).getPostalcode());
                                 ConfigApp.setADDRESS(response.body().getData().get(0).getAddress());
                                 ConfigApp.setDOB(response.body().getData().get(0).getDOB());
+                                ConfigApp.setTitle(response.body().getData().get(0).getTitle());
                                 System.out.println("response getDOB "+response.body().getData().get(0).getDOB());
                                 //iGetprofileView.onSuccess();
                             }

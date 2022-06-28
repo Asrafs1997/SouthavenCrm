@@ -2,16 +2,13 @@ package com.thisit.southavencrm.locateUs.view;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,15 +24,15 @@ import com.thisit.southavencrm.R;
 import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
+import com.thisit.southavencrm.locateUs.adapter.CustomWindowAdapter;
 import com.thisit.southavencrm.locateUs.adapter.LocationAdapter;
 import com.thisit.southavencrm.locateUs.model.LocationListResponseModel;
 import com.thisit.southavencrm.locateUs.presenter.ILocationListPresenter;
 import com.thisit.southavencrm.locateUs.presenter.LocationListPresenter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-public class LocationFragment extends BaseFragment implements ILocationListView, OnMapReadyCallback {
+public class LocationFragment extends BaseFragment implements ILocationListView, OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
     private View root;
     private Activity activity;
     private RecyclerView locationrecyclerView;
@@ -45,6 +42,7 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
     private SupportMapFragment mapFragment;
     private GoogleMap mMap;
     private TextView no_record_text;
+    private Marker marker;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,9 +67,6 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
 
     private void GoogleMapview(int position) {
 
-
-
-
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap mMap) {
@@ -87,16 +82,17 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
                         .build();
 
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1000, null);
-               // mMap.setInfoWindowAdapter(new CustomInfoAdapter(this));
+
+
                 mMap.addMarker(new MarkerOptions()
                         .position(new LatLng(locationListResponseModelArrayList.get(position).getLongitude(), locationListResponseModelArrayList.get(position).getLongitude()))
                         .title(locationListResponseModelArrayList.get(position).getLocationName())
                         .snippet(locationListResponseModelArrayList.get(position).getAddress1()));
             }
+
         });
+
     }
-
-
 
 
     @Override
@@ -156,7 +152,19 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
 
     @Override
     public void holdListClick(int position) {
-        GoogleMapview(position);
+        //GoogleMapview(position);
+
+        CustomWindowAdapter markerInfoWindowAdapter = new CustomWindowAdapter(getContext());
+        mMap.setInfoWindowAdapter(markerInfoWindowAdapter);
+        LatLng sydney1 = new LatLng(locationListResponseModelArrayList.get(position).getLatitude(), locationListResponseModelArrayList.get(position).getLongitude());
+        MarkerOptions markerOptions1 = new MarkerOptions();
+        markerOptions1.position(sydney1);
+        markerOptions1.title(locationListResponseModelArrayList.get(position).getLocationName());
+        markerOptions1.snippet(locationListResponseModelArrayList.get(position).getAddress1());
+        mMap.animateCamera(CameraUpdateFactory.newLatLng(sydney1));
+        marker = mMap.addMarker(markerOptions1);
+        marker.showInfoWindow();
+        mMap.setOnInfoWindowClickListener(this);
     }
 
     @Override
@@ -172,16 +180,23 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
                     .bearing(0)
                     .tilt(45)
                     .build();
-            LatLng sydney = new LatLng(locationListResponseModelArrayList.get(i).getLatitude(),
-                    locationListResponseModelArrayList.get(i).getLongitude());
+            LatLng sydney = new LatLng(locationListResponseModelArrayList.get(i).getLatitude(), locationListResponseModelArrayList.get(i).getLongitude());
             mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1000, null);
             MarkerOptions markerOptions = new MarkerOptions();
             markerOptions.position(sydney);
             markerOptions.title(locationListResponseModelArrayList.get(i).getLocationName());
             markerOptions.snippet(locationListResponseModelArrayList.get(i).getAddress1());
             mMap.addMarker(markerOptions);
+            mMap.getUiSettings().setMapToolbarEnabled(true);
             //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(locationArrayList.get(i), 6));
+
         }
 
+    }
+
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        Toast.makeText(getActivity(), marker.getTitle(), Toast.LENGTH_LONG).show();
     }
 }

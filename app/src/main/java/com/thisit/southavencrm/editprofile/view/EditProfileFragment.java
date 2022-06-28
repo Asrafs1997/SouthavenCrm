@@ -6,8 +6,11 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,9 +36,12 @@ import com.thisit.southavencrm.editprofile.model.EditProfileResponseModel;
 import com.thisit.southavencrm.editprofile.presenter.EditProfilePresenter;
 import com.thisit.southavencrm.editprofile.presenter.IEditProfilePresenter;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -44,11 +50,13 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
     private Activity activity;
     private Spinner title_spi;
     private IEditProfilePresenter iEditProfilePresenter;
-    private String[] titles = new String[]{"Mr", "Ms", "Mrs", "Mdm"};
+    private ArrayList<String> titles = new ArrayList<String>();
+   // private String[] titles = new String[]{"Mr", "Ms", "Mrs", "Mdm"};
     private Button Savebutton;
     private SimpleDateFormat dateFormatter;
     private EditText name_et, mobile_number_et, email_et, postalcode_et, Address_et;
     private static TextView dob_et;
+    private String Titlestr;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,10 +71,15 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
         postalcode_et = (EditText) root.findViewById(R.id.postalcode_et);
         Address_et = (EditText) root.findViewById(R.id.Address_et);
         dob_et = (TextView) root.findViewById(R.id.dob_et);
-        dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+        // dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+        dateFormatter = new SimpleDateFormat("YYYY-MM-dd", Locale.US);
 
+        titles.add("Mr");
+        titles.add("Ms");
+        titles.add("Mrs");
+        titles.add("Mdm");
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, titles);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         title_spi.setAdapter(adapter);
 
         title_spi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -74,7 +87,7 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
                 // TODO Auto-generated method stub
-                //Toast.makeText(getActivity(), title_spi.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+                Titlestr = title_spi.getSelectedItem().toString();
             }
 
             @Override
@@ -85,7 +98,7 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
         });
 
 
-        name_et.setText(ConfigApp.getContactName());
+        name_et.setText( ConfigApp.getContactName());
         mobile_number_et.setText(ConfigApp.getMOBILE_NUMBER());
         email_et.setText(ConfigApp.getEMAIL());
         postalcode_et.setText(ConfigApp.getPOSTALCODE());
@@ -104,16 +117,21 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
                     editProfileResponseModel.setPostalcode(postalcode_et.getText().toString());
                     editProfileResponseModel.setAddress1(Address_et.getText().toString());
                     editProfileResponseModel.setDOB(dob_et.getText().toString());
+                    editProfileResponseModel.setSalutation(Titlestr);
                     iEditProfilePresenter.apiCall(editProfileResponseModel);
-
                 } else {
                     Toast.makeText(activity, "No Internet Connection", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-
-
+        if (!TextUtils.isEmpty(ConfigApp.getTitle())) {
+            for (int c = 0; c < titles.size(); c++) {
+                if (ConfigApp.getTitle().equalsIgnoreCase(titles.get(c).toString())) {
+                    title_spi.setSelection(c);
+                }
+            }
+        }
         dob_et.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
@@ -134,8 +152,8 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
             }
         });
 
-        return root;
 
+        return root;
 
     }
 
@@ -144,9 +162,9 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((ECardActivity) getActivity()).title_tv.setText(R.string.edit_profile);
-        ((ECardActivity) getActivity()).ishome=false;
-        ((ECardActivity) getActivity()).isabout=false;
-        ((ECardActivity) getActivity()).isprofile=true;
+        ((ECardActivity) getActivity()).ishome = false;
+        ((ECardActivity) getActivity()).isabout = false;
+        ((ECardActivity) getActivity()).isprofile = true;
     }
 
 
@@ -191,6 +209,7 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
+                        ConfigApp.setTitle(Titlestr);
                         ConfigApp.setContactName(name_et.getText().toString());
                         getActivity().getSupportFragmentManager()
                                 .beginTransaction()
@@ -214,7 +233,6 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
                 .setNegativeButton("ok", null)
                 .show();
     }
-
 
 
 }

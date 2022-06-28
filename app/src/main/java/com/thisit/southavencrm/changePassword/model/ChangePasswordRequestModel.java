@@ -2,7 +2,7 @@ package com.thisit.southavencrm.changePassword.model;
 
 public class ChangePasswordRequestModel {
     private String $id;
-
+    private String msg;
     private boolean Status;
 
     public String get$id() {
@@ -13,22 +13,6 @@ public class ChangePasswordRequestModel {
         this.$id = $id;
     }
 
-    public boolean isStatus() {
-        return Status;
-    }
-
-    public void setStatus(boolean status) {
-        Status = status;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
     public String getMsg() {
         return msg;
     }
@@ -37,47 +21,11 @@ public class ChangePasswordRequestModel {
         this.msg = msg;
     }
 
-    private String data;
-
-    private String msg;
-
-    private String CompanyCode;
-
-    private String ContactId ;
-
-    private String Password ;
-
-    private String NewPassword ;
-
-    public String getCompanyCode() {
-        return CompanyCode;
+    public boolean isStatus() {
+        return Status;
     }
 
-    public void setCompanyCode(String companyCode) {
-        CompanyCode = companyCode;
-    }
-
-    public String getContactId() {
-        return ContactId;
-    }
-
-    public void setContactId(String contactId) {
-        ContactId = contactId;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
-    }
-
-    public String getNewPassword() {
-        return NewPassword;
-    }
-
-    public void setNewPassword(String newPassword) {
-        NewPassword = newPassword;
+    public void setStatus(boolean status) {
+        Status = status;
     }
 }

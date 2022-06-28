@@ -75,6 +75,7 @@ public class ECardActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.framecontainer, new CardFragment()).commit();
+
                 bottomNavigationView.getMenu().findItem(menuItem.getItemId()).setCheckable(false);
             }
         });

@@ -6,41 +6,38 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 public class EditProfileResponseModel {
-
     private String $id;
-
-    private boolean Status;
 
     private String msg;
 
-    private String CompanyCode;
+    private boolean Status;
 
-    private String Title;
+    private String CompanyCode = "";
 
-    private String ContactName;
+    private String ContactID = "";
 
-    private String HandphoneNo;
+    private String Salutation = "";
 
-    private String Email;
+    private String ContactName = "";
 
-    private String Postalcode;
+    private String LastName = "";
 
+    private String HandphoneNo = "";
 
-    private String Address1;
+    private String Email = "";
 
-    public String getAddress1() {
-        return Address1;
+    private String Postalcode = "";
+
+    private String Address1 = "";
+
+    private String DOB = "";
+
+    private String Password = "";
+
+    public String getCompanyCode() {
+        return CompanyCode;
     }
 
-    public void setAddress1(String address1) {
-        Address1 = address1;
-    }
-
-    private String DOB;
-
-    @SerializedName("data")
-    @Expose
-    private ArrayList<EditProfileResponseModel> data;
 
     public String get$id() {
         return $id;
@@ -48,14 +45,6 @@ public class EditProfileResponseModel {
 
     public void set$id(String $id) {
         this.$id = $id;
-    }
-
-    public boolean isStatus() {
-        return Status;
-    }
-
-    public void setStatus(boolean status) {
-        Status = status;
     }
 
     public String getMsg() {
@@ -66,20 +55,32 @@ public class EditProfileResponseModel {
         this.msg = msg;
     }
 
-    public String getCompanyCode() {
-        return CompanyCode;
+    public boolean isStatus() {
+        return Status;
+    }
+
+    public void setStatus(boolean status) {
+        Status = status;
     }
 
     public void setCompanyCode(String companyCode) {
         CompanyCode = companyCode;
     }
 
-    public String getTitle() {
-        return Title;
+    public String getContactID() {
+        return ContactID;
     }
 
-    public void setTitle(String title) {
-        Title = title;
+    public void setContactID(String contactID) {
+        ContactID = contactID;
+    }
+
+    public String getSalutation() {
+        return Salutation;
+    }
+
+    public void setSalutation(String salutation) {
+        Salutation = salutation;
     }
 
     public String getContactName() {
@@ -90,7 +91,13 @@ public class EditProfileResponseModel {
         ContactName = contactName;
     }
 
+    public String getLastName() {
+        return LastName;
+    }
 
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
 
     public String getHandphoneNo() {
         return HandphoneNo;
@@ -116,6 +123,14 @@ public class EditProfileResponseModel {
         Postalcode = postalcode;
     }
 
+    public String getAddress1() {
+        return Address1;
+    }
+
+    public void setAddress1(String address1) {
+        Address1 = address1;
+    }
+
     public String getDOB() {
         return DOB;
     }
@@ -124,11 +139,11 @@ public class EditProfileResponseModel {
         this.DOB = DOB;
     }
 
-    public ArrayList<EditProfileResponseModel> getData() {
-        return data;
+    public String getPassword() {
+        return Password;
     }
 
-    public void setData(ArrayList<EditProfileResponseModel> data) {
-        this.data = data;
+    public void setPassword(String password) {
+        Password = password;
     }
 }

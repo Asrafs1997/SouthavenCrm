@@ -3,6 +3,7 @@ package com.thisit.southavencrm.changePassword.view;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.thisit.southavencrm.changePassword.presenter.IChangePasswordPresenter
 import com.thisit.southavencrm.common.BaseFragment;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.dashboard.view.ECardActivity;
+import com.thisit.southavencrm.login.view.LoginActivity;
 
 public class ChangePasswordFragment extends BaseFragment implements IChangePasswordFragment {
     private View root;
@@ -53,8 +55,21 @@ public class ChangePasswordFragment extends BaseFragment implements IChangePassw
                     confirm_password.requestFocus();
                 } else {
                     if (ConfigApp.isNetworkAvailable(activity)) {
-                        iChangePasswordPresentr.apiCall(current_password.getText().toString(),
-                                new_password.getText().toString(), confirm_password.getText().toString());
+                        if (new_password.getText().toString().equalsIgnoreCase(confirm_password.getText().toString())){
+                            iChangePasswordPresentr.apiCall(current_password.getText().toString(),
+                                    new_password.getText().toString(), confirm_password.getText().toString());
+                        }else {
+                            new AlertDialog.Builder(getActivity())
+                                    .setTitle("Invalid Password")
+                                    .setMessage("The two Password fields didn't \tmatch")
+                                    .setCancelable(false)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            dialog.dismiss();
+                                        }
+                                    })
+                                    .show();
+                        }
                     } else {
                         Toast.makeText(activity, "No Internet Connection", Toast.LENGTH_SHORT).show();
                     }
@@ -86,6 +101,10 @@ public class ChangePasswordFragment extends BaseFragment implements IChangePassw
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        ConfigApp.setPassword(new_password.getText().toString());
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        getActivity().startActivity(intent);
+                        getActivity().finish();
                         dialog.dismiss();
                     }
                 })

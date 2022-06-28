@@ -2,6 +2,8 @@ package com.thisit.southavencrm.changePassword.presenter;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.thisit.southavencrm.changePassword.view.ChangePasswordFragment;
 import com.thisit.southavencrm.changePassword.view.IChangePasswordFragment;
 import com.thisit.southavencrm.changePassword.model.ChangePasswordRequestModel;
@@ -9,8 +11,10 @@ import com.thisit.southavencrm.common.BasicAuth;
 import com.thisit.southavencrm.common.ConfigApp;
 import com.thisit.southavencrm.common.Constants;
 import com.thisit.southavencrm.common.ToastMessage;
+import com.thisit.southavencrm.editprofile.model.EditProfileResponseModel;
 import com.thisit.southavencrm.webClient.ApiClient;
 import com.thisit.southavencrm.webClientHandler.ChangePasswordAPI;
+import com.thisit.southavencrm.webClientHandler.EditProfileAPI;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,35 +43,44 @@ public class ChangePasswordPresenter implements IChangePasswordPresenter {
         } else if (confirmpassword == null || confirmpassword.isEmpty()) {
             ToastMessage.toast("confirm password  is empty");
         } else {
-
-            String requestData = "{\"CompanyCode\":" + ConfigApp.getCompanyCode() + ",\"ContactID\":\"" + ConfigApp.getContactID() + "\",\"Password\":\"" + currentpassword + "\",\"NewPassword\":\"" + newpassword + "\"}";
-            requestString = "{\"Model\":" + requestData + "}";
-            Log.d("requestData1", requestString);
-
+            JSONObject jsonObj = new JSONObject();
+            try {
+                jsonObj.put("CompanyCode", "1");
+                jsonObj.put("ContactID", ConfigApp.getContactID());
+                jsonObj.put("Password",currentpassword);
+                jsonObj.put("NewPassword", newpassword);
+                requestString = "{\"Model\":" + jsonObj.toString() + "}";
+                System.out.println("previewQR\t\t" + requestString);
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
             RequestBody rawString = RequestBody.create(MediaType.parse("application/json"), requestString);
             ChangePasswordAPI changePasswordAPI = ApiClient.getClient(Constants.BASE_URL).create(ChangePasswordAPI.class);
             Call<ChangePasswordRequestModel> call = changePasswordAPI.ChangePassword(rawString, BasicAuth.getAuth());
+
             iChangePasswordFragment.showProgress();
             call.enqueue(new Callback<ChangePasswordRequestModel>() {
                 @Override
-                public void onResponse(Call<ChangePasswordRequestModel> call, Response<ChangePasswordRequestModel> response) {
+                public void onResponse(@NonNull Call<ChangePasswordRequestModel> call, @NonNull Response<ChangePasswordRequestModel> response) {
                     iChangePasswordFragment.hideProgress();
-
-                    if (response.body().isStatus()) {
-                        iChangePasswordFragment.onSuccess(response.body().getMsg());
-                    } else {
-                        iChangePasswordFragment.onFailure(response.body().getMsg());
+                    System.out.println("response EditProfile\t\t" + response.toString());
+                    if (response.isSuccessful()) {
+                        if (response.body().isStatus()) {
+                            iChangePasswordFragment.onSuccess(response.body().getMsg());
+                        } else {
+                            iChangePasswordFragment.onFailure(response.body().getMsg());
+                        }
+                        return;
                     }
-                    ToastMessage.toast(response.message());
                 }
 
                 @Override
-                public void onFailure(Call<ChangePasswordRequestModel> call, Throwable t) {
+                public void onFailure(@NonNull Call<ChangePasswordRequestModel> call, @NonNull Throwable t) {
                     iChangePasswordFragment.hideProgress();
-                    System.out.println("getMessage"+t.getMessage());
+                    //Toast.makeText(context, "Image upload is failed", Toast.LENGTH_SHORT).show();
                 }
             });
-
 
         }
     }

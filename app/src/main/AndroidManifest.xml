@@ -22,12 +22,12 @@
     <application
         android:name=".common.ConfigApp"
         android:allowBackup="true"
-        android:icon="@mipmap/southaven_logo"
+        android:icon="@mipmap/ic_southaven_image_foreground"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_configs"
         android:preserveLegacyExternalStorage="true"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/southaven_logo"
+        android:roundIcon="@mipmap/ic_southaven_image_foreground"
         android:supportsRtl="true"
         android:theme="@style/Theme.SouthavenCrm">
         <activity

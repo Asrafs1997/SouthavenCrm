@@ -55,7 +55,7 @@ public class EditProfilePresenter implements IEditProfilePresenter {
             try {
                 jsonObj.put("CompanyCode", "1");
                 jsonObj.put("ContactID", ConfigApp.getContactID());
-                jsonObj.put("Salutation", "SOUTHAVEN");
+                jsonObj.put("Salutation", editProfileResponseModel.getSalutation());
                 jsonObj.put("ContactName", editProfileResponseModel.getContactName());
                 //jsonObj.put("LastName", editProfileResponseModel.getLastName());
                 jsonObj.put("HandphoneNo", editProfileResponseModel.getHandphoneNo());

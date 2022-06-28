@@ -32,7 +32,8 @@ public class LoginPresenter implements ILoginPresenter {
             iLoginView.emptyPassword();
         } else {
             //String requestData = "{\"LoginID\":\"88561711\",\"Password\":\"ef51f2f2\"}";
-            String requestData = "{\"LoginID\":" + LoginID + ",\"Password\":\"" + password + "\"}";
+           // String requestData = "{\"LoginID\":" + LoginID + ",\"Password\":\"" + password + "\"}";
+            String requestData = "{\"LoginID\":\"" + LoginID +  "\""+ ",\"Password\":\"" + password + "\"}";
             Log.i("loginAPI", requestData);
             LoginAPI loginAPI = ApiClient.getClient(Constants.BASE_URL).create(LoginAPI.class);
 //            RequestBody rawString = RequestBody.create(MediaType.parse("application/json"), requestData);
