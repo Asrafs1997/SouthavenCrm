@@ -46,6 +46,7 @@ public class GetprofilePresenter  implements IGetprofilePresenter {
                                 if(response.body().getData().size()>0){
                                     ConfigApp.setCompanyCode(response.body().getData().get(0).getCompanyCode());
                                     ConfigApp.setContactName(response.body().getData().get(0).getContactName());
+                                    ConfigApp.setLastName(response.body().getData().get(0).getLastName());
                                     ConfigApp.setMOBILE_NUMBER(response.body().getData().get(0).getHandphoneNo());
                                     ConfigApp.setEMAIL(response.body().getData().get(0).getEmail());
                                     ConfigApp.setPOSTALCODE(response.body().getData().get(0).getPostalcode());

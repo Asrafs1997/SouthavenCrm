@@ -58,6 +58,7 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
     private static TextView dob_et;
     private String Titlestr;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_editprofile, container, false);
@@ -66,13 +67,16 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
         title_spi = (Spinner) root.findViewById(R.id.title_spi);
         Savebutton = (Button) root.findViewById(R.id.Savebutton);
         name_et = (EditText) root.findViewById(R.id.name_et);
+    //    lastname_EditText = (EditText) root.findViewById(R.id.lastname_EditText);
         mobile_number_et = (EditText) root.findViewById(R.id.mobile_number_et);
         email_et = (EditText) root.findViewById(R.id.email_et);
         postalcode_et = (EditText) root.findViewById(R.id.postalcode_et);
         Address_et = (EditText) root.findViewById(R.id.Address_et);
         dob_et = (TextView) root.findViewById(R.id.dob_et);
         // dateFormatter = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
-        dateFormatter = new SimpleDateFormat("YYYY-MM-dd", Locale.US);
+
+            dateFormatter = new SimpleDateFormat("YYYY-MM-DD", Locale.US);
+
 
         titles.add("Mr");
         titles.add("Ms");
@@ -99,6 +103,7 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
 
 
         name_et.setText( ConfigApp.getContactName());
+     //   lastname_EditText.setText( ConfigApp.getLastName());
         mobile_number_et.setText(ConfigApp.getMOBILE_NUMBER());
         email_et.setText(ConfigApp.getEMAIL());
         postalcode_et.setText(ConfigApp.getPOSTALCODE());
@@ -112,6 +117,7 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
                 if (ConfigApp.isNetworkAvailable(activity)) {
                     EditProfileResponseModel editProfileResponseModel = new EditProfileResponseModel();
                     editProfileResponseModel.setContactName(name_et.getText().toString());
+            //        editProfileResponseModel.setLastName(lastname_EditText.getText().toString());
                     editProfileResponseModel.setHandphoneNo(mobile_number_et.getText().toString());
                     editProfileResponseModel.setEmail(email_et.getText().toString());
                     editProfileResponseModel.setPostalcode(postalcode_et.getText().toString());
@@ -210,7 +216,7 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         ConfigApp.setTitle(Titlestr);
-                        ConfigApp.setContactName(name_et.getText().toString());
+                        ConfigApp.setContactName("\t"+name_et.getText().toString());
                         getActivity().getSupportFragmentManager()
                                 .beginTransaction()
                                 .replace(R.id.framecontainer, new ProfileFragment())

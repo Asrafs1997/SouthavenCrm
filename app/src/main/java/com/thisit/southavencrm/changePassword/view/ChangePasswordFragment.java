@@ -97,8 +97,8 @@ public class ChangePasswordFragment extends BaseFragment implements IChangePassw
     public void onSuccess(String msg) {
 
         new AlertDialog.Builder(getActivity())
-                .setTitle("Successfully")
-                .setMessage(msg)
+                .setTitle("Password Changed")
+                .setMessage("Password successfully changed.")
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

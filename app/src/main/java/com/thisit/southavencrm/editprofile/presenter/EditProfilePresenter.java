@@ -42,6 +42,9 @@ public class EditProfilePresenter implements IEditProfilePresenter {
             ToastMessage.toast(" Name is empty");
         } else if (editProfileResponseModel.getHandphoneNo() == null || editProfileResponseModel.getHandphoneNo().isEmpty()) {
             ToastMessage.toast(" Mobile Number is empty");
+      //  }
+        //else if (editProfileResponseModel.getLastName() == null || editProfileResponseModel.getLastName().isEmpty()) {
+        //    ToastMessage.toast(" LastName  is empty");
         } else if (editProfileResponseModel.getEmail() == null || editProfileResponseModel.getEmail().isEmpty()) {
             ToastMessage.toast(" Email is empty");
         } else if (editProfileResponseModel.getPostalcode() == null || editProfileResponseModel.getPostalcode().isEmpty()) {
@@ -57,6 +60,7 @@ public class EditProfilePresenter implements IEditProfilePresenter {
                 jsonObj.put("ContactID", ConfigApp.getContactID());
                 jsonObj.put("Salutation", editProfileResponseModel.getSalutation());
                 jsonObj.put("ContactName", editProfileResponseModel.getContactName());
+         //       jsonObj.put("LastName", editProfileResponseModel.getLastName());
                 //jsonObj.put("LastName", editProfileResponseModel.getLastName());
                 jsonObj.put("HandphoneNo", editProfileResponseModel.getHandphoneNo());
                 jsonObj.put("Email", editProfileResponseModel.getEmail());
