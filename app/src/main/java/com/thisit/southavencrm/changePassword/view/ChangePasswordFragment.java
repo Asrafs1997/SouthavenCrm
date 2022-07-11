@@ -64,7 +64,7 @@ public class ChangePasswordFragment extends BaseFragment implements IChangePassw
                             new AlertDialog.Builder(getActivity())
                                     .setTitle("Invalid Password")
                                     .setMessage("The two Password fields didn't \tmatch")
-                                    .setCancelable(false)
+                                    .setCancelable(true)
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
                                             dialog.dismiss();
@@ -117,7 +117,7 @@ public class ChangePasswordFragment extends BaseFragment implements IChangePassw
                 .setTitle("Invalid Password")
                 .setMessage("Please try again with the correct password.")
                 .setCancelable(true)
-                .setNegativeButton("close", null)
+                .setNegativeButton("OK", null)
                 .show();
     }
 

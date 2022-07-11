@@ -2,7 +2,7 @@ package com.thisit.southavencrm.common;
 
 public interface Constants {
      String BASE_URL = "http://61.8.213.204/southavenapi/";
-     //String BASE_URL = "http://101.100.185.235:711/SouthavenAPI/";
+   //  String BASE_URL = "http://101.100.185.235:711/SouthavenAPI/";
      String LOGIN = "api/B2B_Service/GetValidateLoginCustomer?";
      String EDIT_PROFILE = "api/B2B_Service/SaveCustomer_Southaven";
      String REGISTRATION = "api/B2B_Service/SaveCustomer_Southaven";
@@ -18,4 +18,3 @@ public interface Constants {
      String ORDER_Detail = "api/B2B_Service/GetOrderDetail_Southaven";
      String GETPROFILE = "api/B2B_Service/GetCustomerProfile_Southaven";
 }
-//{{base_url}}/api/B2B_Service/GetOrderList_Southaven?Requestdata={"CompanyCode":1,"ContactID":"7930","FromDate":"20/04/2022","ToDate":"19/05/2022"}

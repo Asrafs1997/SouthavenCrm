@@ -8,8 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/textsize_small2"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/textsize_small2">
 
 
         <LinearLayout
@@ -25,46 +25,51 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="Title"
-                android:textColor="@color/black"
-                android:textSize="@dimen/textsize_small2"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
-
-            <Spinner
-                android:id="@+id/title_spi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-
-                android:layout_gravity="left|center"
-                android:layout_marginEnd="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/bg_grayedit"
-                android:hint="Gender"
-                android:padding="10dp"
-                android:popupBackground="@color/white"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="@color/black"
                 android:textSize="@dimen/textsize_small2" />
 
 
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_grayedit"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/title_spi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:popupBackground="@color/white"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_small2" />
+            </LinearLayout>
+
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name"
                 android:layout_marginTop="10dp"
-                android:textSize="@dimen/textsize_small2"
+                android:text="Name"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="@color/black"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                android:textSize="@dimen/textsize_small2" />
 
             <EditText
                 android:id="@+id/name_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginEnd="5dp"
-                android:layout_marginTop="5dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/bg_grayedit"
                 android:hint="Name"
@@ -78,11 +83,11 @@
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mobile Number"
-                android:textSize="@dimen/textsize_small2"
                 android:layout_marginTop="10dp"
+                android:text="Mobile Number"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="@color/black"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
+                android:textSize="@dimen/textsize_small2" />
 
             <EditText
                 android:id="@+id/mobile_number_et"
@@ -90,8 +95,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"  android:layout_marginEnd="5dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/bg_grayedit"
                 android:hint="Mobile Number"
                 android:inputType="number"
@@ -103,19 +109,20 @@
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email"
                 android:layout_marginTop="10dp"
-                android:textSize="@dimen/textsize_small2"
+                android:text="Email"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_small2" />
 
             <EditText
                 android:id="@+id/email_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp"  android:layout_marginEnd="5dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/bg_grayedit"
                 android:hint="Email"
@@ -127,11 +134,11 @@
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Postal Code"
-                android:textSize="@dimen/textsize_small2"
                 android:layout_marginTop="10dp"
+                android:text="Postal Code"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="@color/black"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
+                android:textSize="@dimen/textsize_small2" />
 
             <EditText
                 android:id="@+id/postalcode_et"
@@ -139,8 +146,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"  android:layout_marginEnd="5dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/bg_grayedit"
                 android:hint="Postal Code"
                 android:inputType="number"
@@ -151,11 +159,11 @@
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Address"
-                android:textSize="@dimen/textsize_small2"
                 android:layout_marginTop="10dp"
+                android:text="Address"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="@color/black"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
+                android:textSize="@dimen/textsize_small2" />
 
             <EditText
                 android:id="@+id/Address_et"
@@ -163,8 +171,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"  android:layout_marginEnd="5dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/bg_grayedit"
                 android:gravity="left|top"
                 android:hint="Address"
@@ -178,11 +187,11 @@
             <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Date of Birth"
-                android:textSize="@dimen/textsize_small2"
                 android:layout_marginTop="10dp"
+                android:text="Date of Birth"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                 android:textColor="@color/black"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"  />
+                android:textSize="@dimen/textsize_small2" />
 
             <TextView
                 android:id="@+id/dob_et"
@@ -190,8 +199,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"  android:layout_marginEnd="5dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/bg_grayedit"
                 android:hint="Date of Birth"
                 android:inputType="number"
