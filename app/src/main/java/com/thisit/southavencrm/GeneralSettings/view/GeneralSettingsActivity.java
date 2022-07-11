@@ -17,7 +17,7 @@ import com.thisit.southavencrm.common.ToastMessage;
 
 
 public class GeneralSettingsActivity extends BaseActivity implements IGeneralSettingsView{
-    private IGeneralSettingsPresenter iGeneralSettingsPresenter;
+   // private IGeneralSettingsPresenter iGeneralSettingsPresenter;
     ImageView image;
     private static int SPLASH_SCREEN_TIME_OUT = 2000;
 
@@ -26,15 +26,13 @@ public class GeneralSettingsActivity extends BaseActivity implements IGeneralSet
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         image = findViewById(R.id.image);
-        if (ConfigApp.getCompanyCode().isEmpty()) {
-          ConfigApp.setCompanyCode("1");
-        }
-        iGeneralSettingsPresenter = new GeneralSettingsPresenter(this);
+
+       /*// iGeneralSettingsPresenter = new GeneralSettingsPresenter(this);
         if (ConfigApp.isNetworkAvailable(this)) {
             iGeneralSettingsPresenter.apiCall(ConfigApp.getCompanyCode());
         } else {
             Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
-        }
+        }*/
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -84,11 +84,12 @@ public class ProfileFragment extends BaseFragment {
             public void onClick(View view) {
                 new AlertDialog.Builder(getActivity())
                         .setTitle("Confirm")
-                        .setMessage("Do You want to logout?")
+                        .setMessage("Do you want to logout?")
                         .setCancelable(false)
                         .setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                ConfigApp.setCompanyCode("null");
+                                ConfigApp.setContactID("");
+                                ConfigApp.setCompanyCode("");
                                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                                 getActivity().startActivity(intent);
                                 getActivity().finish();
@@ -105,7 +106,7 @@ public class ProfileFragment extends BaseFragment {
 
     @Override
     public void onResume() {
-        txtUsername.setText(ConfigApp.getTitle()+"\t"+ConfigApp.getContactName());
+        txtUsername.setText(ConfigApp.getTitle()+"\t "+ConfigApp.getContactName());
         super.onResume();
     }
 

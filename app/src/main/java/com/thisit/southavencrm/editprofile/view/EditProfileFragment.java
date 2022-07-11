@@ -66,6 +66,8 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
         title_spi = (Spinner) root.findViewById(R.id.title_spi);
         Savebutton = (Button) root.findViewById(R.id.Savebutton);
         name_et = (EditText) root.findViewById(R.id.name_et);
+     //   lastname_EditText = (EditText) root.findViewById(R.id.lastname_EditText);
+
         mobile_number_et = (EditText) root.findViewById(R.id.mobile_number_et);
         email_et = (EditText) root.findViewById(R.id.email_et);
         postalcode_et = (EditText) root.findViewById(R.id.postalcode_et);
@@ -78,11 +80,18 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
         titles.add("Ms");
         titles.add("Mrs");
         titles.add("Mdm");
-        ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, titles);
+
+        ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.select_dialog_singlechoice, titles);
         adapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
+
+      /*  ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.item_layout_spinner, titles);
+        adapter.setDropDownViewResource(R.layout.item_layout_spinner);*/
+
         title_spi.setAdapter(adapter);
 
         title_spi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {

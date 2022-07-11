@@ -25,7 +25,7 @@ public class ConfigApp extends Application {
     static String USER_NAME = "userName";
     static String PASSWORD = "password";
     static String LOGIN_ID = "Login_ID";
-
+    static String LOGIN_STATUS = "LOGIN_STATUS";
     static String CONTACTCODE = "ContactCode";
     static String CONTACTNAME = "ContactName";
     static String COMPANY_CODE = "companyCode";
@@ -133,6 +133,15 @@ public class ConfigApp extends Application {
 
     public static void setPassword(String Password) {
         editor.putString(PASSWORD, Password);
+        editor.commit();
+    }
+
+    public static String getLOGIN_STATUS() {
+        return sharedPreferences.getString(LOGIN_ID, "");
+    }
+
+    public static void setLOGIN_STATUS(String loginStatus) {
+        editor.putString(LOGIN_STATUS, loginStatus);
         editor.commit();
     }
 

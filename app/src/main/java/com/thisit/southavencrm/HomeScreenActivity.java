@@ -28,9 +28,9 @@ public class HomeScreenActivity extends AppCompatActivity {
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_join = (Button) findViewById(R.id.btn_join);
 
+        System.out.println("********************"+ConfigApp.getCompanyCode());
 
-        if (!TextUtils.isEmpty(ConfigApp.getCompanyCode()) &&
-                !ConfigApp.getCompanyCode().equalsIgnoreCase("null")) {
+        if (!TextUtils.isEmpty(ConfigApp.getCompanyCode()) && !ConfigApp.getCompanyCode().equalsIgnoreCase("null")) {
             if (ConfigApp.isNetworkAvailable(activity)) {
                 Intent intent = new Intent(activity, ECardActivity.class);
                 startActivity(intent);
@@ -41,6 +41,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         } else {
             ConfigApp.setCompanyCode("");
         }
+
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
