@@ -6,9 +6,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.StrictMode;
 import android.provider.Settings;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,6 +31,7 @@ public class ConfigApp extends Application {
     static String LOGIN_STATUS = "LOGIN_STATUS";
     static String CONTACTCODE = "ContactCode";
     static String CONTACTNAME = "ContactName";
+    static String LASTNAME = "LastName";
     static String COMPANY_CODE = "companyCode";
     static String CONTACT_ID = "ContactID";
     static String EMAIL = "email";
@@ -36,6 +40,7 @@ public class ConfigApp extends Application {
     static String ADDRESS = "Address";
     static String DOB = "dob";
     static String Title = "title";
+
 
     @Override
     public void onCreate() {
@@ -85,6 +90,7 @@ public class ConfigApp extends Application {
         return android_id;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public static String parseDateToddMMyyyytime(String time) {
         System.out.println("parseDateToddMMyyyy : " + time);
         String str = null;
@@ -98,7 +104,10 @@ public class ConfigApp extends Application {
             String outputPattern = "YYYY-MM-dd"; /*May 19, 2021*/
             //String outputPattern = "yyyy MMM , dd";
             SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern);
-            SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
+            SimpleDateFormat outputFormat = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                outputFormat = new SimpleDateFormat(outputPattern);
+            }
 
             Date date = null;
             date = inputFormat.parse(time);
@@ -168,11 +177,21 @@ public class ConfigApp extends Application {
         return sharedPreferences.getString(CONTACTNAME, "");
     }
 
+
     public static void setContactName(String ContactName) {
         editor.putString(CONTACTNAME, ContactName);
         editor.commit();
     }
 
+    public static String getLastName() {
+        return sharedPreferences.getString(LASTNAME, "");
+    }
+
+
+    public static void setLastName(String lastName) {
+        editor.putString(LASTNAME, lastName);
+        editor.commit();
+    }
     public static String getCompanyCode() {
         return sharedPreferences.getString(COMPANY_CODE, "");
     }

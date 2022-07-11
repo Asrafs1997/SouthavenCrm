@@ -106,6 +106,7 @@ public class ProfileFragment extends BaseFragment {
 
     @Override
     public void onResume() {
+
         txtUsername.setText(ConfigApp.getTitle()+"\t "+ConfigApp.getContactName());
         super.onResume();
     }
