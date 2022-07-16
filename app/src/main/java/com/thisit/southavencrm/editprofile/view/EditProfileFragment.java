@@ -75,15 +75,15 @@ public class EditProfileFragment extends BaseFragment implements iEditProfile {
         dob_et = (TextView) root.findViewById(R.id.dob_et);
 
 
-            dateFormatter = new SimpleDateFormat("YYYY-MM-DD", Locale.US);
-
+            //dateFormatter = new SimpleDateFormat("YYYY-MM-DD", Locale.US);
+        dateFormatter = new SimpleDateFormat("YYYY-MM-dd", Locale.US);
 
         titles.add("Mr");
         titles.add("Ms");
         titles.add("Mrs");
         titles.add("Mdm");
 
-        ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.select_dialog_singlechoice, titles);
+        ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, titles);
         adapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
 
       /*  ArrayAdapter adapter = new ArrayAdapter(getActivity(), R.layout.item_layout_spinner, titles);

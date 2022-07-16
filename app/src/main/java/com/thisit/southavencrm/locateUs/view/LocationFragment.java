@@ -154,8 +154,8 @@ public class LocationFragment extends BaseFragment implements ILocationListView,
     public void holdListClick(int position) {
         //GoogleMapview(position);
 
-        CustomWindowAdapter markerInfoWindowAdapter = new CustomWindowAdapter(getContext());
-        mMap.setInfoWindowAdapter(markerInfoWindowAdapter);
+        /*CustomWindowAdapter markerInfoWindowAdapter = new CustomWindowAdapter(getContext());
+        mMap.setInfoWindowAdapter(markerInfoWindowAdapter);*/
         LatLng sydney1 = new LatLng(locationListResponseModelArrayList.get(position).getLatitude(), locationListResponseModelArrayList.get(position).getLongitude());
         MarkerOptions markerOptions1 = new MarkerOptions();
         markerOptions1.position(sydney1);
