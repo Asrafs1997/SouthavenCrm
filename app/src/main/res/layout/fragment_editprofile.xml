@@ -21,7 +21,7 @@
             android:layout_marginRight="15dp"
             android:orientation="vertical">
 
-            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+            <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -51,7 +51,7 @@
                     android:padding="7dp" />
             </LinearLayout>
 
-            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+            <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -77,7 +77,7 @@
                 android:textSize="@dimen/textsize_small2" />
 
 
-            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+            <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -103,7 +103,7 @@
                 android:textSize="@dimen/textsize_small2" />
 
 
-            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+            <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -128,7 +128,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/textsize_small2" />
 
-            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+            <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -153,7 +153,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/textsize_small2" />
 
-            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+            <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -181,7 +181,7 @@
                 android:textSize="@dimen/textsize_small2" />
 
 
-            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+            <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

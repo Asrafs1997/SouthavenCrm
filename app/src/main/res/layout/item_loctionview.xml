@@ -20,7 +20,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.thisit.southavencrm.customfonts.TextviewSourceSansProBold
+            <com.thisit.softwaregroup.customfonts.TextviewSourceSansProBold
                 android:id="@+id/location_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
     android:layout_weight="1"
     android:gravity="left"
     android:orientation="vertical">
-    <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+    <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
         android:id="@+id/address_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
         android:textColor="@color/black"
         android:textSize="16dp" />
 
-    <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+    <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
         android:id="@+id/Country_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                 android:layout_weight="2"
                 android:orientation="vertical">
 
-                <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+                <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                     android:id="@+id/telnumber_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                     android:textColor="@color/black"
                     android:textSize="14dp" />
 
-                <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+                <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                     android:id="@+id/fexnumber_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

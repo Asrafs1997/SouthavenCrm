@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".OrderDetail.view.OrderDetailActivity">
 
-    <com.thisit.southavencrm.customfonts.TextViewBadScriptRegular
+    <com.thisit.softwaregroup.customfonts.TextViewBadScriptRegular
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

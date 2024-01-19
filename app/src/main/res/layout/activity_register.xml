@@ -33,7 +33,7 @@
                 app:tint="@color/white" />
 
 
-            <com.thisit.southavencrm.customfonts.TextViewBadScriptRegular
+            <com.thisit.softwaregroup.customfonts.TextViewBadScriptRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

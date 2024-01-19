@@ -30,7 +30,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.thisit.southavencrm.customfonts.TextviewSourceSansProBold
+                <com.thisit.softwaregroup.customfonts.TextviewSourceSansProBold
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -41,13 +41,20 @@
                     android:textSize="16dp"
                     android:textStyle="bold" />
 
-                <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+                <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
                     android:text="@string/Promotion_llb"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                     android:textColor="@color/black" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/Gray" />
             </LinearLayout>
 
 
@@ -59,12 +66,6 @@
                 android:layout_gravity="center" />
 
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:background="@color/Gray" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,7 +81,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.thisit.southavencrm.customfonts.TextviewSourceSansProBold
+                <com.thisit.softwaregroup.customfonts.TextviewSourceSansProBold
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -91,7 +92,7 @@
                     android:textSize="16dp"
                     android:textStyle="bold" />
 
-                <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+                <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"

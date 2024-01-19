@@ -15,7 +15,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <com.thisit.southavencrm.customfonts.TextViewBadScriptRegular
+        <com.thisit.softwaregroup.customfonts.TextViewBadScriptRegular
             android:id="@+id/title_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:textStyle="bold|italic" />
 
 
-        <com.thisit.southavencrm.customfonts.TextviewSourceSansProBold
+        <com.thisit.softwaregroup.customfonts.TextviewSourceSansProBold
             android:id="@+id/close_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
     </LinearLayout>
 
 
-    <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+    <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

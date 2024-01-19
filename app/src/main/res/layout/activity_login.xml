@@ -33,7 +33,7 @@
                     android:layout_height="250dp"
                     android:layout_gravity="center"
                     android:padding="4dp"
-                    android:src="@mipmap/southaven_logo" />
+                    android:src="@mipmap/companylogo" />
 
                 <EditText
                     android:id="@+id/login_useremail"
@@ -82,7 +82,7 @@
                     android:textStyle="bold" />
 
 
-                <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+                <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                     android:id="@+id/btn_forgotpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                     android:textColor="@color/black" />
 
-                <com.thisit.southavencrm.customfonts.TextviewSourceSansProBold
+                <com.thisit.softwaregroup.customfonts.TextviewSourceSansProBold
                     android:id="@+id/btn_register"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

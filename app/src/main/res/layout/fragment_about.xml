@@ -14,18 +14,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+    <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/abouttext"
-        android:textColor="@color/black"
-        android:textSize="@dimen/textsize_small2" />
-
-    <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/abouttext2"
         android:textColor="@color/black"
         android:textSize="@dimen/textsize_small2" />
 
@@ -55,7 +47,7 @@
                 android:src="@drawable/ic_contact"
                 android:contentDescription="@string/todo" />
 
-            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+            <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
 
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -98,7 +90,7 @@
                 android:src="@drawable/ic_lock"
                 android:contentDescription="@string/todo" />
 
-            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+            <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -139,7 +131,7 @@
                 android:src="@drawable/membership"
                 android:contentDescription="@string/todo" />
 
-            <com.thisit.southavencrm.customfonts.TextviewSourceSansProRegular
+            <com.thisit.softwaregroup.customfonts.TextviewSourceSansProRegular
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
